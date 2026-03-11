@@ -1,0 +1,1479 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DVZH: реально работающий платный трафик</title>
+    <meta name="description" content="DVZH. Платный трафик, который реально работает. Контроль. Система. Рост.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="vstyle-monolith">
+
+    <!-- ============================================ -->
+    <!-- SHOWCASE PANEL — Visual Style & Palette Viewer -->
+    <!-- ============================================ -->
+    <div class="showcase" id="showcase">
+        <button class="showcase__close" id="showcaseClose">✕ Закрыть</button>
+
+        <div class="showcase__inner">
+            <header class="showcase__header">
+                <h1 class="showcase__logo">DVZH</h1>
+                <p class="showcase__subtitle">Визуальные стили</p>
+            </header>
+
+            <!-- VISUAL STYLES -->
+            <section class="showcase__section">
+                <h2 class="showcase__section-title">Визуальные стили</h2>
+                <p class="showcase__section-desc">Стили меняют типографику, декор и характер, но не трогают ваши фирменные цвета. Комбинируйте с любой палитрой.</p>
+
+                <div class="style-grid">
+                    <!-- 1. Классика (Default) -->
+                    <div class="style-card style-card--active" data-apply-vstyle="" onclick="applyVstyleFromShowcase(this)">
+                        <div class="style-card__preview" style="background: var(--bg-primary)">
+                            <div class="style-card__preview-nav" style="border-bottom: 1px solid var(--border)">
+                                <span style="color: var(--accent-1); font-weight: 800; font-size: 14px;">DVZH</span>
+                            </div>
+                            <div class="style-card__preview-hero">
+                                <div class="style-card__preview-badge" style="border-color: var(--border-hover); color: var(--text-secondary);">Performance</div>
+                                <div class="style-card__preview-title" style="color: var(--text-primary);">Трафик <span style="color: var(--accent-1);">работает</span></div>
+                                <div class="style-card__preview-btn" style="background: var(--gradient-accent); color: #000;">Обсудить</div>
+                            </div>
+                            <div class="style-card__preview-orbit" style="border-color: var(--border);"></div>
+                        </div>
+                        <div class="style-card__info">
+                            <h3>Классика</h3>
+                            <p>Базовый стиль. Орбиты, aurora, градиентные акценты.</p>
+                            <span class="style-card__badge style-card__badge--default">DEFAULT</span>
+                        </div>
+                    </div>
+
+                    <!-- 2. Minimal Tech -->
+                    <div class="style-card" data-apply-vstyle="vstyle-minimal-tech" onclick="applyVstyleFromShowcase(this)">
+                        <div class="style-card__preview" style="background: var(--bg-primary)">
+                            <div class="style-card__preview-nav" style="border-bottom: 1px solid var(--border)">
+                                <span style="color: var(--accent-1); font-weight: 600; font-size: 14px; letter-spacing: 0.15em;">DVZH</span>
+                            </div>
+                            <div class="style-card__preview-hero">
+                                <div class="style-card__preview-badge" style="border: 1px solid var(--border); color: var(--text-secondary); font-weight: 400; letter-spacing: 0.05em;">Performance</div>
+                                <div class="style-card__preview-title" style="color: var(--text-primary); font-weight: 600; letter-spacing: 0.01em;">Трафик <span style="color: var(--accent-1);">работает</span></div>
+                                <div class="style-card__preview-btn" style="background: var(--gradient-accent); color: #000; font-weight: 500;">Обсудить</div>
+                            </div>
+                            <div class="style-card__preview-orbit" style="border-color: var(--border); opacity: 0.12;"></div>
+                        </div>
+                        <div class="style-card__info">
+                            <h3>Minimal Tech</h3>
+                            <p>Чистый минимализм. Тонкие обводки, лёгкие шрифты, сдержанно.</p>
+                        </div>
+                    </div>
+
+                    <!-- 3. Street Control -->
+                    <div class="style-card" data-apply-vstyle="vstyle-street" onclick="applyVstyleFromShowcase(this)">
+                        <div class="style-card__preview" style="background: var(--bg-primary)">
+                            <div class="style-card__preview-nav" style="border-bottom: 2px solid var(--border-hover)">
+                                <span style="color: var(--accent-1); font-weight: 900; font-size: 16px; letter-spacing: 0.15em; text-transform: uppercase;">DVZH</span>
+                            </div>
+                            <div class="style-card__preview-hero">
+                                <div class="style-card__preview-badge" style="border: 2px solid var(--accent-1); color: var(--text-secondary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">PERFORMANCE</div>
+                                <div class="style-card__preview-title" style="color: var(--text-primary); text-transform: uppercase; font-weight: 900; letter-spacing: 0.03em;">Контроль</div>
+                                <div class="style-card__preview-btn" style="background: var(--gradient-accent); color: #000; text-transform: uppercase; font-weight: 900; letter-spacing: 0.06em;">Обсудить</div>
+                            </div>
+                        </div>
+                        <div class="style-card__info">
+                            <h3>Street Graffiti</h3>
+                            <p>Уличная эстетика. Потеки краски, трафареты, grain-шум, городской характер.</p>
+                        </div>
+                    </div>
+
+                    <!-- 4. Performance Lab -->
+                    <div class="style-card" data-apply-vstyle="vstyle-lab" onclick="applyVstyleFromShowcase(this)">
+                        <div class="style-card__preview" style="background: var(--bg-primary)">
+                            <div class="style-card__preview-nav" style="border-bottom: 1px solid var(--border)">
+                                <span style="font-family: 'JetBrains Mono', monospace; color: var(--accent-1); font-weight: 600; font-size: 13px; letter-spacing: 0.1em;">DVZH://</span>
+                            </div>
+                            <div class="style-card__preview-hero">
+                                <div class="style-card__preview-badge" style="border: 1px solid var(--accent-1); color: var(--text-secondary); font-family: 'JetBrains Mono', monospace; font-size: 9px;">ROI: 340%</div>
+                                <div class="style-card__preview-title" style="color: var(--text-primary); font-family: 'JetBrains Mono', monospace; font-size: 14px;">Трафик <span style="color: var(--accent-1);">работает</span></div>
+                                <div class="style-card__preview-btn" style="background: var(--gradient-accent); color: #000;">Запуск</div>
+                            </div>
+                            <div class="style-card__preview-orbit" style="border-color: var(--border); border-style: dashed; opacity: 0.1;"></div>
+                        </div>
+                        <div class="style-card__info">
+                            <h3>Performance Lab</h3>
+                            <p>Лабораторная точность. Моношрифт, дата-бейджи, dashboard-стиль.</p>
+                        </div>
+                    </div>
+
+                    <!-- 5. Orbit System -->
+                    <div class="style-card" data-apply-vstyle="vstyle-orbit" onclick="applyVstyleFromShowcase(this)">
+                        <div class="style-card__preview" style="background: var(--bg-primary)">
+                            <div class="style-card__preview-nav" style="border-bottom: 1px solid var(--border)">
+                                <span style="color: var(--accent-1); font-weight: 800; font-size: 14px;">DVZH</span>
+                            </div>
+                            <div class="style-card__preview-hero">
+                                <div class="style-card__preview-badge" style="border-color: var(--border-hover); color: var(--text-secondary);">Orbit</div>
+                                <div class="style-card__preview-title" style="color: var(--text-primary); letter-spacing: 0.02em;">Трафик <span style="color: var(--accent-1);">растёт</span></div>
+                                <div class="style-card__preview-btn" style="background: var(--gradient-accent); color: #000;">Обсудить</div>
+                            </div>
+                            <div class="style-card__preview-orbit" style="border-color: var(--accent-1); opacity: 0.3;"></div>
+                            <div class="style-card__preview-orbit" style="border-color: var(--accent-2); opacity: 0.15; width: 160%; height: 160%;"></div>
+                        </div>
+                        <div class="style-card__info">
+                            <h3>Orbit System</h3>
+                            <p>Космическая динамика. Орбиты, свечение, акценты на полную.</p>
+                        </div>
+                    </div>
+
+                    <!-- 6. Monolith DVZH -->
+                    <div class="style-card" data-apply-vstyle="vstyle-monolith" onclick="applyVstyleFromShowcase(this)">
+                        <div class="style-card__preview" style="background: var(--bg-primary); border-radius: 4px;">
+                            <div class="style-card__preview-nav" style="border-bottom: 2px solid var(--border-hover)">
+                                <span style="color: var(--text-primary); font-weight: 900; font-size: 20px; letter-spacing: 0.3em;">DVZH</span>
+                            </div>
+                            <div class="style-card__preview-hero">
+                                <div class="style-card__preview-title" style="color: var(--text-primary); font-size: 18px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase;">Система</div>
+                                <div class="style-card__preview-btn" style="background: var(--gradient-accent); color: #000; font-weight: 900; border-radius: 2px; text-transform: uppercase; letter-spacing: 0.08em;">Обсудить</div>
+                            </div>
+                        </div>
+                        <div class="style-card__info">
+                            <h3>Monolith DVZH</h3>
+                            <p>Монументальный характер. DVZH как блок, жёсткий uppercase.</p>
+                        </div>
+                    </div>
+
+                    <!-- 7. Blueprint -->
+                    <div class="style-card" data-apply-vstyle="vstyle-blueprint" onclick="applyVstyleFromShowcase(this)">
+                        <div class="style-card__preview" style="background: var(--bg-primary)">
+                            <div class="style-card__preview-nav" style="border-bottom: 1px dashed var(--border-hover)">
+                                <span style="font-family: 'JetBrains Mono', monospace; color: var(--accent-1); font-weight: 600; font-size: 14px; letter-spacing: 0.1em;">DVZH</span>
+                            </div>
+                            <div class="style-card__preview-hero">
+                                <div class="style-card__preview-badge" style="border: 1px dashed var(--accent-1); color: var(--text-secondary); font-family: 'JetBrains Mono', monospace;">Blueprint</div>
+                                <div class="style-card__preview-title" style="color: var(--text-primary);">Трафик <span style="color: var(--accent-1);">работает</span></div>
+                                <div class="style-card__preview-btn" style="background: var(--gradient-accent); color: #000;">Обсудить</div>
+                            </div>
+                            <div class="style-card__preview-orbit" style="border-color: var(--border); border-style: dashed;"></div>
+                        </div>
+                        <div class="style-card__info">
+                            <h3>Blueprint</h3>
+                            <p>Чертёжная эстетика. Dashed-линии, grid-разметка, инженерный стиль.</p>
+                            <span class="style-card__badge" style="background: var(--border); color: var(--accent-1);">CUSTOM</span>
+                        </div>
+                    </div>
+
+                    <!-- 8. Glitch Protocol -->
+                    <div class="style-card" data-apply-vstyle="vstyle-glitch" onclick="applyVstyleFromShowcase(this)">
+                        <div class="style-card__preview" style="background: var(--bg-primary)">
+                            <div class="style-card__preview-nav" style="border-bottom: 1px solid var(--border)">
+                                <span style="color: var(--accent-1); font-weight: 800; font-size: 14px; letter-spacing: 0.1em; animation: glitch 3s infinite;">DVZH</span>
+                            </div>
+                            <div class="style-card__preview-hero">
+                                <div class="style-card__preview-badge" style="border-color: var(--border-hover); color: var(--text-secondary); font-family: 'JetBrains Mono', monospace; text-transform: uppercase;">GLITCH</div>
+                                <div class="style-card__preview-title" style="color: var(--text-primary);">Трафик <span style="color: var(--accent-1);">работает</span></div>
+                                <div class="style-card__preview-btn" style="background: var(--gradient-accent); color: #000;">Обсудить</div>
+                            </div>
+                        </div>
+                        <div class="style-card__info">
+                            <h3>Glitch Protocol</h3>
+                            <p>Цифровой авангард. Искажения, шум, CRT-эффект, кибер-эстетика.</p>
+                            <span class="style-card__badge" style="background: var(--border); color: var(--accent-1);">CUSTOM</span>
+                        </div>
+                    </div>
+
+                    <!-- 9. Handtag -->
+                    <div class="style-card" data-apply-vstyle="vstyle-handtag" onclick="applyVstyleFromShowcase(this)">
+                        <div class="style-card__preview" style="background: var(--bg-primary); background-image: linear-gradient(rgba(var(--accent-1-rgb), 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(var(--accent-1-rgb), 0.04) 1px, transparent 1px); background-size: 20px 20px;">
+                            <div class="style-card__preview-nav" style="border-bottom: 1px solid var(--border)">
+                                <span style="font-family: 'Kalam', cursive; color: var(--accent-1); font-weight: 700; font-size: 20px; letter-spacing: 0.01em;">DVZH</span>
+                            </div>
+                            <div class="style-card__preview-hero">
+                                <div class="style-card__preview-badge" style="border: 1px solid rgba(var(--accent-1-rgb), 0.3); color: var(--text-secondary); font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;">HANDTAG</div>
+                                <div class="style-card__preview-title" style="color: var(--text-primary); font-size: 16px; font-weight: 800;">Система <span style="color: var(--accent-1); font-family: 'Kalam', cursive; font-weight: 700; text-decoration: underline; text-decoration-color: rgba(var(--accent-1-rgb), 0.25); text-underline-offset: 3px;">роста</span></div>
+                                <div class="style-card__preview-btn" style="background: var(--gradient-accent); color: #000; font-family: 'Kalam', cursive; font-weight: 700; border-radius: 2px;">Обсудить</div>
+                            </div>
+                        </div>
+                        <div class="style-card__info">
+                            <h3>Handtag</h3>
+                            <p>Маркер инженера. Точные пометки на чертеже, сухо и уверенно.</p>
+                            <span class="style-card__badge" style="background: var(--border); color: var(--accent-1);">CUSTOM</span>
+                        </div>
+                    </div>
+
+                    <!-- 10. Cosmos -->
+                    <div class="style-card" data-apply-vstyle="vstyle-cosmos" onclick="applyVstyleFromShowcase(this)">
+                        <div class="style-card__preview" style="background: radial-gradient(ellipse at 30% 60%, rgba(var(--accent-1-rgb), 0.08) 0%, var(--bg-primary) 70%);">
+                            <div class="style-card__preview-nav" style="border-bottom: 1px solid rgba(var(--accent-1-rgb), 0.1)">
+                                <span style="color: var(--accent-1); font-weight: 300; font-size: 16px; letter-spacing: -0.02em;">DVZH</span>
+                            </div>
+                            <div class="style-card__preview-hero">
+                                <div class="style-card__preview-badge" style="border-color: rgba(var(--accent-1-rgb), 0.15); color: var(--text-muted); font-size: 8px; letter-spacing: 0.04em;">COSMOS</div>
+                                <div class="style-card__preview-title" style="color: var(--text-primary); font-weight: 300; letter-spacing: -0.02em;">Глубина <span style="color: var(--accent-1); opacity: 0.9;">космоса</span></div>
+                                <div class="style-card__preview-btn" style="background: var(--gradient-accent); color: #000; border-radius: 50px; font-weight: 400; letter-spacing: 0.04em;">Обсудить</div>
+                            </div>
+                            <div class="style-card__preview-orbit" style="border-color: rgba(var(--accent-1-rgb), 0.08); animation: orbit-rotate 20s linear infinite;"></div>
+                            <div class="style-card__preview-orbit" style="border-color: rgba(var(--accent-1-rgb), 0.04); width: 350px; height: 350px; right: -100px; animation: orbit-rotate 35s linear infinite reverse;"></div>
+                        </div>
+                        <div class="style-card__info">
+                            <h3>Cosmos</h3>
+                            <p>Глубина и масштаб. Орбиты, параллакс, парящие элементы, стекло-сферы.</p>
+                            <span class="style-card__badge" style="background: rgba(var(--accent-1-rgb), 0.12); color: var(--accent-1);">NEW</span>
+                        </div>
+                    </div>
+
+                    <!-- 11. Pulse -->
+                    <div class="style-card" data-apply-vstyle="vstyle-pulse" onclick="applyVstyleFromShowcase(this)">
+                        <div class="style-card__preview" style="background: var(--bg-primary); background-image: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255,255,255,0.015) 3px, rgba(255,255,255,0.015) 4px);">
+                            <div class="style-card__preview-nav" style="border-bottom: 2px solid var(--accent-1)">
+                                <span style="color: var(--accent-1); font-weight: 900; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase;">DVZH</span>
+                            </div>
+                            <div class="style-card__preview-hero">
+                                <div class="style-card__preview-badge" style="border-color: var(--accent-1); color: var(--accent-1); font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 0;">PULSE</div>
+                                <div class="style-card__preview-title" style="color: var(--text-primary); font-weight: 900; text-transform: uppercase; letter-spacing: 0.06em; font-size: 16px;">Сырая <span style="color: var(--accent-1);">энергия</span></div>
+                                <div class="style-card__preview-btn" style="background: transparent; color: var(--accent-1); border: 2px solid var(--accent-1); border-radius: 0; font-weight: 900; text-transform: uppercase; letter-spacing: 0.06em;">Обсудить</div>
+                            </div>
+                        </div>
+                        <div class="style-card__info">
+                            <h3>Pulse</h3>
+                            <p>Андерграунд. Шум, сканлайны, glitch-помехи, тяжёлый текст, сырая энергия.</p>
+                            <span class="style-card__badge" style="background: rgba(var(--accent-1-rgb), 0.12); color: var(--accent-1);">NEW</span>
+                        </div>
+                    </div>
+
+                    <!-- 12. Kinetic -->
+                    <div class="style-card" data-apply-vstyle="vstyle-kinetic" onclick="applyVstyleFromShowcase(this)">
+                        <div class="style-card__preview" style="background: linear-gradient(135deg, var(--bg-primary) 40%, rgba(var(--accent-1-rgb), 0.04) 100%);">
+                            <div class="style-card__preview-nav" style="border-bottom: 1px solid var(--border)">
+                                <span style="color: var(--accent-1); font-weight: 700; font-size: 15px; font-style: italic; letter-spacing: 0.01em;">DVZH</span>
+                            </div>
+                            <div class="style-card__preview-hero">
+                                <div class="style-card__preview-badge" style="border-color: rgba(var(--accent-1-rgb), 0.2); color: var(--text-secondary); font-size: 8px; letter-spacing: 0.06em; transform: skewX(-3deg);">KINETIC</div>
+                                <div class="style-card__preview-title" style="color: var(--text-primary); font-weight: 700; font-style: italic; letter-spacing: 0.01em;">Чистое <span style="color: var(--accent-1);">движение</span></div>
+                                <div class="style-card__preview-btn" style="background: var(--gradient-accent); color: #000; border-radius: 4px; font-weight: 700; font-style: italic; transform: skewX(-3deg);">Обсудить</div>
+                            </div>
+                            <!-- Speed lines -->
+                            <div style="position: absolute; top: 30%; right: 10%; width: 60px; height: 2px; background: linear-gradient(90deg, var(--accent-1), transparent); opacity: 0.15; transform: rotate(-5deg);"></div>
+                            <div style="position: absolute; top: 50%; right: 15%; width: 40px; height: 1px; background: linear-gradient(90deg, var(--accent-1), transparent); opacity: 0.1; transform: rotate(-5deg);"></div>
+                            <div style="position: absolute; top: 70%; right: 8%; width: 50px; height: 1px; background: linear-gradient(90deg, var(--accent-1), transparent); opacity: 0.12; transform: rotate(-5deg);"></div>
+                        </div>
+                        <div class="style-card__info">
+                            <h3>Kinetic</h3>
+                            <p>Скорость и вектор. Шлейфы, motion blur, курсивный текст, диагональная динамика.</p>
+                            <span class="style-card__badge" style="background: rgba(var(--accent-1-rgb), 0.12); color: var(--accent-1);">NEW</span>
+                        </div>
+                    </div>
+
+                    <!-- ═══════════════════════════════════════ -->
+                    <!-- LAYOUT ENGINES (Radical)                -->
+                    <!-- ═══════════════════════════════════════ -->
+
+                    <!-- 13. Orbital Layers -->
+                    <div class="style-card" data-apply-vstyle="vstyle-orbital" onclick="applyVstyleFromShowcase(this)">
+                        <div class="style-card__preview" style="background: radial-gradient(ellipse at center, rgba(var(--accent-1-rgb), 0.06) 0%, var(--bg-primary) 70%); overflow: hidden;">
+                            <div class="style-card__preview-nav" style="border-bottom: 1px dashed rgba(var(--accent-1-rgb), 0.12); text-align: center;">
+                                <span style="color: var(--accent-1); font-weight: 200; font-size: 14px; letter-spacing: 0.2em;">DVZH</span>
+                            </div>
+                            <div class="style-card__preview-hero" style="align-items: center; text-align: center;">
+                                <div class="style-card__preview-badge" style="border-radius: 50px; border-color: rgba(var(--accent-1-rgb), 0.15); color: var(--text-secondary); font-size: 7px; font-weight: 300; letter-spacing: 0.15em;">ORBITAL</div>
+                                <div class="style-card__preview-title" style="color: var(--text-primary); font-weight: 200;">Центр <span style="color: var(--accent-1);">притяжения</span></div>
+                                <div class="style-card__preview-btn" style="background: rgba(var(--accent-1-rgb), 0.1); color: var(--accent-1); border-radius: 50px; font-weight: 300; backdrop-filter: blur(8px);">Орбита</div>
+                            </div>
+                            <!-- Orbit rings -->
+                            <div style="position: absolute; top: 50%; left: 50%; width: 120px; height: 50px; border: 1px dashed rgba(var(--accent-1-rgb), 0.08); border-radius: 50%; transform: translate(-50%, -50%) rotate(-15deg);"></div>
+                            <div style="position: absolute; top: 50%; left: 50%; width: 80px; height: 35px; border: 1px dashed rgba(var(--accent-1-rgb), 0.05); border-radius: 50%; transform: translate(-50%, -50%) rotate(10deg);"></div>
+                            <!-- Dot nucleus -->
+                            <div style="position: absolute; top: 50%; left: 50%; width: 4px; height: 4px; background: var(--accent-1); border-radius: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 12px rgba(var(--accent-1-rgb), 0.3);"></div>
+                        </div>
+                        <div class="style-card__info">
+                            <h3>Orbital</h3>
+                            <p>Ядро и орбиты. Лёгкий шрифт, стеклянные карточки, радиальная глубина, видео-туманность.</p>
+                            <span class="style-card__badge" style="background: rgba(var(--accent-1-rgb), 0.12); color: var(--accent-1);">ENGINE</span>
+                        </div>
+                    </div>
+
+                    <!-- 14. Street Collage -->
+                    <div class="style-card" data-apply-vstyle="vstyle-collage" onclick="applyVstyleFromShowcase(this)">
+                        <div class="style-card__preview" style="background: var(--bg-primary); overflow: hidden; border-radius: 0;">
+                            <div class="style-card__preview-nav" style="border-bottom: 3px solid var(--accent-1); padding-left: 4px;">
+                                <span style="color: var(--accent-1); font-weight: 900; font-size: 15px; text-transform: uppercase; letter-spacing: -0.02em;">DVZH</span>
+                            </div>
+                            <div class="style-card__preview-hero">
+                                <div class="style-card__preview-badge" style="border: 2px solid var(--accent-1); border-radius: 0; color: var(--accent-1); font-size: 8px; font-weight: 900; letter-spacing: 0.08em; transform: rotate(-3deg);">COLLAGE</div>
+                                <div class="style-card__preview-title" style="color: var(--text-primary); font-weight: 900; font-size: 18px; text-transform: uppercase; letter-spacing: -0.03em; line-height: 0.9;">Рвём <span style="color: var(--accent-1); background: rgba(var(--accent-1-rgb), 0.08); padding: 0 4px;">сетку</span></div>
+                                <div class="style-card__preview-btn" style="background: var(--accent-1); color: #000; border-radius: 0; font-weight: 900; text-transform: uppercase; box-shadow: 3px 3px 0 rgba(var(--accent-1-rgb), 0.3);">Коллаж</div>
+                            </div>
+                            <!-- Torn elements -->
+                            <div style="position: absolute; top: 20%; right: -5px; width: 50px; height: 30px; background: rgba(var(--accent-1-rgb), 0.04); border-left: 2px solid var(--accent-1); transform: rotate(5deg);"></div>
+                            <div style="position: absolute; bottom: 15%; left: -3px; width: 40px; height: 20px; background: rgba(var(--accent-1-rgb), 0.03); border-right: 2px solid var(--accent-1); transform: rotate(-8deg);"></div>
+                            <!-- Noise hint -->
+                            <div style="position: absolute; inset: 0; background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%224%22 height=%224%22><rect width=%222%22 height=%222%22 fill=%22white%22 opacity=%220.02%22/></svg>'); pointer-events: none;"></div>
+                        </div>
+                        <div class="style-card__info">
+                            <h3>Collage</h3>
+                            <p>Уличный хаос. Сломанная сетка, нахлёст, шум, рваные края, огромные заголовки.</p>
+                            <span class="style-card__badge" style="background: rgba(var(--accent-1-rgb), 0.12); color: var(--accent-1);">ENGINE</span>
+                        </div>
+                    </div>
+
+                    <!-- 14b. Collage Old (CSS-only) -->
+                    <div class="style-card" data-apply-vstyle="vstyle-collage-old" onclick="applyVstyleFromShowcase(this)">
+                        <div class="style-card__preview" style="background: var(--bg-primary); overflow: hidden; border-radius: 0;">
+                            <div class="style-card__preview-nav" style="border-bottom: 3px solid var(--accent-1); padding-left: 4px;">
+                                <span style="color: var(--accent-1); font-weight: 900; font-size: 15px; text-transform: uppercase; letter-spacing: -0.02em;">DVZH</span>
+                            </div>
+                            <div class="style-card__preview-hero">
+                                <div class="style-card__preview-badge" style="border: 2px solid var(--accent-1); border-radius: 0; color: var(--accent-1); font-size: 8px; font-weight: 900; letter-spacing: 0.08em; transform: rotate(-3deg);">OLD</div>
+                                <div class="style-card__preview-title" style="color: var(--text-primary); font-weight: 900; font-size: 18px; text-transform: uppercase; letter-spacing: -0.03em; line-height: 0.9;">CSS <span style="color: var(--accent-1);">only</span></div>
+                                <div class="style-card__preview-btn" style="background: var(--accent-1); color: #000; border-radius: 0; font-weight: 900; text-transform: uppercase; box-shadow: 3px 3px 0 rgba(var(--accent-1-rgb), 0.3);">Коллаж</div>
+                            </div>
+                            <div style="position: absolute; inset: 0; background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%224%22 height=%224%22><rect width=%222%22 height=%222%22 fill=%22white%22 opacity=%220.02%22/></svg>'); pointer-events: none;"></div>
+                        </div>
+                        <div class="style-card__info">
+                            <h3>Collage Old</h3>
+                            <p>Первая итерация коллажа. Чистый CSS: наклоны, рваные края, hover-выравнивание. Без JS-движка.</p>
+                        </div>
+                    </div>
+
+                    <!-- 15. Kinetic Vector -->
+                    <div class="style-card" data-apply-vstyle="vstyle-vector" onclick="applyVstyleFromShowcase(this)">
+                        <div class="style-card__preview" style="background: linear-gradient(160deg, var(--bg-primary) 60%, rgba(var(--accent-1-rgb), 0.03) 100%); overflow: hidden;">
+                            <div class="style-card__preview-nav" style="border-bottom: 1px solid var(--border); transform: rotate(-3deg); margin: 0 -5px;">
+                                <span style="color: var(--accent-1); font-weight: 700; font-size: 15px; font-style: normal; letter-spacing: 0.01em;">DVZH</span>
+                            </div>
+                            <div class="style-card__preview-hero" style="transform: rotate(-3deg);">
+                                <div class="style-card__preview-badge" style="border-color: rgba(var(--accent-1-rgb), 0.2); color: var(--text-secondary); font-size: 8px; border-radius: 2px; transform: skewX(-8deg);">VECTOR</div>
+                                <div class="style-card__preview-title" style="color: var(--text-primary); font-weight: 700; font-style: normal;">Чистый <span style="color: var(--accent-1);">вектор</span></div>
+                                <div class="style-card__preview-btn" style="background: var(--gradient-accent); color: #000; border-radius: 2px; font-weight: 700; font-style: normal; transform: skewX(-8deg);">Запуск</div>
+                            </div>
+                            <!-- Diagonal arrows -->
+                            <svg style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;" viewBox="0 0 200 160">
+                                <line x1="20" y1="140" x2="180" y2="30" stroke="var(--accent-1)" stroke-width="0.5" opacity="0.1"/>
+                                <polyline points="173,35 180,30 175,40" fill="none" stroke="var(--accent-1)" stroke-width="0.8" opacity="0.12"/>
+                                <line x1="40" y1="150" x2="160" y2="60" stroke="var(--accent-1)" stroke-width="0.3" opacity="0.06" stroke-dasharray="4 6"/>
+                            </svg>
+                        </div>
+                        <div class="style-card__info">
+                            <h3>Vector</h3>
+                            <p>Наклон -3°, параллелограммы, motion blur при скролле, горизонтальный поток текста.</p>
+                            <span class="style-card__badge" style="background: rgba(var(--accent-1-rgb), 0.12); color: var(--accent-1);">ENGINE</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- APPLIED STATUS -->
+            <div class="showcase__status" id="showcaseStatus">
+                <span class="showcase__status-dot"></span>
+                Текущий стиль: <strong id="showcaseCurrentName">Night Orbit</strong>
+                <span class="showcase__status-hint">— закройте панель, чтобы увидеть лендинг с этим стилем</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SHOWCASE TRIGGER BUTTON -->
+    <button class="showcase-trigger" id="showcaseTrigger" title="Открыть витрину стилей">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+            <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+        </svg>
+        <span>Стили</span>
+    </button>
+
+    <!-- ============================================ -->
+    <!-- НАВИГАЦИЯ -->
+    <!-- ============================================ -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="#" class="nav__logo">
+                <span class="nav__logo-symbol">DVZH</span>
+                <span class="nav__logo-tagline">Paid Traffic Agency</span>
+            </a>
+            <div class="nav__links" id="navLinks">
+                <a href="#approach" class="nav__link">Подход</a>
+                <a href="#services" class="nav__link">Услуги</a>
+                <a href="#cases" class="nav__link">Кейсы</a>
+                <a href="#process" class="nav__link">Процесс</a>
+                <a href="#faq" class="nav__link">FAQ</a>
+            </div>
+            <a href="#cta-final" class="nav__cta">Обсудить проект</a>
+            <button class="nav__burger" id="navBurger" aria-label="Меню">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============================================ -->
+    <!-- HERO -->
+    <!-- ============================================ -->
+    <section class="hero" id="hero">
+        <div class="hero__bg">
+            <div class="hero__orbit hero__orbit--1"></div>
+            <div class="hero__orbit hero__orbit--2"></div>
+            <div class="hero__orbit hero__orbit--3"></div>
+            <div class="hero__grid"></div>
+            <div class="particles" id="heroParticles"></div>
+            <div class="hero__aurora"></div>
+            <div class="hero__aurora hero__aurora--2"></div>
+
+            <!-- Хаотичные плавающие анти-обещания -->
+            <div class="hero__float-tag hero__float-tag--1">✕ Не обещаем быстрые чудеса</div>
+            <div class="hero__float-tag hero__float-tag--2">✕ Не продаём «секретные связки»</div>
+            <div class="hero__float-tag hero__float-tag--3">✕ Не гонимся за инфо-шумом</div>
+            <div class="hero__float-tag hero__float-tag--4">✕ Не стремимся к просто красивым отчётам</div>
+
+            <!-- Monolith hero elements (visible only in vstyle-monolith) -->
+            <div class="mono-scanline"></div>
+            <div class="mono-crosshair"></div>
+            <div class="mono-data mono-data--tl">SYS.INIT — OK</div>
+            <div class="mono-data mono-data--tr">DVZH://TRAFFIC.ENGINE</div>
+            <div class="mono-data mono-data--bl">LAT 55.75 — LON 37.61</div>
+            <div class="mono-data mono-data--br">UPTIME 99.7%</div>
+            <div class="mono-corner mono-corner--tl"></div>
+            <div class="mono-corner mono-corner--tr"></div>
+            <div class="mono-corner mono-corner--bl"></div>
+            <div class="mono-corner mono-corner--br"></div>
+
+            <!-- Street overlay elements (visible only in vstyle-street) -->
+            <div class="street-overlay street-drip-1"></div>
+            <div class="street-overlay street-drip-2"></div>
+            <div class="street-overlay street-drip-3"></div>
+            <div class="street-overlay street-spray-1"></div>
+            <div class="street-overlay street-spray-2"></div>
+            <div class="street-overlay street-stencil"></div>
+            <div class="street-overlay street-arrow"></div>
+            <div class="street-overlay street-stripe"></div>
+        </div>
+        <div class="container">
+            <div class="hero__content">
+                <div class="hero__badge" data-animate="fade-up">
+                    <span class="hero__badge-dot"></span>
+                    Контроль. Система. Рост.
+                </div>
+                <h1 class="hero__title" data-animate="fade-up" data-delay="100">
+                    Реально работающий<br>
+                    <span class="hero__title-accent">платный трафик</span>
+                </h1>
+                <p class="hero__subtitle" data-animate="fade-up" data-delay="200">
+                    Без шума и понтов. С результатом.
+                </p>
+                <div class="hero__actions" data-animate="fade-up" data-delay="300">
+                    <a href="#cta-final" class="btn btn--primary btn--lg btn--magnetic">
+                        Обсудить проект
+                        <svg class="btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+                <div class="hero__stats" data-animate="fade-up" data-delay="400">
+                    <div class="hero__stat">
+                        <span class="hero__stat-value" data-counter="50">0</span><span class="hero__stat-suffix">+</span>
+                        <span class="hero__stat-label">проектов запущено</span>
+                    </div>
+                    <div class="hero__stat">
+                        <span class="hero__stat-value" data-counter="30">0</span><span class="hero__stat-suffix">M ₽</span>
+                        <span class="hero__stat-label">рекламного бюджета</span>
+                    </div>
+                    <div class="hero__stat">
+                        <span class="hero__stat-value" data-counter="3">0</span><span class="hero__stat-suffix">+</span>
+                        <span class="hero__stat-label">лет экспертизы</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero__scroll" data-animate="fade-up" data-delay="600">
+            <div class="hero__scroll-line"></div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- НАМ ДОВЕРЯЮТ -->
+    <!-- ============================================ -->
+    <section class="trusted">
+        <div class="container">
+            <p class="trusted__label">Работаем с проектами в 15+ нишах: от e-commerce до SaaS</p>
+        </div>
+        <div class="trusted__strip">
+            <div class="trusted__track">
+                <span class="trusted__item">E-commerce</span>
+                <span class="trusted__dot">◆</span>
+                <span class="trusted__item">EdTech</span>
+                <span class="trusted__dot">◆</span>
+                <span class="trusted__item">SaaS</span>
+                <span class="trusted__dot">◆</span>
+                <span class="trusted__item">Медицина</span>
+                <span class="trusted__dot">◆</span>
+                <span class="trusted__item">Недвижимость</span>
+                <span class="trusted__dot">◆</span>
+                <span class="trusted__item">Финтех</span>
+                <span class="trusted__dot">◆</span>
+                <span class="trusted__item">HoReCa</span>
+                <span class="trusted__dot">◆</span>
+                <span class="trusted__item">B2B-услуги</span>
+                <span class="trusted__dot">◆</span>
+                <span class="trusted__item">Инфобизнес</span>
+                <span class="trusted__dot">◆</span>
+                <span class="trusted__item">Авто</span>
+                <span class="trusted__dot">◆</span>
+                <span class="trusted__item">E-commerce</span>
+                <span class="trusted__dot">◆</span>
+                <span class="trusted__item">EdTech</span>
+                <span class="trusted__dot">◆</span>
+                <span class="trusted__item">SaaS</span>
+                <span class="trusted__dot">◆</span>
+                <span class="trusted__item">Медицина</span>
+                <span class="trusted__dot">◆</span>
+                <span class="trusted__item">Недвижимость</span>
+                <span class="trusted__dot">◆</span>
+                <span class="trusted__item">Финтех</span>
+                <span class="trusted__dot">◆</span>
+                <span class="trusted__item">HoReCa</span>
+                <span class="trusted__dot">◆</span>
+                <span class="trusted__item">B2B-услуги</span>
+                <span class="trusted__dot">◆</span>
+                <span class="trusted__item">Инфобизнес</span>
+                <span class="trusted__dot">◆</span>
+                <span class="trusted__item">Авто</span>
+                <span class="trusted__dot">◆</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- MARQUEE -->
+    <!-- ============================================ -->
+    <div class="marquee">
+        <div class="marquee__track">
+            <span class="marquee__item">Контроль</span>
+            <span class="marquee__item marquee__item--accent">•</span>
+            <span class="marquee__item">Система</span>
+            <span class="marquee__item marquee__item--accent">•</span>
+            <span class="marquee__item">Рост</span>
+            <span class="marquee__item marquee__item--accent">•</span>
+            <span class="marquee__item">DVZH</span>
+            <span class="marquee__item marquee__item--accent">•</span>
+            <span class="marquee__item">Контроль</span>
+            <span class="marquee__item marquee__item--accent">•</span>
+            <span class="marquee__item">Система</span>
+            <span class="marquee__item marquee__item--accent">•</span>
+            <span class="marquee__item">Рост</span>
+            <span class="marquee__item marquee__item--accent">•</span>
+            <span class="marquee__item">DVZH</span>
+            <span class="marquee__item marquee__item--accent">•</span>
+            <span class="marquee__item">Контроль</span>
+            <span class="marquee__item marquee__item--accent">•</span>
+            <span class="marquee__item">Система</span>
+            <span class="marquee__item marquee__item--accent">•</span>
+            <span class="marquee__item">Рост</span>
+            <span class="marquee__item marquee__item--accent">•</span>
+            <span class="marquee__item">DVZH</span>
+            <span class="marquee__item marquee__item--accent">•</span>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- ПРОБЛЕМА -->
+    <!-- ============================================ -->
+    <section class="problem" id="problem">
+        <span class="dvzh-watermark" aria-hidden="true">DVZH</span>
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">Знакомо?</span>
+                <h2 class="section-title"><span class="text-accent">Сбой в системе</span></h2>
+                <p class="section-desc">4 причины, почему вы сливаете бюджет</p>
+            </div>
+            <div class="problem__grid stagger-children" data-animate="fade-up">
+                <div class="problem__card card-glow">
+                    <div class="problem__card-icon">
+                        <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4"/><path d="M18 18l12 12M30 18L18 30" stroke="currentColor" stroke-width="2"/></svg>
+                    </div>
+                    <h3 class="problem__card-title">01 / Расход без контроля</h3>
+                    <p class="problem__card-text">Бюджет тратится, результата нет. Работа идет по наитию, без четких рычагов управления. В итоге получаем ожидание чуда вместо прогнозируемого потока.</p>
+                </div>
+                <div class="problem__card card-glow">
+                    <div class="problem__card-icon">
+                        <svg viewBox="0 0 48 48" fill="none"><rect x="8" y="8" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/><path d="M8 20h32M20 20v20" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4"/></svg>
+                    </div>
+                    <h3 class="problem__card-title">02 / Хаос на приборах</h3>
+                    <p class="problem__card-text">Каждый запуск как первый раз. Нет внятных дашбордов и истории тестов. Сложно понять, что именно сработало, а что нет. Это хаос, замаскированный под поиск связок.</p>
+                </div>
+                <div class="problem__card card-glow">
+                    <div class="problem__card-icon">
+                        <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/><path d="M24 14v10l7 7" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="24" r="3" fill="currentColor"/></svg>
+                    </div>
+                    <h3 class="problem__card-title">03 / Метрики ради метрик</h3>
+                    <p class="problem__card-text">Красивые отчеты раз в месяц. Графики в презентации растут, а реальные продажи стоят на месте. Когда аналитика оторвана от бизнеса, вы платите за цифры, а не за профит.</p>
+                </div>
+                <div class="problem__card card-glow">
+                    <div class="problem__card-icon">
+                        <svg viewBox="0 0 48 48" fill="none"><path d="M12 36c0-8 6-14 12-20s12-12 12-12" stroke="currentColor" stroke-width="2"/><circle cx="36" cy="4" r="3" stroke="currentColor" stroke-width="2"/><path d="M12 36l-4 8" stroke="currentColor" stroke-width="2"/></svg>
+                    </div>
+                    <h3 class="problem__card-title">04 / Маркетинговый шум</h3>
+                    <p class="problem__card-text">Обещания быстрых иксов и гарантии на пустом месте. Это просто шум. В реальности масштаб требует времени, системы и опоры на данные.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ПОДХОД -->
+    <!-- ============================================ -->
+    <section class="approach" id="approach">
+        <span class="dvzh-watermark dvzh-watermark--right" aria-hidden="true">DVZH</span>
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">Наш подход</span>
+                <h2 class="section-title"><span class="text-accent">Механика роста</span></h2>
+                <p class="section-desc">5 шагов до результата<br>Никакого хаоса. Только жесткая методология, цифры и тесты. Каждый клиент строго по методологии</p>
+            </div>
+            <div class="approach__pipeline" data-animate="fade-up">
+                <div class="approach__line"></div>
+                <div class="approach__line-fill"></div>
+                <div class="approach__step" data-animate="fade-up" data-delay="0">
+                    <div class="approach__step-num">01</div>
+                    <div class="approach__step-content">
+                        <h3>Срез</h3>
+                        <p>Вскрываем и анализируем кабинеты, воронки, конкурентов. Исследуем рынок, чтобы найти, где ты теряешь кэш и где зарыты точки роста. Без излишней вежливости, все как есть.</p>
+                    </div>
+                </div>
+                <div class="approach__step" data-animate="fade-up" data-delay="100">
+                    <div class="approach__step-num">02</div>
+                    <div class="approach__step-content">
+                        <h3>База</h3>
+                        <p>Проектируем архитектуру: аналитика, офферы, посадка, связки, KPI. Никаких догадок. Каждый шаг обоснован расчетом, вашим бизнесом, логикой системы и нашим опытом.</p>
+                    </div>
+                </div>
+                <div class="approach__step" data-animate="fade-up" data-delay="200">
+                    <div class="approach__step-num">03</div>
+                    <div class="approach__step-content">
+                        <h3>MVP-чек</h3>
+                        <p>Быстрая проверка связок на реальном трафике. Собираем данные, подтверждаем профит и не тратим лишнего. Только когда цифры сошлись, идем дальше.</p>
+                    </div>
+                </div>
+                <div class="approach__step" data-animate="fade-up" data-delay="300">
+                    <div class="approach__step-num">04</div>
+                    <div class="approach__step-content">
+                        <h3>Докрутка</h3>
+                        <p>Отключаем минусовые связки, масштабируем то, что эффективно. Работаем недельными спринтами: получили данные, приняли решение, внедрили результат.</p>
+                    </div>
+                </div>
+                <div class="approach__step" data-animate="fade-up" data-delay="400">
+                    <div class="approach__step-num">05</div>
+                    <div class="approach__step-content">
+                        <h3>Масштаб</h3>
+                        <p>Заливаем основной бюджет в рабочие связки. Параллельно тестируем новые гипотезы, чтобы постоянно наращивать темп. Система в работе, движение под контролем.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- 3-МЕСЯЧНАЯ МОДЕЛЬ -->
+    <!-- ============================================ -->
+    <section class="model" id="model">
+        <div class="container">
+            <div class="model__inner" data-animate="fade-up">
+                <div class="model__text">
+                    <span class="section-tag">Честная модель</span>
+                    <h2 class="section-title">Почему <span class="text-accent">минимум 3 месяца</span></h2>
+                    <p class="model__desc">Мы не торгуем иллюзиями и не обещаем взрывной рост в первую неделю. К третьему месяцу вы получаете систему с понятной логикой.</p>
+                </div>
+                <div class="model__months">
+                    <div class="model__month" data-animate="fade-up" data-delay="0">
+                        <div class="model__month-header">
+                            <span class="model__month-num">M1</span>
+                            <span class="model__month-label">Месяц 1</span>
+                        </div>
+                        <h3>Сбор данных</h3>
+                        <p>Аудит, аналитика, первые тесты. Исследуем нишу и конкурентов. Понимаем, что реально даёт результат. Идут первые заявки, но это фундамент, а не поток.</p>
+                        <div class="model__month-tag">Тестирование</div>
+                    </div>
+                    <div class="model__month" data-animate="fade-up" data-delay="150">
+                        <div class="model__month-header">
+                            <span class="model__month-num">M2</span>
+                            <span class="model__month-label">Месяц 2</span>
+                        </div>
+                        <h3>Калибровка</h3>
+                        <p>Отключаем минусовые связки, усиливаем то, что эффективно. Стоимость лида падает, конверсия растёт. Формируется прозрачная математика вашего бизнеса.</p>
+                        <div class="model__month-tag">Калибровка</div>
+                    </div>
+                    <div class="model__month" data-animate="fade-up" data-delay="300">
+                        <div class="model__month-header">
+                            <span class="model__month-num">M3</span>
+                            <span class="model__month-label">Месяц 3</span>
+                        </div>
+                        <h3>Система</h3>
+                        <p>Доказанные связки получают бюджет. Подключаем новые гипотезы. К этому этапу у вас есть рабочая модель с предсказуемой логикой и понятным результатом.</p>
+                        <div class="model__month-tag model__month-tag--active">Рост</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CTA ПРОМЕЖУТОЧНЫЙ -->
+    <!-- ============================================ -->
+    <section class="cta-mid" id="cta-mid">
+        <div class="container">
+            <div class="cta-mid__inner border-glow-anim" data-animate="fade-up">
+                <div class="cta-mid__text">
+                    <h2>Хватит сливать бюджет<br>в пустоту</h2>
+                    <p>Первый шаг, это бесплатный аудит. Разберём текущую ситуацию за 30 минут. Вы увидите, куда уходят деньги и где реально ваше движение к результату.</p>
+                </div>
+                <a href="#cta-final" class="btn btn--primary btn--lg">
+                    Бесплатный аудит
+                    <svg class="btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- УСЛУГИ -->
+    <!-- ============================================ -->
+    <section class="services" id="services">
+        <span class="dvzh-watermark dvzh-watermark--right" aria-hidden="true">DVZH</span>
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">Услуги</span>
+                <h2 class="section-title">Инструменты движения <span class="text-accent">к результату</span></h2>
+            </div>
+
+            <div class="services__grid stagger-children">
+                <!-- 01 Контекстный трафик -->
+                <div class="services__card services__card--wide card-glow" data-animate="fade-up" data-delay="0">
+                    <div class="services__card-num">01</div>
+                    <h3 class="services__card-title">Контекстный трафик</h3>
+                    <div class="services__channels-label">Каналы</div>
+                    <div class="services__channels">
+                        <div class="services__channel">
+                            <div class="services__channel-name">Яндекс Директ</div>
+                            <p class="services__channel-desc">Настройка поиска, РСЯ и ретаргетинга. Полный цикл</p>
+                        </div>
+                        <div class="services__channel">
+                            <div class="services__channel-name">Google Ads</div>
+                            <p class="services__channel-desc">Запуск на зарубежные рынки или доступные сегменты</p>
+                        </div>
+                    </div>
+                    <ul class="services__scope">
+                        <li>Сбор семантического ядра</li>
+                        <li>Настройка и запуск кампаний</li>
+                        <li>A/B тестирование объявлений</li>
+                        <li>Оптимизация ставок и бюджетов</li>
+                        <li>Масштабирование рабочих связок</li>
+                        <li>Еженедельные отчеты</li>
+                    </ul>
+                </div>
+
+                <!-- 02 Таргетированный трафик -->
+                <div class="services__card services__card--wide card-glow" data-animate="fade-up" data-delay="80">
+                    <div class="services__card-num">02</div>
+                    <h3 class="services__card-title">Таргетированный трафик</h3>
+                    <div class="services__channels-label">Каналы</div>
+                    <div class="services__channels services__channels--4">
+                        <div class="services__channel">
+                            <div class="services__channel-name">VK Ads</div>
+                            <p class="services__channel-desc">Настройка на целевую аудиторию внутри экосистемы VK</p>
+                        </div>
+                        <div class="services__channel">
+                            <div class="services__channel-name">Meta (FB/Inst)*</div>
+                            <p class="services__channel-desc">Запуск и масштабирование на мировом рынке</p>
+                        </div>
+                        <div class="services__channel">
+                            <div class="services__channel-name">TikTok Ads</div>
+                            <p class="services__channel-desc">Работа с видео-трафиком и быстрыми охватами</p>
+                        </div>
+                        <div class="services__channel">
+                            <div class="services__channel-name">myTarget</div>
+                            <p class="services__channel-desc">Выход на аудиторию проектов Mail.ru и Одноклассников</p>
+                        </div>
+                    </div>
+                    <ul class="services__scope">
+                        <li>Сегментация аудиторий</li>
+                        <li>Производство креативов</li>
+                        <li>Ретаргетинг и look-alike</li>
+                        <li>Оптимизация ставок и бюджетов</li>
+                        <li>Масштабирование рабочих связок</li>
+                        <li>Еженедельная отчетность</li>
+                    </ul>
+                </div>
+
+                <!-- 03 Разработка -->
+                <div class="services__card card-glow" data-animate="fade-up" data-delay="160">
+                    <div class="services__card-num">03</div>
+                    <h3 class="services__card-title">Разработка и Production</h3>
+                    <div class="services__channels-label">Услуги</div>
+                    <div class="services__channels">
+                        <div class="services__channel">
+                            <div class="services__channel-name">Landing Page</div>
+                            <p class="services__channel-desc">Сборка посадочных страниц с нуля под конкретный оффер</p>
+                        </div>
+                        <div class="services__channel">
+                            <div class="services__channel-name">Корректировка сайтов</div>
+                            <p class="services__channel-desc">Докрутка конверсии и правки в текущих страницах</p>
+                        </div>
+                        <div class="services__channel">
+                            <div class="services__channel-name">Рекламные баннеры</div>
+                            <p class="services__channel-desc">Дизайн статичных макетов для любых форматов</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 04 Аналитика -->
+                <div class="services__card card-glow" data-animate="fade-up" data-delay="240">
+                    <div class="services__card-num">04</div>
+                    <h3 class="services__card-title">Аналитика и Стратегия</h3>
+                    <div class="services__channels-label">Услуги</div>
+                    <div class="services__channels services__channels--2x2">
+                        <div class="services__channel">
+                            <div class="services__channel-name">Трафик-стратегия</div>
+                            <p class="services__channel-desc">Комплексный план захвата рынка под ваш бизнес</p>
+                        </div>
+                        <div class="services__channel">
+                            <div class="services__channel-name">Кастомные дашборды</div>
+                            <p class="services__channel-desc">Визуализация данных из кабинетов в удобный отчет</p>
+                        </div>
+                        <div class="services__channel">
+                            <div class="services__channel-name">Unit-экономика</div>
+                            <p class="services__channel-desc">Расчет прибыльности каждого лида (на ваших данных)</p>
+                        </div>
+                        <div class="services__channel">
+                            <div class="services__channel-name">Lead-менеджмент</div>
+                            <p class="services__channel-desc">Еженедельный контроль KPI и прозрачная отчетность</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 05 AI -->
+                <div class="services__card card-glow" data-animate="fade-up" data-delay="320">
+                    <div class="services__card-num">05</div>
+                    <h3 class="services__card-title">AI и Технологии</h3>
+                    <p class="services__card-subtitle">Автоматизация и современные инструменты</p>
+                    <div class="services__channels-label">Услуги</div>
+                    <div class="services__channels services__channels--2x2">
+                        <div class="services__channel">
+                            <div class="services__channel-name">AI SEO</div>
+                            <p class="services__channel-desc">Продвижение в поиске через нейросети и работу с контентом</p>
+                        </div>
+                        <div class="services__channel">
+                            <div class="services__channel-name">Классическое SEO</div>
+                            <p class="services__channel-desc">Техническая оптимизация, ссылки и ключи</p>
+                        </div>
+                        <div class="services__channel">
+                            <div class="services__channel-name">Чат-боты</div>
+                            <p class="services__channel-desc">Разработка сценариев прогрева в мессенджерах</p>
+                        </div>
+                        <div class="services__channel">
+                            <div class="services__channel-name">AI-сервисы</div>
+                            <p class="services__channel-desc">Автоматизация маркетинговых задач через нейросети</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 06 Аудит -->
+                <div class="services__card services__card--audit card-glow" data-animate="fade-up" data-delay="400">
+                    <div class="services__card-num">06</div>
+                    <h3 class="services__card-title">Аудит</h3>
+                    <p class="services__card-subtitle">Первый шаг к системе — бесплатно</p>
+                    <div class="services__channels-label">Услуги</div>
+                    <div class="services__channels services__channels--2x2">
+                        <div class="services__channel">
+                            <div class="services__channel-name">Аудит кабинетов</div>
+                            <p class="services__channel-desc">Вскрываем ошибки и находим, где горит бюджет</p>
+                        </div>
+                        <div class="services__channel">
+                            <div class="services__channel-name">Анализ конкурентов</div>
+                            <p class="services__channel-desc">Полный разбор стратегий ваших оппонентов</p>
+                        </div>
+                        <div class="services__channel">
+                            <div class="services__channel-name">Анализ рынка</div>
+                            <p class="services__channel-desc">Оценка емкости и поиск точек входа</p>
+                        </div>
+                        <div class="services__channel">
+                            <div class="services__channel-name">План на 3 месяца</div>
+                            <p class="services__channel-desc">Пошаговый алгоритм действий на первый квартал</p>
+                        </div>
+                    </div>
+                    <div class="services__card-badge">Первый аудит бесплатно</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- КЕЙСЫ -->
+    <!-- ============================================ -->
+    <section class="cases" id="cases">
+        <span class="dvzh-watermark" aria-hidden="true">DVZH</span>
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">Кейсы</span>
+                <h2 class="section-title">Цифры говорят <span class="text-accent">громче слов</span></h2>
+            </div>
+            <div class="cases__grid">
+                <div class="cases__card card-glow" data-animate="scale-up" data-delay="0">
+                    <div class="cases__card-header">
+                        <span class="cases__card-niche">E-commerce / Одежда</span>
+                        <span class="cases__card-period">6 месяцев работы</span>
+                    </div>
+                    <h3 class="cases__card-title">Интернет-магазин одежды</h3>
+                    <div class="cases__card-metrics">
+                        <div class="cases__metric">
+                            <span class="cases__metric-value">x3.2</span>
+                            <span class="cases__metric-label">рост ROAS</span>
+                        </div>
+                        <div class="cases__metric">
+                            <span class="cases__metric-value">–47%</span>
+                            <span class="cases__metric-label">стоимость заявки</span>
+                        </div>
+                        <div class="cases__metric">
+                            <span class="cases__metric-value">+180%</span>
+                            <span class="cases__metric-label">оборот</span>
+                        </div>
+                    </div>
+                    <p class="cases__card-desc">Пересобрали кампании, внедрили сквозную аналитику и правильную аттрибуцию. ROAS вырос с 1.2 до 3.2 за 3 месяца. Оборот утроился.</p>
+                    <div class="cases__card-tags">
+                        <span>Яндекс Директ</span>
+                        <span>VK Ads</span>
+                        <span>Аналитика</span>
+                    </div>
+                </div>
+                <div class="cases__card card-glow" data-animate="scale-up" data-delay="150">
+                    <div class="cases__card-header">
+                        <span class="cases__card-niche">Услуги / Образование</span>
+                        <span class="cases__card-period">4 месяца работы</span>
+                    </div>
+                    <h3 class="cases__card-title">Онлайн-школа</h3>
+                    <div class="cases__card-metrics">
+                        <div class="cases__metric">
+                            <span class="cases__metric-value">312</span>
+                            <span class="cases__metric-label">заявок/мес</span>
+                        </div>
+                        <div class="cases__metric">
+                            <span class="cases__metric-value">–62%</span>
+                            <span class="cases__metric-label">CPL</span>
+                        </div>
+                        <div class="cases__metric">
+                            <span class="cases__metric-value">18%</span>
+                            <span class="cases__metric-label">конверсия в оплату</span>
+                        </div>
+                    </div>
+                    <p class="cases__card-desc">Выстроили воронку привлечения на вебинары с нуля. 12 сегментов → нашли 3 рабочие связки → масштабировали до 312 заявок/мес при CPL на 62% ниже рынка.</p>
+                    <div class="cases__card-tags">
+                        <span>Meta*</span>
+                        <span>VK Ads</span>
+                        <span>Воронки</span>
+                    </div>
+                </div>
+                <div class="cases__card card-glow" data-animate="scale-up" data-delay="300">
+                    <div class="cases__card-header">
+                        <span class="cases__card-niche">B2B / SaaS</span>
+                        <span class="cases__card-period">5 месяцев работы</span>
+                    </div>
+                    <h3 class="cases__card-title">SaaS-платформа</h3>
+                    <div class="cases__card-metrics">
+                        <div class="cases__metric">
+                            <span class="cases__metric-value">x2.8</span>
+                            <span class="cases__metric-label">рост лидов</span>
+                        </div>
+                        <div class="cases__metric">
+                            <span class="cases__metric-value">–38%</span>
+                            <span class="cases__metric-label">CAC</span>
+                        </div>
+                        <div class="cases__metric">
+                            <span class="cases__metric-value">24%</span>
+                            <span class="cases__metric-label">trial → paid</span>
+                        </div>
+                    </div>
+                    <p class="cases__card-desc">Перефокусировали стратегию: вместо кликов, на триалы. Внедрили когортную аттрибуцию. CAC снизился на 38%, trial→paid вырос до 24%.</p>
+                    <div class="cases__card-tags">
+                        <span>Google Ads</span>
+                        <span>Яндекс</span>
+                        <span>Аттрибуция</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ПРОЦЕСС РАБОТЫ -->
+    <!-- ============================================ -->
+    <section class="process" id="process">
+        <span class="dvzh-watermark dvzh-watermark--right" aria-hidden="true">DVZH</span>
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">Процесс</span>
+                <h2 class="section-title">Как мы работаем <span class="text-accent">по дням</span></h2>
+            </div>
+            <div class="process__timeline">
+                <div class="process__item" data-animate="fade-up" data-delay="0">
+                    <div class="process__item-marker">
+                        <span>01</span>
+                    </div>
+                    <div class="process__item-content">
+                        <h3>Заявка и брифинг</h3>
+                        <p>Оставляете заявку, созваниваемся в течение 2 часов. 30 минут по делу: бизнес, цели, текущая ситуация. Без воды и пафоса.</p>
+                        <span class="process__item-time">День 1</span>
+                    </div>
+                </div>
+                <div class="process__item" data-animate="fade-up" data-delay="100">
+                    <div class="process__item-marker">
+                        <span>02</span>
+                    </div>
+                    <div class="process__item-content">
+                        <h3>Аудит и стратегия</h3>
+                        <p>Бесплатный аудит, архитектура роста с конкретными гипотезами и прогнозом. Вы получаете документ на руки, даже если не идем дальше.</p>
+                        <span class="process__item-time">Дни 2–5</span>
+                    </div>
+                </div>
+                <div class="process__item" data-animate="fade-up" data-delay="200">
+                    <div class="process__item-marker">
+                        <span>03</span>
+                    </div>
+                    <div class="process__item-content">
+                        <h3>Договор и старт</h3>
+                        <p>Подписываем документы, проводим расчеты и выходим к движению по проекту. Настраиваем аналитику, собираем кампании, запускаем первые тесты.</p>
+                        <span class="process__item-time">Дни 5–10</span>
+                    </div>
+                </div>
+                <div class="process__item" data-animate="fade-up" data-delay="300">
+                    <div class="process__item-marker">
+                        <span>04</span>
+                    </div>
+                    <div class="process__item-content">
+                        <h3>Еженедельные спринты</h3>
+                        <p>Каждую неделю: отчет, действия, новые гипотезы. Ваш дашборд обновляется в реальном времени, движение всегда под контролем.</p>
+                        <span class="process__item-time">Каждую неделю</span>
+                    </div>
+                </div>
+                <div class="process__item" data-animate="fade-up" data-delay="400">
+                    <div class="process__item-marker">
+                        <span>05</span>
+                    </div>
+                    <div class="process__item-content">
+                        <h3>Масштабирование</h3>
+                        <p>Рабочие связки получают основной бюджет. Подключаем новые гипотезы, растем вместе с вашим бизнесом. Предсказуемо и системно.</p>
+                        <span class="process__item-time">С 3 месяца</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- О НАС -->
+    <!-- ============================================ -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about__inner">
+                <div class="about__content" data-animate="fade-up">
+                    <span class="section-tag">О нас</span>
+                    <h2 class="section-title">DVZH<br><span class="text-accent">движение под контролем</span></h2>
+                    <p class="about__text">
+                        Движ это не про запуск ради запуска. Это про систему.
+                    </p>
+                    <p class="about__text">
+                        Мы команда стратегов, аналитиков и performance-маркетологов. 
+                        Каждый проект для нас это отдельное исследование, а не шаблонная настройка. 
+                        Мы не работаем на потоке и не берём 50 проектов в месяц.
+                    </p>
+                    <p class="about__text about__text--accent">
+                        Наш принцип: лучше 15 клиентов с реальным результатом, чем 50 с отписками.
+                    </p>
+                    <div class="about__values">
+                        <div class="about__value" data-animate="fade-up" data-delay="100">
+                            <span class="about__value-icon">◆</span>
+                            <div>
+                                <strong>Контроль</strong>
+                                <p>Дашборды, отчетность, полная прозрачность. Вы видите всю механику и каждое движение в кабинетах</p>
+                            </div>
+                        </div>
+                        <div class="about__value" data-animate="fade-up" data-delay="200">
+                            <span class="about__value-icon">◆</span>
+                            <div>
+                                <strong>Система</strong>
+                                <p>Данные, итерации и цифры. Только выстроенный процесс движения к результату</p>
+                            </div>
+                        </div>
+                        <div class="about__value" data-animate="fade-up" data-delay="300">
+                            <span class="about__value-icon">◆</span>
+                            <div>
+                                <strong>Рост</strong>
+                                <p>Масштабируем только то, что доказало свою эффективность данными</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Founder — вертикальная плашка справа -->
+                <div class="about__founder" data-animate="fade-up" data-delay="200">
+                    <div class="about__founder-glow"></div>
+                    <div class="about__founder-photo">
+                        <img src="20260311_0206_Image Generation_remix_01kkczzcdders91qy52nqrcrm8.png" alt="Founder DVZH" class="about__founder-img" id="founderPhoto">
+                    </div>
+                    <div class="about__founder-info">
+                        <strong>Анастасия Раучер</strong>
+                        <p class="about__founder-role">Founder и CEO<br>DVZH Paid Traffic Agency</p>
+                        <p class="about__founder-motto">Не агентство, а партнёр в движении к росту</p>
+                    </div>
+                    <div class="about__founder-stats">
+                        <div class="about__founder-stat">
+                            <span class="about__founder-stat-value">10+</span>
+                            <span class="about__founder-stat-label">лет в платном трафике</span>
+                        </div>
+                        <div class="about__founder-stat">
+                            <span class="about__founder-stat-value">12+</span>
+                            <span class="about__founder-stat-label">лет в маркетинге</span>
+                        </div>
+                        <div class="about__founder-stat">
+                            <span class="about__founder-stat-value">7+</span>
+                            <span class="about__founder-stat-label">лет управления командами</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- КОМУ НЕ ПОДХОДИМ -->
+    <!-- ============================================ -->
+    <section class="not-for" id="not-for">
+        <span class="dvzh-watermark" aria-hidden="true">DVZH</span>
+        <div class="container">
+            <div class="not-for__inner" data-animate="fade-up">
+                <div class="section-header">
+                    <span class="section-tag">Честно</span>
+                    <h2 class="section-title">Не наш <span class="text-accent">движ</span></h2>
+                    <p class="section-desc">Кому не подходит Ровный Движ</p>
+                </div>
+                <div class="not-for__grid stagger-children" data-animate="fade-up">
+                    <div class="not-for__item">
+                        <span class="not-for__icon">✕</span>
+                        <div class="not-for__text">
+                            <strong>Ждете иксов в первый месяц</strong>
+                            <p>Мы не занимаемся магией и быстрыми чудесами. Система требует времени на сбор данных и калибровку</p>
+                        </div>
+                    </div>
+                    <div class="not-for__item">
+                        <span class="not-for__icon">✕</span>
+                        <div class="not-for__text">
+                            <strong>Не готовы к честной аналитике</strong>
+                            <p>Мы показываем реальную картину, даже если она неприятная. Если вам нужны красивые цифры вместо правды, нам не по пути</p>
+                        </div>
+                    </div>
+                    <div class="not-for__item">
+                        <span class="not-for__icon">✕</span>
+                        <div class="not-for__text">
+                            <strong>Хотите просто запустить рекламу</strong>
+                            <p>Запуск ради запуска это не про нас. Мы строим механику роста, а не просто нажимаем кнопки в кабинетах</p>
+                        </div>
+                    </div>
+                    <div class="not-for__item">
+                        <span class="not-for__icon">✕</span>
+                        <div class="not-for__text">
+                            <strong>Не планируете работать минимум 3 месяца</strong>
+                            <p>Движение к результату это марафон, а не спринт. Мы не беремся за разовые и краткосрочные тесты</p>
+                        </div>
+                    </div>
+                    <div class="not-for__item">
+                        <span class="not-for__icon">✕</span>
+                        <div class="not-for__text">
+                            <strong>Ищете самую низкую цену на рынке</strong>
+                            <p>Качественная аналитика и системный подход стоят своих денег. Мы не демпингуем за счет качества и внимания к проекту</p>
+                        </div>
+                    </div>
+                    <div class="not-for__item">
+                        <span class="not-for__icon">✕</span>
+                        <div class="not-for__text">
+                            <strong>Не даете обратную связь</strong>
+                            <p>Мы работаем в связке с вашим бизнесом. Без данных и вашего участия в процессе система не выйдет на проектную мощность</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FAQ -->
+    <!-- ============================================ -->
+    <section class="faq" id="faq">
+        <span class="dvzh-watermark dvzh-watermark--right" aria-hidden="true">DVZH</span>
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title">Частые вопросы</h2>
+            </div>
+            <div class="faq__list" data-animate="fade-up">
+                <div class="faq__item">
+                    <button class="faq__question" aria-expanded="false">
+                        <span>Сколько стоит работа с вами?</span>
+                        <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Стоимость зависит от объёма работ, каналов и бюджета. Мы не работаем за процент от бюджета: только фиксированная стоимость за управление + KPI-бонус за результат. Средний чек: от 50 000 ₽/мес за управление.</p>
+                    </div>
+                </div>
+                <div class="faq__item">
+                    <button class="faq__question" aria-expanded="false">
+                        <span>Гарантируете ли вы результат?</span>
+                        <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Мы не даём пустых гарантий, это нечестно. Мы гарантируем системный подход, прозрачную аналитику и еженедельную оптимизацию. Наша задача: найти работающие связки и масштабировать их. Если за 2 месяца нет прогресса, мы первые скажем об этом.</p>
+                    </div>
+                </div>
+                <div class="faq__item">
+                    <button class="faq__question" aria-expanded="false">
+                        <span>С какими нишами вы работаете?</span>
+                        <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>E-commerce, онлайн-образование, SaaS, услуги, стартапы, малый и средний бизнес. Не работаем с серыми нишами, гемблингом, и проектами без готового продукта.</p>
+                    </div>
+                </div>
+                <div class="faq__item">
+                    <button class="faq__question" aria-expanded="false">
+                        <span>Почему минимум 3 месяца?</span>
+                        <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Первый месяц: тестирование гипотез и сбор данных. Второй: оптимизация. Третий: масштабирование рабочих связок. Реклама: не кнопка, а процесс. Кто обещает результат за неделю, обманывает.</p>
+                    </div>
+                </div>
+                <div class="faq__item">
+                    <button class="faq__question" aria-expanded="false">
+                        <span>Какой минимальный рекламный бюджет?</span>
+                        <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Зависит от ниши и целей. Для тестирования рекомендуем от 50 000 ₽/мес на рекламный бюджет. Для масштабирования: от 150 000 ₽/мес. Мы поможем определить оптимальный бюджет на созвоне.</p>
+                    </div>
+                </div>
+                <div class="faq__item">
+                    <button class="faq__question" aria-expanded="false">
+                        <span>Как выглядит отчётность?</span>
+                        <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Еженедельные отчёты + дашборд в реальном времени. Вы видите все метрики: расход, заявки, CPL, конверсии, ROAS. Никаких «красивых презентаций» без сути, только данные и действия.</p>
+                    </div>
+                </div>
+                <div class="faq__item">
+                    <button class="faq__question" aria-expanded="false">
+                        <span>Можно ли начать с аудита?</span>
+                        <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Да. Мы проводим бесплатный экспресс-аудит текущих рекламных кампаний. Покажем, куда утекает бюджет и что можно улучшить. Без обязательств, решение за вами.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ФИНАЛЬНЫЙ CTA -->
+    <!-- ============================================ -->
+    <section class="cta-final" id="cta-final">
+        <span class="dvzh-watermark dvzh-watermark--center" aria-hidden="true">DVZH</span>
+        <div class="container">
+            <div class="cta-final__inner" data-animate="fade-up">
+                <div class="cta-final__bg">
+                    <div class="cta-final__orbit cta-final__orbit--1"></div>
+                    <div class="cta-final__orbit cta-final__orbit--2"></div>
+                </div>
+                <div class="cta-final__content">
+                    <h2 class="cta-final__title">Начните с аудита,<br>это бесплатно</h2>
+                    <p class="cta-final__desc">Заполните форму, перезвоним в течение 2 часов. Покажем точки роста. Ноль обязательств.</p>
+                    <form class="cta-final__form" id="ctaForm">
+                        <div class="cta-final__form-row">
+                            <input type="text" name="name" placeholder="Имя" required class="cta-final__input">
+                            <input type="tel" name="phone" placeholder="Телефон" required class="cta-final__input">
+                        </div>
+                        <div class="cta-final__form-row">
+                            <input type="text" name="company" placeholder="Компания / сайт" class="cta-final__input">
+                            <select name="budget" class="cta-final__input cta-final__select">
+                                <option value="" disabled selected>Рекламный бюджет</option>
+                                <option value="50k">до 50 000 ₽/мес</option>
+                                <option value="150k">50 000 – 150 000 ₽/мес</option>
+                                <option value="300k">150 000 – 300 000 ₽/мес</option>
+                                <option value="500k">300 000 – 500 000 ₽/мес</option>
+                                <option value="500k+">500 000+ ₽/мес</option>
+                            </select>
+                        </div>
+                        <textarea name="message" placeholder="Расскажите кратко о проекте и задачах" rows="3" class="cta-final__textarea"></textarea>
+                        <button type="submit" class="btn btn--primary btn--lg btn--full btn--magnetic">
+                            Отправить заявку
+                            <svg class="btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                        <p class="cta-final__privacy">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой конфиденциальности</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- STICKY CTA -->
+    <!-- ============================================ -->
+    <div class="sticky-cta" id="stickyCta">
+        <div class="container">
+            <div class="sticky-cta__inner">
+                <span class="sticky-cta__text">Готовы к системному росту?</span>
+                <a href="#cta-final" class="btn btn--primary btn--sm sticky-cta__btn">
+                    Обсудить проект
+                    <svg class="btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- FOOTER -->
+    <!-- ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__brand">
+                    <span class="footer__logo">DVZH</span>
+                    <p class="footer__tagline">Движение под контролем.</p>
+                    <p class="footer__desc">Платный трафик, который реально работает.</p>
+                </div>
+                <div class="footer__links">
+                    <div class="footer__col">
+                        <span class="footer__col-title">Навигация</span>
+                        <a href="#approach">Подход</a>
+                        <a href="#services">Услуги</a>
+                        <a href="#cases">Кейсы</a>
+                        <a href="#process">Процесс</a>
+                        <a href="#faq">FAQ</a>
+                    </div>
+                    <div class="footer__col">
+                        <span class="footer__col-title">Контакты</span>
+                        <a href="https://t.me/dvzh" target="_blank">Telegram</a>
+                        <a href="mailto:hello@dvzh.ru">hello@dvzh.ru</a>
+                        <a href="https://wa.me/" target="_blank">WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>© 2025–2026 Ровный Движ (DVZH). Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme & Style Switcher -->
+    <div class="theme-switcher" id="themeSwitcher">
+        <button class="theme-switcher__toggle" id="themeToggle" aria-label="Палитра и стиль">◉</button>
+        <div class="theme-switcher__panel" id="themePanel">
+            <!-- SECTION 1: Color Palette -->
+            <div class="theme-switcher__title">Палитра</div>
+            <div class="theme-switcher__grid">
+                <button class="theme-switcher__swatch active" data-theme="" title="Night Orbit" style="background: linear-gradient(135deg, #0B0E11 50%, #2FB9B3 50%)"></button>
+                <button class="theme-switcher__swatch" data-theme="theme-graphite" title="Graphite" style="background: linear-gradient(135deg, #111111 50%, #00D1C1 50%)"></button>
+                <button class="theme-switcher__swatch" data-theme="theme-deepspace" title="Deep Space" style="background: linear-gradient(135deg, #0A0A12 50%, #1FB6FF 50%)"></button>
+                <button class="theme-switcher__swatch" data-theme="theme-editorial" title="Dark Editorial" style="background: linear-gradient(135deg, #0F0F0F 50%, #38A3FF 50%)"></button>
+                <button class="theme-switcher__swatch" data-theme="theme-mono" title="Mono" style="background: linear-gradient(135deg, #000000 50%, #2FB9B3 50%)"></button>
+                <button class="theme-switcher__swatch" data-theme="theme-neon-pulse" title="Neon Pulse" style="background: linear-gradient(135deg, #050A0A 50%, #00FFE5 50%)"></button>
+                <button class="theme-switcher__swatch" data-theme="theme-cyber-grid" title="Cyber Grid" style="background: linear-gradient(135deg, #060810 50%, #00C8FF 50%)"></button>
+                <button class="theme-switcher__swatch" data-theme="theme-aurora" title="Aurora" style="background: linear-gradient(135deg, #080C12 50%, #00E5A0 50%)"></button>
+            </div>
+
+            <!-- Divider -->
+            <div class="theme-switcher__divider"></div>
+
+            <!-- SECTION 2: Visual Style -->
+            <div class="theme-switcher__title">Визуальный стиль</div>
+            <div class="style-switcher__list">
+                <button class="style-switcher__item active" data-vstyle="" title="Классика">
+                    <span class="style-switcher__icon">◉</span>
+                    <span class="style-switcher__name">Классика</span>
+                    <span class="style-switcher__tag">default</span>
+                </button>
+                <button class="style-switcher__item" data-vstyle="vstyle-minimal-tech" title="Minimal Tech">
+                    <span class="style-switcher__icon">◇</span>
+                    <span class="style-switcher__name">Minimal Tech</span>
+                </button>
+                <button class="style-switcher__item" data-vstyle="vstyle-street" title="Street Graffiti">
+                    <span class="style-switcher__icon">⚡</span>
+                    <span class="style-switcher__name">Street Graffiti</span>
+                </button>
+                <button class="style-switcher__item" data-vstyle="vstyle-lab" title="Performance Lab">
+                    <span class="style-switcher__icon">▸</span>
+                    <span class="style-switcher__name">Performance Lab</span>
+                </button>
+                <button class="style-switcher__item" data-vstyle="vstyle-orbit" title="Orbit System">
+                    <span class="style-switcher__icon">◎</span>
+                    <span class="style-switcher__name">Orbit System</span>
+                </button>
+                <button class="style-switcher__item" data-vstyle="vstyle-monolith" title="Monolith DVZH">
+                    <span class="style-switcher__icon">◼</span>
+                    <span class="style-switcher__name">Monolith DVZH</span>
+                </button>
+                <button class="style-switcher__item" data-vstyle="vstyle-blueprint" title="Blueprint">
+                    <span class="style-switcher__icon">⊞</span>
+                    <span class="style-switcher__name">Blueprint</span>
+                    <span class="style-switcher__tag">★</span>
+                </button>
+                <button class="style-switcher__item" data-vstyle="vstyle-glitch" title="Glitch Protocol">
+                    <span class="style-switcher__icon">⌇</span>
+                    <span class="style-switcher__name">Glitch Protocol</span>
+                    <span class="style-switcher__tag">★</span>
+                </button>
+                <button class="style-switcher__item" data-vstyle="vstyle-handtag" title="Handtag">
+                    <span class="style-switcher__icon">✎</span>
+                    <span class="style-switcher__name">Handtag</span>
+                    <span class="style-switcher__tag">★</span>
+                </button>
+                <button class="style-switcher__item" data-vstyle="vstyle-cosmos" title="Cosmos">
+                    <span class="style-switcher__icon">🌌</span>
+                    <span class="style-switcher__name">Cosmos</span>
+                    <span class="style-switcher__tag">NEW</span>
+                </button>
+                <button class="style-switcher__item" data-vstyle="vstyle-pulse" title="Pulse">
+                    <span class="style-switcher__icon">⚡</span>
+                    <span class="style-switcher__name">Pulse</span>
+                    <span class="style-switcher__tag">NEW</span>
+                </button>
+                <button class="style-switcher__item" data-vstyle="vstyle-kinetic" title="Kinetic">
+                    <span class="style-switcher__icon">💨</span>
+                    <span class="style-switcher__name">Kinetic</span>
+                    <span class="style-switcher__tag">NEW</span>
+                </button>
+                <button class="style-switcher__item" data-vstyle="vstyle-orbital" title="Orbital">
+                    <span class="style-switcher__icon">🪐</span>
+                    <span class="style-switcher__name">Orbital</span>
+                    <span class="style-switcher__tag">ENGINE</span>
+                </button>
+                <button class="style-switcher__item" data-vstyle="vstyle-collage" title="Collage">
+                    <span class="style-switcher__icon">📰</span>
+                    <span class="style-switcher__name">Collage</span>
+                    <span class="style-switcher__tag">ENGINE</span>
+                </button>
+                <button class="style-switcher__item" data-vstyle="vstyle-collage-old" title="Collage Old">
+                    <span class="style-switcher__icon">📜</span>
+                    <span class="style-switcher__name">Collage Old</span>
+                </button>
+                <button class="style-switcher__item" data-vstyle="vstyle-vector" title="Vector">
+                    <span class="style-switcher__icon">➤</span>
+                    <span class="style-switcher__name">Vector</span>
+                    <span class="style-switcher__tag">ENGINE</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Telegram Widget -->
+    <a href="https://t.me/dvzh" target="_blank" class="tg-float" id="tgFloat" aria-label="Написать в Telegram">
+        <span class="tg-float__tooltip">Напишите в Telegram</span>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+    </a>
+
+    <!-- Cursor Glow (desktop only) -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

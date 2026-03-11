@@ -1,0 +1,2279 @@
+<!--
+  ============================================
+  DVZH — Visual Sets (Content Packs) для Tilda
+  Блок: T123 (Zero Block)
+  ============================================
+  
+  ИНСТРУКЦИЯ ДЛЯ TILDA:
+  1. В Zero Block присвойте декоративным элементам CSS-классы:
+     - Элементы стиля Orbit:   class="vset-orbit"
+     - Элементы стиля Street:  class="vset-street"  
+     - Элементы стиля Minimal: class="vset-minimal"
+     - Элементы стиля Cosmos:  class="vset-cosmos"
+     - Элементы стиля Pulse:   class="vset-pulse"
+     - Элементы стиля Kinetic: class="vset-kinetic"
+     - Элементы стиля Orbital: class="vset-orbital"
+     - Элементы стиля Collage: class="vset-collage"
+     - Элементы стиля Vector:  class="vset-vector"
+     - Элементы стиля Monolith: class="vset-monolith"
+     - Элементы стиля Collage Old: class="vset-collage-old"
+     - Элементы стиля Classic: class="vset-classic"
+  2. Вставьте этот код в блок T123 → «HTML-код до/после блока» или в отдельный T123.
+  3. Задайте currentTheme ниже ('orbit' | 'street' | 'minimal' | 'cosmos' | 'pulse' | 'kinetic' | 'orbital' | 'collage' | 'vector' | 'monolith' | 'collage-old' | 'classic').
+  4. Для кнопок-переключателей: добавьте data-vset="monolith" / data-vset="collage-old" / data-vset="classic" и т.д.
+  
+  ПРИНЦИП: цвета остаются из :root, код управляет ТОЛЬКО видимостью и 
+  декоративным поведением через класс на <body>.
+-->
+
+<style>
+  /* ============================================
+     DVZH VISUAL SETS — Tilda Zero Block Ready
+     ============================================
+     Tilda DOM: .t396 > .t396__artboard > .t396__filter > .t396__carrier
+                .t396__elem[data-elem-id] > .tn-atom
+     
+     В настройках Zero Block → каждый элемент → CSS Class Name:
+       - Декор Orbit:   vset-orbit
+       - Декор Street:  vset-street
+       - Декор Minimal: vset-minimal
+       - Декор Cosmos:  vset-cosmos
+       - Декор Pulse:   vset-pulse
+       - Декор Kinetic: vset-kinetic
+       - Декор Orbital: vset-orbital
+       - Декор Collage: vset-collage
+       - Декор Vector:  vset-vector
+       - Декор Monolith: vset-monolith
+       - Декор Collage Old: vset-collage-old
+       - Декор Classic: vset-classic
+     
+     Код НЕ меняет цвета (:root переменные нетронуты).
+     !important нужен для перебития inline-стилей Tilda.
+     ============================================ */
+
+  /* ── 1. СКРЫТИЕ: все content-pack элементы невидимы по умолчанию ── */
+
+  /* Контейнер элемента (.t396__elem) */
+  .t396__elem.vset-orbit,
+  .t396__elem.vset-street,
+  .t396__elem.vset-minimal,
+  .t396__elem.vset-cosmos,
+  .t396__elem.vset-pulse,
+  .t396__elem.vset-kinetic,
+  .t396__elem.vset-orbital,
+  .t396__elem.vset-collage,
+  .t396__elem.vset-vector {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: scale(0.96);
+  }
+
+  /* Атом внутри скрытого элемента — страховка */
+  .t396__elem.vset-orbit .tn-atom,
+  .t396__elem.vset-street .tn-atom,
+  .t396__elem.vset-minimal .tn-atom,
+  .t396__elem.vset-cosmos .tn-atom,
+  .t396__elem.vset-pulse .tn-atom,
+  .t396__elem.vset-kinetic .tn-atom,
+  .t396__elem.vset-orbital .tn-atom,
+  .t396__elem.vset-collage .tn-atom,
+  .t396__elem.vset-vector .tn-atom,
+  .t396__elem.vset-monolith .tn-atom,
+  .t396__elem.vset-collage-old .tn-atom,
+  .t396__elem.vset-classic .tn-atom {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* ── 2. ПОКАЗ: активный content pack ── */
+
+  /* Orbit */
+  body.vset-active--orbit .t396__elem.vset-orbit,
+  body.vset-active--orbit .tn-elem.vset-orbit {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: scale(1);
+  }
+  body.vset-active--orbit .t396__elem.vset-orbit .tn-atom,
+  body.vset-active--orbit .tn-elem.vset-orbit .tn-atom {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  /* Street */
+  body.vset-active--street .t396__elem.vset-street,
+  body.vset-active--street .tn-elem.vset-street {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: scale(1);
+  }
+  body.vset-active--street .t396__elem.vset-street .tn-atom,
+  body.vset-active--street .tn-elem.vset-street .tn-atom {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  /* Minimal */
+  body.vset-active--minimal .t396__elem.vset-minimal,
+  body.vset-active--minimal .tn-elem.vset-minimal {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: scale(1);
+  }
+  body.vset-active--minimal .t396__elem.vset-minimal .tn-atom,
+  body.vset-active--minimal .tn-elem.vset-minimal .tn-atom {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  /* Cosmos */
+  body.vset-active--cosmos .t396__elem.vset-cosmos,
+  body.vset-active--cosmos .tn-elem.vset-cosmos {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: scale(1);
+  }
+  body.vset-active--cosmos .t396__elem.vset-cosmos .tn-atom,
+  body.vset-active--cosmos .tn-elem.vset-cosmos .tn-atom {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  /* Pulse */
+  body.vset-active--pulse .t396__elem.vset-pulse,
+  body.vset-active--pulse .tn-elem.vset-pulse {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: scale(1);
+  }
+  body.vset-active--pulse .t396__elem.vset-pulse .tn-atom,
+  body.vset-active--pulse .tn-elem.vset-pulse .tn-atom {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  /* Kinetic */
+  body.vset-active--kinetic .t396__elem.vset-kinetic,
+  body.vset-active--kinetic .tn-elem.vset-kinetic {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: scale(1);
+  }
+  body.vset-active--kinetic .t396__elem.vset-kinetic .tn-atom,
+  body.vset-active--kinetic .tn-elem.vset-kinetic .tn-atom {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  /* Orbital */
+  body.vset-active--orbital .t396__elem.vset-orbital,
+  body.vset-active--orbital .tn-elem.vset-orbital {
+    opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; transform: scale(1);
+  }
+  body.vset-active--orbital .t396__elem.vset-orbital .tn-atom,
+  body.vset-active--orbital .tn-elem.vset-orbital .tn-atom {
+    opacity: 1 !important; visibility: visible !important; pointer-events: auto !important;
+  }
+
+  /* Collage */
+  body.vset-active--collage .t396__elem.vset-collage,
+  body.vset-active--collage .tn-elem.vset-collage {
+    opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; transform: scale(1);
+  }
+  body.vset-active--collage .t396__elem.vset-collage .tn-atom,
+  body.vset-active--collage .tn-elem.vset-collage .tn-atom {
+    opacity: 1 !important; visibility: visible !important; pointer-events: auto !important;
+  }
+
+  /* Vector */
+  body.vset-active--vector .t396__elem.vset-vector,
+  body.vset-active--vector .tn-elem.vset-vector {
+    opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; transform: scale(1);
+  }
+  body.vset-active--vector .t396__elem.vset-vector .tn-atom,
+  body.vset-active--vector .tn-elem.vset-vector .tn-atom {
+    opacity: 1 !important; visibility: visible !important; pointer-events: auto !important;
+  }
+
+  /* Monolith */
+  body.vset-active--monolith .t396__elem.vset-monolith,
+  body.vset-active--monolith .tn-elem.vset-monolith {
+    opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; transform: scale(1);
+  }
+  body.vset-active--monolith .t396__elem.vset-monolith .tn-atom,
+  body.vset-active--monolith .tn-elem.vset-monolith .tn-atom {
+    opacity: 1 !important; visibility: visible !important; pointer-events: auto !important;
+  }
+
+  /* Collage Old */
+  body.vset-active--collage-old .t396__elem.vset-collage-old,
+  body.vset-active--collage-old .tn-elem.vset-collage-old {
+    opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; transform: scale(1);
+  }
+  body.vset-active--collage-old .t396__elem.vset-collage-old .tn-atom,
+  body.vset-active--collage-old .tn-elem.vset-collage-old .tn-atom {
+    opacity: 1 !important; visibility: visible !important; pointer-events: auto !important;
+  }
+
+  /* Classic */
+  body.vset-active--classic .t396__elem.vset-classic,
+  body.vset-active--classic .tn-elem.vset-classic {
+    opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; transform: scale(1);
+  }
+  body.vset-active--classic .t396__elem.vset-classic .tn-atom,
+  body.vset-active--classic .tn-elem.vset-classic .tn-atom {
+    opacity: 1 !important; visibility: visible !important; pointer-events: auto !important;
+  }
+
+  /* ── 3. ТИПОГРАФИКА: декоративные модификации (НЕ цвета) ── */
+
+  /* — Orbit: плавные радиусы, плотный tracking — */
+  body.vset-active--orbit {
+    --vset-border-radius: 20px;
+    --vset-letter-spacing: -0.01em;
+  }
+  body.vset-active--orbit .t396__elem .tn-atom__title,
+  body.vset-active--orbit .t-title,
+  body.vset-active--orbit .t396__title,
+  body.vset-active--orbit .t-heading {
+    letter-spacing: -0.01em !important;
+  }
+
+  /* — Street: uppercase, жирный, дерзкий — */
+  body.vset-active--street {
+    --vset-border-radius: 4px;
+    --vset-letter-spacing: 0.05em;
+  }
+  body.vset-active--street .t396__elem .tn-atom__title,
+  body.vset-active--street .t-title,
+  body.vset-active--street .t396__title,
+  body.vset-active--street .t-heading {
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    font-weight: 800 !important;
+  }
+  body.vset-active--street .t-btn,
+  body.vset-active--street .tn-atom__btn {
+    text-transform: uppercase !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.05em !important;
+    border-radius: 4px !important;
+  }
+
+  /* — Minimal: тонкий, технологичный — */
+  body.vset-active--minimal {
+    --vset-border-radius: 8px;
+    --vset-letter-spacing: 0.02em;
+  }
+  body.vset-active--minimal .t396__elem .tn-atom__title,
+  body.vset-active--minimal .t-title,
+  body.vset-active--minimal .t396__title,
+  body.vset-active--minimal .t-heading {
+    letter-spacing: 0.02em !important;
+    font-weight: 500 !important;
+  }
+  body.vset-active--minimal .t-btn,
+  body.vset-active--minimal .tn-atom__btn {
+    font-weight: 500 !important;
+    letter-spacing: 0.03em !important;
+    border-radius: 8px !important;
+  }
+
+  /* ════════════════════════════════════════════
+     COSMOS — Глубина и масштаб
+     ════════════════════════════════════════════ */
+
+  body.vset-active--cosmos {
+    --vset-border-radius: 50%;
+    --vset-letter-spacing: -0.02em;
+  }
+
+  /* Орбитальные линии — SVG-кольца вращаются с разной скоростью */
+  body.vset-active--cosmos::before,
+  body.vset-active--cosmos::after {
+    content: '';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    border: 1px solid var(--brand-color, var(--accent-1, #2FB9B3));
+    pointer-events: none;
+    z-index: 0;
+  }
+  body.vset-active--cosmos::before {
+    width: 60vw;
+    height: 60vw;
+    margin-top: -30vw;
+    margin-left: -30vw;
+    opacity: 0.06;
+    animation: vset-orbit-slow 90s linear infinite;
+  }
+  body.vset-active--cosmos::after {
+    width: 90vw;
+    height: 90vw;
+    margin-top: -45vw;
+    margin-left: -45vw;
+    opacity: 0.03;
+    animation: vset-orbit-slow 150s linear infinite reverse;
+  }
+
+  @keyframes vset-orbit-slow {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  /* Типографика: лёгкая, парящая */
+  body.vset-active--cosmos .t396__elem .tn-atom__title,
+  body.vset-active--cosmos .t-title,
+  body.vset-active--cosmos .t396__title,
+  body.vset-active--cosmos .t-heading {
+    letter-spacing: -0.02em !important;
+    font-weight: 300 !important;
+  }
+  body.vset-active--cosmos .t-btn,
+  body.vset-active--cosmos .tn-atom__btn {
+    border-radius: 50px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  /* Текст «парит» — мягкое поднятие */
+  body.vset-active--cosmos .t-text,
+  body.vset-active--cosmos .t-descr {
+    animation: vset-cosmos-float 6s ease-in-out infinite;
+  }
+  @keyframes vset-cosmos-float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-6px); }
+  }
+
+  /* Микрочастицы-пыль — мягкое мерцание фоновых элементов */
+  body.vset-active--cosmos .vset-cosmos.vset-cosmos-dust .tn-atom {
+    animation: vset-dust-twinkle 4s ease-in-out infinite alternate;
+  }
+  @keyframes vset-dust-twinkle {
+    0%   { opacity: 0.3 !important; transform: scale(0.8); }
+    100% { opacity: 0.8 !important; transform: scale(1.1); }
+  }
+
+  /* Сферы — стеклянный блик */
+  body.vset-active--cosmos .vset-cosmos.vset-cosmos-sphere .tn-atom {
+    border-radius: 50% !important;
+    box-shadow:
+      inset -8px -8px 20px rgba(255, 255, 255, 0.05),
+      inset 4px 4px 10px rgba(0, 0, 0, 0.4),
+      0 0 40px rgba(var(--accent-1-rgb, 47, 185, 179), 0.08) !important;
+  }
+
+  /* Tilt-элементы помечаются классом vset-cosmos-tilt (JS управляет transform) */
+  body.vset-active--cosmos .vset-cosmos.vset-cosmos-tilt {
+    transition: transform 0.15s ease-out !important;
+    will-change: transform;
+  }
+
+  /* Видео-фон для Cosmos — макросъёмка пыли/частиц
+     JS создаёт <video> с id="vset-cosmos-video" */
+  #vset-cosmos-video {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0;
+    mix-blend-mode: screen;
+    transition: opacity 1.2s ease-out;
+  }
+  body.vset-active--cosmos #vset-cosmos-video {
+    opacity: 0.12;
+  }
+  body:not(.vset-active--cosmos) #vset-cosmos-video {
+    opacity: 0;
+  }
+  /* Мобильные: видео скрываем (экономия трафика/GPU) */
+  @media screen and (max-width: 768px) {
+    #vset-cosmos-video { display: none !important; }
+  }
+
+
+  /* ════════════════════════════════════════════
+     STREET / UNDERGROUND PULSE — Энергия и сырость
+     ════════════════════════════════════════════ */
+
+  body.vset-active--pulse {
+    --vset-border-radius: 0px;
+    --vset-letter-spacing: 0.08em;
+  }
+
+  /* Noise-оверлей — цифровые помехи */
+  body.vset-active--pulse::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+    mix-blend-mode: overlay;
+    animation: vset-noise-shift 0.15s steps(3) infinite;
+  }
+  @keyframes vset-noise-shift {
+    0%   { transform: translate(0, 0); }
+    33%  { transform: translate(-2px, 1px); }
+    66%  { transform: translate(1px, -1px); }
+    100% { transform: translate(0, 0); }
+  }
+
+  /* Scanlines — горизонтальные полосы */
+  body.vset-active--pulse::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9997;
+    pointer-events: none;
+    opacity: 0.015;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.03) 2px,
+      rgba(255, 255, 255, 0.03) 4px
+    );
+  }
+
+  /* Типографика: тяжёлая, uppercase, рубленая */
+  body.vset-active--pulse .t396__elem .tn-atom__title,
+  body.vset-active--pulse .t-title,
+  body.vset-active--pulse .t396__title,
+  body.vset-active--pulse .t-heading {
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    font-weight: 900 !important;
+  }
+  body.vset-active--pulse .t-btn,
+  body.vset-active--pulse .tn-atom__btn {
+    text-transform: uppercase !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.06em !important;
+    border-radius: 0 !important;
+    border: 2px solid var(--brand-color, var(--accent-1, #2FB9B3)) !important;
+  }
+
+  /* Рваные края для картинок — маска с помехами */
+  body.vset-active--pulse .vset-pulse.vset-pulse-torn .tn-atom {
+    clip-path: polygon(
+      0% 2%, 5% 0%, 12% 3%, 20% 0%, 28% 2%, 35% 0%, 45% 1%,
+      52% 0%, 60% 3%, 70% 0%, 78% 2%, 85% 0%, 92% 1%, 100% 0%,
+      100% 98%, 95% 100%, 88% 97%, 80% 100%, 72% 98%, 65% 100%,
+      55% 99%, 48% 100%, 40% 97%, 30% 100%, 22% 98%, 15% 100%,
+      8% 99%, 0% 100%
+    ) !important;
+  }
+
+  /* Текст поверх графики с mix-blend */
+  body.vset-active--pulse .vset-pulse.vset-pulse-blend .tn-atom {
+    mix-blend-mode: exclusion !important;
+  }
+
+  /* Glitch-символы — помечаются vset-pulse-glitch (JS управляет) */
+  body.vset-active--pulse .vset-pulse.vset-pulse-glitch .tn-atom {
+    animation: vset-glitch-clip 3s steps(1) infinite;
+  }
+  @keyframes vset-glitch-clip {
+    0%, 90%, 100% { clip-path: none; transform: none; }
+    91% { clip-path: inset(20% 0 60% 0); transform: translateX(-3px); }
+    93% { clip-path: inset(50% 0 10% 0); transform: translateX(3px); }
+    95% { clip-path: inset(10% 0 40% 0); transform: translateX(-2px); }
+    97% { clip-path: none; transform: none; }
+  }
+
+  /* Step-появление элементов */
+  body.vset-active--pulse .t396__elem.vset-pulse {
+    transition-timing-function: steps(5, end) !important;
+  }
+
+  /* Мерцание отдельных символов — через vset-pulse-flicker */
+  body.vset-active--pulse .vset-pulse.vset-pulse-flicker .tn-atom {
+    animation: vset-flicker 2.5s ease-in-out infinite;
+  }
+  @keyframes vset-flicker {
+    0%, 100% { opacity: 1 !important; }
+    4%       { opacity: 0.2 !important; }
+    6%       { opacity: 1 !important; }
+    60%      { opacity: 1 !important; }
+    62%      { opacity: 0.4 !important; }
+    64%      { opacity: 1 !important; }
+    64.5%    { opacity: 0.3 !important; }
+    65%      { opacity: 1 !important; }
+  }
+
+
+  /* ════════════════════════════════════════════
+     KINETIC / PURE MOTION — Скорость и вектор
+     ════════════════════════════════════════════ */
+
+  body.vset-active--kinetic {
+    --vset-border-radius: 4px;
+    --vset-letter-spacing: 0.01em;
+    --vset-skew: -3deg;
+  }
+
+  /* Световые шлейфы — длинная выдержка */
+  body.vset-active--kinetic::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: -20%;
+    width: 140%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    background: linear-gradient(
+      135deg,
+      transparent 30%,
+      var(--brand-color, var(--accent-1, #2FB9B3)) 45%,
+      transparent 55%,
+      transparent 70%,
+      var(--brand-color, var(--accent-2, #4DA3FF)) 80%,
+      transparent 90%
+    );
+    animation: vset-light-streak 8s ease-in-out infinite alternate;
+  }
+  @keyframes vset-light-streak {
+    0%   { transform: translateX(-10%) skewX(-5deg); }
+    100% { transform: translateX(10%) skewX(5deg); }
+  }
+
+  /* Типографика: чёткий, динамичный, с диагональю */
+  body.vset-active--kinetic .t396__elem .tn-atom__title,
+  body.vset-active--kinetic .t-title,
+  body.vset-active--kinetic .t396__title,
+  body.vset-active--kinetic .t-heading {
+    letter-spacing: 0.01em !important;
+    font-weight: 700 !important;
+    font-style: italic !important;
+  }
+  body.vset-active--kinetic .t-btn,
+  body.vset-active--kinetic .tn-atom__btn {
+    font-weight: 700 !important;
+    letter-spacing: 0.02em !important;
+    border-radius: 4px !important;
+    transform: skewX(var(--vset-skew)) !important;
+  }
+  /* Обратный скос текста внутри кнопки чтобы текст был прямым */
+  body.vset-active--kinetic .t-btn span,
+  body.vset-active--kinetic .tn-atom__btn span {
+    display: inline-block;
+    transform: skewX(calc(var(--vset-skew) * -1)) !important;
+  }
+
+  /* Диагональные плашки — скошенные углы */
+  body.vset-active--kinetic .vset-kinetic.vset-kinetic-skew .tn-atom {
+    transform: skewX(var(--vset-skew)) !important;
+    overflow: hidden !important;
+  }
+
+  /* Направляющие линии скорости */
+  body.vset-active--kinetic .vset-kinetic.vset-kinetic-streak .tn-atom {
+    position: relative;
+    overflow: hidden !important;
+  }
+  body.vset-active--kinetic .vset-kinetic.vset-kinetic-streak .tn-atom::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%; right: -100%; bottom: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255,255,255,0.08) 50%,
+      transparent 100%
+    );
+    animation: vset-streak-sweep 3s ease-in-out infinite;
+  }
+  @keyframes vset-streak-sweep {
+    0%   { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  /* Motion blur при быстрой прокрутке — JS добавляет/убирает vset-scrolling на body */
+  body.vset-active--kinetic.vset-scrolling .t396__elem.vset-kinetic .tn-atom {
+    filter: blur(2px) !important;
+    transition: filter 0.1s ease-out !important;
+  }
+  body.vset-active--kinetic:not(.vset-scrolling) .t396__elem.vset-kinetic .tn-atom {
+    filter: blur(0) !important;
+    transition: filter 0.4s ease-out !important;
+  }
+
+  /* Горизонтальный скролл — слой vset-kinetic-hscroll */
+  body.vset-active--kinetic .vset-kinetic.vset-kinetic-hscroll {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    white-space: nowrap !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  body.vset-active--kinetic .vset-kinetic.vset-kinetic-hscroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* IntersectionObserver: streak-анимации только во viewport */
+  body.vset-active--kinetic .vset-kinetic.vset-kinetic-streak .tn-atom::after {
+    animation-play-state: paused;
+  }
+  body.vset-active--kinetic .vset-kinetic.vset-kinetic-streak.vset-in-view .tn-atom::after {
+    animation-play-state: running;
+  }
+
+  /* Canvas cursor trail для Kinetic */
+  #vset-kinetic-trail {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9990;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+  body.vset-active--kinetic #vset-kinetic-trail {
+    opacity: 1;
+  }
+  body:not(.vset-active--kinetic) #vset-kinetic-trail {
+    opacity: 0;
+  }
+  @media screen and (max-width: 1024px) {
+    #vset-kinetic-trail { display: none !important; }
+  }
+
+
+  /* ════════════════════════════════════════════
+     ORBITAL LAYERS — Ядро + орбиты + глубина
+     ════════════════════════════════════════════ */
+  body.vset-active--orbital {
+    --vset-border-radius: 50px;
+    --vset-letter-spacing: 0.08em;
+  }
+  body.vset-active--orbital .t-heading {
+    font-weight: 200 !important;
+    letter-spacing: 0.05em !important;
+  }
+  body.vset-active--orbital .tn-atom__btn {
+    border-radius: 50px !important;
+    font-weight: 300 !important;
+    backdrop-filter: blur(8px);
+    background: rgba(47,185,179,0.1) !important;
+    border: 1px solid rgba(47,185,179,0.15) !important;
+  }
+  body.vset-active--orbital .t396__artboard {
+    text-align: center !important;
+  }
+  body.vset-active--orbital::before {
+    content: '';
+    position: fixed; inset: 0;
+    background: radial-gradient(ellipse at center,
+      rgba(47,185,179,0.04) 0%,
+      transparent 70%);
+    z-index: 0; pointer-events: none;
+  }
+
+  /* ════════════════════════════════════════════
+     STREET COLLAGE — Сломанная сетка + хаос
+     ════════════════════════════════════════════ */
+  body.vset-active--collage {
+    --vset-border-radius: 0px;
+    --vset-letter-spacing: -0.02em;
+  }
+  body.vset-active--collage .t-heading {
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+    letter-spacing: -0.03em !important;
+  }
+  body.vset-active--collage .tn-atom__btn {
+    border-radius: 0 !important;
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+    box-shadow: 4px 4px 0 rgba(47,185,179,0.2) !important;
+  }
+  body.vset-active--collage .t396__elem {
+    transition: transform 0.3s ease !important;
+  }
+  body.vset-active--collage::before {
+    content: '';
+    position: fixed; inset: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><rect width="2" height="2" fill="white" opacity="0.02"/></svg>');
+    z-index: 0; pointer-events: none;
+  }
+
+  /* ── Collage: Paint drops + liquid glass ── */
+  body.vset-active--collage .dvzh-glass-float {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+    overflow: visible;
+    border: 1px solid rgba(var(--accent-1-rgb, 47, 185, 179), 0.10);
+    background:
+      radial-gradient(
+        ellipse at 25% 20%,
+        rgba(255, 255, 255, 0.06) 0%,
+        rgba(255, 255, 255, 0.02) 40%,
+        transparent 65%
+      ),
+      radial-gradient(
+        ellipse at 45% 50%,
+        rgba(var(--accent-1-rgb, 47, 185, 179), 0.16) 0%,
+        rgba(var(--accent-1-rgb, 47, 185, 179), 0.08) 35%,
+        rgba(var(--accent-1-rgb, 47, 185, 179), 0.03) 60%,
+        transparent 80%
+      ),
+      linear-gradient(
+        160deg,
+        rgba(255, 255, 255, 0.03) 0%,
+        rgba(var(--accent-1-rgb, 47, 185, 179), 0.02) 50%,
+        rgba(255, 255, 255, 0.01) 100%
+      );
+    backdrop-filter: blur(18px) saturate(1.15);
+    -webkit-backdrop-filter: blur(18px) saturate(1.15);
+    border-radius: 60% 40% 55% 45% / 50% 62% 38% 50%;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+    will-change: border-radius, transform;
+    box-shadow:
+      inset 0 0 40px rgba(var(--accent-1-rgb, 47, 185, 179), 0.04),
+      0 4px 40px rgba(var(--accent-1-rgb, 47, 185, 179), 0.06),
+      0 0 100px rgba(var(--accent-1-rgb, 47, 185, 179), 0.04);
+    mix-blend-mode: screen;
+  }
+  body.vset-active--collage .dvzh-glass-float.glass-visible {
+    opacity: 1;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+  }
+  body.vset-active--collage .dvzh-glass-float:nth-child(3n+1) { animation-name: dvzh-morph-1; animation-duration: 14s; }
+  body.vset-active--collage .dvzh-glass-float:nth-child(3n+2) { animation-name: dvzh-morph-2; animation-duration: 18s; }
+  body.vset-active--collage .dvzh-glass-float:nth-child(3n)   { animation-name: dvzh-morph-3; animation-duration: 16s; }
+
+  @keyframes dvzh-morph-1 {
+    0%   { border-radius: 60% 40% 55% 45% / 50% 62% 38% 50%;
+           transform: translate(0, 0) rotate(var(--glass-rot, 0deg)) scale(1, 1); }
+    12%  { border-radius: 48% 52% 48% 52% / 48% 52% 48% 52%;
+           transform: translate(6px, -5px) rotate(calc(var(--glass-rot, 0deg) + 2deg)) scale(1.06, 0.95); }
+    28%  { border-radius: 72% 28% 65% 35% / 35% 70% 30% 65%;
+           transform: translate(-4px, -18px) rotate(calc(var(--glass-rot, 0deg) - 1.5deg)) scale(0.92, 1.08); }
+    42%  { border-radius: 40% 60% 35% 65% / 65% 40% 60% 35%;
+           transform: translate(10px, -8px) rotate(calc(var(--glass-rot, 0deg) + 3deg)) scale(1.1, 0.9); }
+    58%  { border-radius: 55% 45% 50% 50% / 45% 55% 45% 55%;
+           transform: translate(-7px, -22px) rotate(calc(var(--glass-rot, 0deg) - 2deg)) scale(0.95, 1.05); }
+    72%  { border-radius: 30% 70% 62% 38% / 58% 35% 65% 42%;
+           transform: translate(8px, -12px) rotate(calc(var(--glass-rot, 0deg) + 1deg)) scale(1.04, 0.96); }
+    88%  { border-radius: 65% 35% 42% 58% / 38% 62% 42% 58%;
+           transform: translate(-3px, -6px) rotate(calc(var(--glass-rot, 0deg) - 0.5deg)) scale(0.97, 1.03); }
+    100% { border-radius: 60% 40% 55% 45% / 50% 62% 38% 50%;
+           transform: translate(0, 0) rotate(var(--glass-rot, 0deg)) scale(1, 1); }
+  }
+  @keyframes dvzh-morph-2 {
+    0%   { border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+           transform: translate(0, 0) rotate(var(--glass-rot, 0deg)) scale(1, 1); }
+    15%  { border-radius: 68% 32% 55% 45% / 42% 65% 35% 58%;
+           transform: translate(-8px, -10px) rotate(calc(var(--glass-rot, 0deg) - 2.5deg)) scale(0.9, 1.1); }
+    30%  { border-radius: 35% 65% 70% 30% / 60% 38% 62% 40%;
+           transform: translate(5px, -25px) rotate(calc(var(--glass-rot, 0deg) + 1.5deg)) scale(1.08, 0.93); }
+    48%  { border-radius: 55% 45% 40% 60% / 35% 55% 45% 65%;
+           transform: translate(-10px, -14px) rotate(calc(var(--glass-rot, 0deg) - 1deg)) scale(0.94, 1.06); }
+    62%  { border-radius: 45% 55% 58% 42% / 52% 42% 58% 48%;
+           transform: translate(7px, -20px) rotate(calc(var(--glass-rot, 0deg) + 3deg)) scale(1.1, 0.92); }
+    78%  { border-radius: 62% 38% 32% 68% / 40% 60% 35% 65%;
+           transform: translate(-5px, -8px) rotate(calc(var(--glass-rot, 0deg) - 1.8deg)) scale(0.96, 1.04); }
+    90%  { border-radius: 42% 58% 52% 48% / 58% 45% 55% 42%;
+           transform: translate(3px, -4px) rotate(calc(var(--glass-rot, 0deg) + 0.5deg)) scale(1.02, 0.98); }
+    100% { border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+           transform: translate(0, 0) rotate(var(--glass-rot, 0deg)) scale(1, 1); }
+  }
+  @keyframes dvzh-morph-3 {
+    0%   { border-radius: 45% 55% 60% 40% / 55% 40% 60% 45%;
+           transform: translate(0, 0) rotate(var(--glass-rot, 0deg)) scale(1, 1); }
+    10%  { border-radius: 70% 30% 45% 55% / 32% 68% 38% 62%;
+           transform: translate(9px, -8px) rotate(calc(var(--glass-rot, 0deg) + 3.5deg)) scale(1.12, 0.88); }
+    25%  { border-radius: 38% 62% 55% 45% / 48% 52% 48% 52%;
+           transform: translate(-6px, -20px) rotate(calc(var(--glass-rot, 0deg) - 2deg)) scale(0.93, 1.07); }
+    40%  { border-radius: 52% 48% 35% 65% / 65% 35% 55% 45%;
+           transform: translate(12px, -15px) rotate(calc(var(--glass-rot, 0deg) + 1deg)) scale(1.05, 0.95); }
+    55%  { border-radius: 28% 72% 62% 38% / 42% 58% 40% 60%;
+           transform: translate(-8px, -28px) rotate(calc(var(--glass-rot, 0deg) - 3deg)) scale(0.88, 1.12); }
+    70%  { border-radius: 58% 42% 48% 52% / 52% 48% 52% 48%;
+           transform: translate(5px, -10px) rotate(calc(var(--glass-rot, 0deg) + 2deg)) scale(1.08, 0.94); }
+    85%  { border-radius: 42% 58% 68% 32% / 38% 62% 45% 55%;
+           transform: translate(-3px, -5px) rotate(calc(var(--glass-rot, 0deg) - 0.8deg)) scale(0.97, 1.03); }
+    100% { border-radius: 45% 55% 60% 40% / 55% 40% 60% 45%;
+           transform: translate(0, 0) rotate(var(--glass-rot, 0deg)) scale(1, 1); }
+  }
+
+  @media (max-width: 768px) {
+    body.vset-active--collage .dvzh-glass-float { display: none !important; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    body.vset-active--collage .dvzh-glass-float.glass-visible { animation: none !important; }
+  }
+
+  /* ── Collage: Watermark пасхалки ── */
+  .dvzh-watermark {
+    position: absolute;
+    top: 50%;
+    left: 2%;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: center center;
+    font-family: var(--font-display, 'Space Grotesk', sans-serif);
+    font-size: clamp(120px, 15vw, 220px);
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(var(--accent-1-rgb, 47, 185, 179), 0.14);
+    pointer-events: none;
+    z-index: 0;
+    user-select: none;
+    white-space: nowrap;
+    line-height: 1;
+    opacity: 0;
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+  }
+  .dvzh-watermark.wm-visible { opacity: 1; }
+  .dvzh-watermark:hover {
+    pointer-events: auto;
+    -webkit-text-stroke-color: rgba(var(--accent-1-rgb, 47, 185, 179), 0.25);
+    transition: -webkit-text-stroke-color 0.6s ease;
+    cursor: default;
+  }
+  .dvzh-watermark--right {
+    left: auto;
+    right: 2%;
+    transform: translateY(-50%) rotate(90deg);
+  }
+  .dvzh-watermark--center {
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+    font-size: clamp(100px, 20vw, 300px);
+    -webkit-text-stroke: 2px rgba(var(--accent-1-rgb, 47, 185, 179), 0.10);
+  }
+  @media (max-width: 768px) {
+    .dvzh-watermark { font-size: 80px; -webkit-text-stroke-width: 0.5px; }
+    .dvzh-watermark--center { font-size: 100px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .dvzh-watermark { opacity: 1; transition: none; }
+  }
+
+  /* ════════════════════════════════════════════
+     KINETIC VECTOR — Наклон -3° + параллелограммы
+     ════════════════════════════════════════════ */
+  body.vset-active--vector {
+    --vset-border-radius: 2px;
+    --vset-letter-spacing: 0.02em;
+  }
+  body.vset-active--vector * {
+    font-style: normal !important;
+  }
+  body.vset-active--vector .t396__artboard {
+    transform: rotate(-3deg) !important;
+    width: 110% !important;
+    margin-left: -5% !important;
+  }
+  body.vset-active--vector .t-heading {
+    font-weight: 700 !important;
+    font-style: normal !important;
+  }
+  body.vset-active--vector .tn-atom__btn {
+    border-radius: 2px !important;
+    font-weight: 700 !important;
+    font-style: normal !important;
+    transform: skewX(-8deg) !important;
+  }
+  body.vset-active--vector .tn-atom__btn span {
+    display: inline-block;
+    transform: skewX(8deg) !important;
+  }
+  #vset-vector-arrows {
+    position: fixed; inset: 0;
+    width: 100%; height: 100%;
+    z-index: 1; pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+  body.vset-active--vector #vset-vector-arrows {
+    opacity: 1;
+  }
+  .vset-vector-hscroll {
+    position: fixed;
+    left: 0; width: 200vw;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(47,185,179,0.04);
+    white-space: nowrap;
+    pointer-events: none; z-index: 0;
+    transition: opacity 0.5s ease;
+    opacity: 0;
+  }
+  .vset-vector-hscroll--top { top: 15vh; }
+  .vset-vector-hscroll--bottom { bottom: 10vh; }
+  body.vset-active--vector .vset-vector-hscroll { opacity: 1; }
+  @media screen and (max-width: 959px) {
+    body.vset-active--vector .t396__artboard {
+      transform: rotate(-2deg) !important;
+      width: 106% !important;
+      margin-left: -3% !important;
+    }
+  }
+
+
+  /* ════════════════════════════════════════════
+     MONOLITH — Типографический монолит
+     ════════════════════════════════════════════ */
+  body.vset-active--monolith {
+    --vset-border-radius: 4px;
+    --vset-letter-spacing: 0.04em;
+  }
+
+  /* Тонкие орбитные кольца */
+  body.vset-active--monolith::before,
+  body.vset-active--monolith::after {
+    content: '';
+    position: fixed;
+    top: 50%; left: 50%;
+    border-radius: 50%;
+    border: 1px solid rgba(var(--accent-1-rgb, 47, 185, 179), 0.05);
+    pointer-events: none;
+    z-index: 0;
+  }
+  body.vset-active--monolith::before {
+    width: 500px; height: 500px;
+    margin-top: -250px; margin-left: -250px;
+    animation: vset-mono-orbit 40s linear infinite;
+  }
+  body.vset-active--monolith::after {
+    width: 750px; height: 750px;
+    margin-top: -375px; margin-left: -375px;
+    opacity: 0.03;
+    animation: vset-mono-orbit 60s linear infinite reverse;
+  }
+  @keyframes vset-mono-orbit {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  /* Типографика: тяжёлая, uppercase, монументальная */
+  body.vset-active--monolith .t396__elem .tn-atom__title,
+  body.vset-active--monolith .t-title,
+  body.vset-active--monolith .t396__title,
+  body.vset-active--monolith .t-heading {
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
+    font-weight: 900 !important;
+  }
+  body.vset-active--monolith .t-btn,
+  body.vset-active--monolith .tn-atom__btn {
+    text-transform: uppercase !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.08em !important;
+    border-radius: 2px !important;
+  }
+
+  /* Мерцающие точки на декоративных элементах */
+  body.vset-active--monolith .vset-monolith.vset-monolith-dot .tn-atom {
+    animation: vset-mono-blink 4s ease-in-out infinite;
+  }
+  @keyframes vset-mono-blink {
+    0%, 100% { opacity: 0.2 !important; }
+    50%      { opacity: 0.45 !important; }
+  }
+
+  /* Сканирующая линия */
+  body.vset-active--monolith .vset-monolith.vset-monolith-scan .tn-atom {
+    animation: vset-mono-scan 8s linear infinite;
+  }
+  @keyframes vset-mono-scan {
+    0%   { opacity: 0; transform: translateX(-100%); }
+    5%   { opacity: 1; }
+    95%  { opacity: 1; }
+    100% { opacity: 0; transform: translateX(100%); }
+  }
+
+
+  /* ════════════════════════════════════════════
+     COLLAGE OLD — Сломанная сетка CSS-only
+     ════════════════════════════════════════════ */
+  body.vset-active--collage-old {
+    --vset-border-radius: 0px;
+    --vset-letter-spacing: -0.02em;
+  }
+
+  /* Шум-оверлей */
+  body.vset-active--collage-old::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9990;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 512px 512px;
+    mix-blend-mode: overlay;
+    animation: vset-collage-old-noise 0.3s steps(3) infinite;
+  }
+  @keyframes vset-collage-old-noise {
+    0%   { transform: translate(0, 0); }
+    33%  { transform: translate(-2px, 1px); }
+    66%  { transform: translate(1px, -1px); }
+    100% { transform: translate(0, 0); }
+  }
+
+  /* Протекающая краска */
+  body.vset-active--collage-old::after {
+    content: '';
+    position: fixed;
+    top: 0; right: 7%;
+    width: 2px; height: 100vh;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(var(--accent-1-rgb, 47, 185, 179), 0.3) 15%,
+      rgba(var(--accent-1-rgb, 47, 185, 179), 0.08) 60%,
+      transparent 100%
+    );
+    animation: vset-collage-old-drip 8s ease-in-out infinite alternate;
+  }
+  @keyframes vset-collage-old-drip {
+    0%   { height: 60vh; opacity: 0.5; }
+    100% { height: 100vh; opacity: 0.8; }
+  }
+
+  /* Типографика: тяжёлая, дерзкая, без радиусов */
+  body.vset-active--collage-old .t396__elem .tn-atom__title,
+  body.vset-active--collage-old .t-title,
+  body.vset-active--collage-old .t396__title,
+  body.vset-active--collage-old .t-heading {
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+    letter-spacing: -0.03em !important;
+  }
+  body.vset-active--collage-old .t-btn,
+  body.vset-active--collage-old .tn-atom__btn {
+    border-radius: 0 !important;
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+    box-shadow: 4px 4px 0 rgba(var(--accent-1-rgb, 47, 185, 179), 0.2) !important;
+  }
+
+  /* Случайные наклоны на элементах через JS (initCollageOldEngine) */
+  body.vset-active--collage-old .t396__elem {
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  }
+
+
+  /* ════════════════════════════════════════════
+     CLASSIC — Чистая классика, без декора
+     ════════════════════════════════════════════ */
+  body.vset-active--classic {
+    --vset-border-radius: 12px;
+    --vset-letter-spacing: -0.01em;
+  }
+
+  /* Типографика: сбалансированная, без экстрима */
+  body.vset-active--classic .t396__elem .tn-atom__title,
+  body.vset-active--classic .t-title,
+  body.vset-active--classic .t396__title,
+  body.vset-active--classic .t-heading {
+    letter-spacing: -0.01em !important;
+    font-weight: 600 !important;
+  }
+  body.vset-active--classic .t-btn,
+  body.vset-active--classic .tn-atom__btn {
+    font-weight: 600 !important;
+    letter-spacing: 0 !important;
+    border-radius: 12px !important;
+  }
+
+
+  /* ── 4. TILDA RESPONSIVE: скрытие на мобильных артбордах ── */
+  @media screen and (max-width: 959px) {
+    .t396__elem.vset-orbit,
+    .t396__elem.vset-street,
+    .t396__elem.vset-minimal,
+    .t396__elem.vset-cosmos,
+    .t396__elem.vset-pulse,
+    .t396__elem.vset-kinetic,
+    .t396__elem.vset-orbital,
+    .t396__elem.vset-collage,
+    .t396__elem.vset-vector,
+    .t396__elem.vset-monolith,
+    .t396__elem.vset-collage-old,
+    .t396__elem.vset-classic {
+      transition-duration: 0.3s;
+    }
+    /* Cosmos: орбиты уменьшаем на мобилках */
+    body.vset-active--cosmos::before { width: 90vw; height: 90vw; margin: -45vw 0 0 -45vw; }
+    body.vset-active--cosmos::after  { display: none; }
+    /* Kinetic: убираем скос на маленьких экранах */
+    body.vset-active--kinetic { --vset-skew: 0deg; }
+    /* Monolith: орбиты меньше на мобилках */
+    body.vset-active--monolith::before { width: 300px; height: 300px; margin: -150px 0 0 -150px; }
+    body.vset-active--monolith::after { display: none; }
+  }
+
+  /* ── 5. Reduced motion: доступность ── */
+  @media (prefers-reduced-motion: reduce) {
+    .t396__elem.vset-orbit,
+    .t396__elem.vset-street,
+    .t396__elem.vset-minimal,
+    .t396__elem.vset-cosmos,
+    .t396__elem.vset-pulse,
+    .t396__elem.vset-kinetic,
+    .t396__elem.vset-orbital,
+    .t396__elem.vset-collage,
+    .t396__elem.vset-vector,
+    .t396__elem.vset-monolith,
+    .t396__elem.vset-collage-old,
+    .t396__elem.vset-classic,
+    .t396__elem.vset-orbit .tn-atom,
+    .t396__elem.vset-street .tn-atom,
+    .t396__elem.vset-minimal .tn-atom,
+    .t396__elem.vset-cosmos .tn-atom,
+    .t396__elem.vset-pulse .tn-atom,
+    .t396__elem.vset-kinetic .tn-atom,
+    .t396__elem.vset-orbital .tn-atom,
+    .t396__elem.vset-collage .tn-atom,
+    .t396__elem.vset-vector .tn-atom,
+    .t396__elem.vset-monolith .tn-atom,
+    .t396__elem.vset-collage-old .tn-atom,
+    .t396__elem.vset-classic .tn-atom {
+      transition: none !important;
+      transform: none !important;
+      animation: none !important;
+    }
+    body.vset-active--cosmos::before,
+    body.vset-active--cosmos::after,
+    body.vset-active--pulse::before,
+    body.vset-active--kinetic::before,
+    body.vset-active--orbital::before,
+    body.vset-active--collage::before,
+    body.vset-active--monolith::before,
+    body.vset-active--monolith::after,
+    body.vset-active--collage-old::before,
+    body.vset-active--collage-old::after {
+      animation: none !important;
+    }
+  }
+
+  /* ── 6. SKELETON / PLACEHOLDER — до загрузки pack'а ── */
+  /* Показываем нейтральный пульсирующий фон пока JS не применит pack.
+     Класс vset-loading ставится на body до init(), снимается после. */
+  body.vset-loading .t396__elem.vset-orbit,
+  body.vset-loading .t396__elem.vset-street,
+  body.vset-loading .t396__elem.vset-minimal,
+  body.vset-loading .t396__elem.vset-cosmos,
+  body.vset-loading .t396__elem.vset-pulse,
+  body.vset-loading .t396__elem.vset-kinetic,
+  body.vset-loading .t396__elem.vset-orbital,
+  body.vset-loading .t396__elem.vset-collage,
+  body.vset-loading .t396__elem.vset-vector,
+  body.vset-loading .t396__elem.vset-monolith,
+  body.vset-loading .t396__elem.vset-collage-old,
+  body.vset-loading .t396__elem.vset-classic {
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+
+  /* Skeleton-пульсация на артбордах, пока pack не выбран */
+  body.vset-loading .t396__artboard::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.03) 40%,
+      rgba(255, 255, 255, 0.06) 50%,
+      rgba(255, 255, 255, 0.03) 60%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: vset-skeleton-pulse 1.8s ease-in-out infinite;
+  }
+
+  @keyframes vset-skeleton-pulse {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* Skeleton убирается мгновенно когда pack активен */
+  body.vset-active--orbit .t396__artboard::after,
+  body.vset-active--street .t396__artboard::after,
+  body.vset-active--minimal .t396__artboard::after,
+  body.vset-active--cosmos .t396__artboard::after,
+  body.vset-active--pulse .t396__artboard::after,
+  body.vset-active--kinetic .t396__artboard::after,
+  body.vset-active--orbital .t396__artboard::after,
+  body.vset-active--collage .t396__artboard::after,
+  body.vset-active--vector .t396__artboard::after,
+  body.vset-active--monolith .t396__artboard::after,
+  body.vset-active--collage-old .t396__artboard::after,
+  body.vset-active--classic .t396__artboard::after {
+    display: none !important;
+  }
+
+  /* ── 7. Z-INDEX: Tilda-специфика ── */
+  /* Гарантируем что декор-элементы корректно стекаются
+     относительно Tilda inline z-index'ов */
+  .t396__elem.vset-orbit,
+  .t396__elem.vset-street,
+  .t396__elem.vset-minimal,
+  .t396__elem.vset-cosmos,
+  .t396__elem.vset-pulse,
+  .t396__elem.vset-kinetic,
+  .t396__elem.vset-orbital,
+  .t396__elem.vset-collage,
+  .t396__elem.vset-vector,
+  .t396__elem.vset-monolith,
+  .t396__elem.vset-collage-old,
+  .t396__elem.vset-classic {
+    z-index: 1 !important;
+  }
+
+  /* Активный элемент получает z-index выше фона, но ниже текста/кнопок */
+  body.vset-active--orbit .t396__elem.vset-orbit,
+  body.vset-active--street .t396__elem.vset-street,
+  body.vset-active--minimal .t396__elem.vset-minimal,
+  body.vset-active--cosmos .t396__elem.vset-cosmos,
+  body.vset-active--pulse .t396__elem.vset-pulse,
+  body.vset-active--kinetic .t396__elem.vset-kinetic,
+  body.vset-active--orbital .t396__elem.vset-orbital,
+  body.vset-active--collage .t396__elem.vset-collage,
+  body.vset-active--vector .t396__elem.vset-vector,
+  body.vset-active--monolith .t396__elem.vset-monolith,
+  body.vset-active--collage-old .t396__elem.vset-collage-old,
+  body.vset-active--classic .t396__elem.vset-classic {
+    z-index: 5 !important;
+  }
+
+  /* Для элементов, которые должны быть поверх декора,
+     добавьте класс vset-above в Tilda */
+  .t396__elem.vset-above {
+    z-index: 10 !important;
+  }
+</style>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ============================================
+     DVZH Visual Sets — Content Pack Manager
+     ============================================ */
+
+  /** Допустимые content-паки */
+  var VALID_PACKS = ['orbit', 'street', 'minimal', 'cosmos', 'pulse', 'kinetic', 'orbital', 'collage', 'vector', 'monolith', 'collage-old', 'classic'];
+
+  /** CSS-префикс для body-класса */
+  var CLASS_PREFIX = 'vset-active--';
+
+  /** Ключ localStorage для сохранения выбора */
+  var STORAGE_KEY = 'dvzh-content-pack';
+
+  /**
+   * Применяет content pack к странице.
+   * Добавляет класс `vset-active--{pack}` на body, 
+   * убирая все остальные vset-классы. Не трогает theme-/vstyle-классы.
+   *
+   * @param {string} pack — 'orbit' | 'street' | 'minimal'
+   * @param {Object} [options]
+   * @param {boolean} [options.save=true] — сохранять ли в localStorage
+   * @param {boolean} [options.silent=false] — не генерировать событие
+   * @returns {boolean} — true если pack успешно применён
+   */
+  function setContentPack(pack, options) {
+    var opts = options || {};
+    var save = opts.save !== false;
+    var silent = opts.silent === true;
+
+    // Валидация
+    if (VALID_PACKS.indexOf(pack) === -1) {
+      console.warn('[DVZH Visual Sets] Неизвестный pack: "' + pack + '". Допустимые: ' + VALID_PACKS.join(', '));
+      return false;
+    }
+
+    var body = document.body;
+
+    // Удаляем все vset-active--* классы, сохраняя остальные (theme, vstyle и т.д.)
+    var currentClasses = body.className.split(/\s+/).filter(function (cls) {
+      return cls.indexOf(CLASS_PREFIX) !== 0;
+    });
+
+    // Добавляем новый
+    currentClasses.push(CLASS_PREFIX + pack);
+    body.className = currentClasses.join(' ').trim();
+
+    // Сохраняем выбор
+    if (save) {
+      try {
+        localStorage.setItem(STORAGE_KEY, pack);
+      } catch (e) {
+        // localStorage недоступен — молча продолжаем
+      }
+    }
+
+    // Обновляем активные кнопки (если есть)
+    updateButtons(pack);
+
+    // Кастомное событие для внешних подписчиков
+    if (!silent) {
+      var event;
+      try {
+        event = new CustomEvent('vset:change', { detail: { pack: pack } });
+      } catch (e) {
+        // IE fallback
+        event = document.createEvent('CustomEvent');
+        event.initCustomEvent('vset:change', true, true, { pack: pack });
+      }
+      document.dispatchEvent(event);
+    }
+
+    return true;
+  }
+
+  /**
+   * Возвращает текущий активный content pack.
+   * @returns {string|null}
+   */
+  function getContentPack() {
+    var match = document.body.className.match(new RegExp(CLASS_PREFIX + '(\\w+)'));
+    return match ? match[1] : null;
+  }
+
+  /**
+   * Обновляет CSS-класс vset-btn--active на кнопках-переключателях.
+   * @param {string} activePack
+   */
+  function updateButtons(activePack) {
+    var buttons = document.querySelectorAll('[data-vset]');
+    for (var i = 0; i < buttons.length; i++) {
+      var btn = buttons[i];
+      if (btn.getAttribute('data-vset') === activePack) {
+        btn.classList.add('vset-btn--active');
+      } else {
+        btn.classList.remove('vset-btn--active');
+      }
+    }
+  }
+
+  /**
+   * Привязывает клик-обработчики к элементам с data-vset="...".
+   * Вызывается автоматически при DOMContentLoaded, но можно вызвать повторно
+   * после динамического добавления кнопок.
+   */
+  function bindButtons() {
+    document.addEventListener('click', function (e) {
+      var target = e.target.closest('[data-vset]');
+      if (!target) return;
+      var pack = target.getAttribute('data-vset');
+      if (pack) {
+        setContentPack(pack);
+      }
+    });
+  }
+
+  /* ── A/B-тестирование ── */
+
+  /** Ключ localStorage для A/B-группы */
+  var AB_STORAGE_KEY = 'dvzh-ab-group';
+
+  /**
+   * Возвращает pack для A/B-теста.
+   * Новый посетитель получает рандомный pack, который фиксируется в localStorage.
+   * @returns {string} — pack из VALID_PACKS
+   */
+  function getABTestPack() {
+    var group = null;
+    try {
+      group = localStorage.getItem(AB_STORAGE_KEY);
+    } catch (e) {}
+
+    if (group && VALID_PACKS.indexOf(group) !== -1) {
+      return group;
+    }
+
+    // Новый посетитель — рандомная группа
+    var randomIndex = Math.floor(Math.random() * VALID_PACKS.length);
+    group = VALID_PACKS[randomIndex];
+
+    try {
+      localStorage.setItem(AB_STORAGE_KEY, group);
+    } catch (e) {}
+
+    return group;
+  }
+
+  /**
+   * Отправляет событие смены pack'а в аналитику.
+   * Поддерживает: Яндекс.Метрика, Google Analytics (gtag/ga), dataLayer (GTM).
+   * @param {string} pack
+   * @param {string} source — откуда сменился ('init', 'click', 'url', 'ab')
+   */
+  function trackPackChange(pack, source) {
+    var eventData = { pack: pack, source: source };
+
+    // Google Analytics 4 (gtag)
+    if (typeof gtag === 'function') {
+      gtag('event', 'vset_change', {
+        vset_pack: pack,
+        vset_source: source
+      });
+    }
+
+    // Google Tag Manager dataLayer
+    if (typeof dataLayer !== 'undefined' && Array.isArray(dataLayer)) {
+      dataLayer.push({
+        event: 'vset_change',
+        vsetPack: pack,
+        vsetSource: source
+      });
+    }
+
+    // Яндекс.Метрика
+    if (typeof ym === 'function') {
+      // ПОЧЕМУ: Метрика не имеет стандартного event API, используем reachGoal
+      try {
+        // Находим первый доступный счётчик
+        var counters = window.Ya && window.Ya._metrika && window.Ya._metrika.counters;
+        if (counters) {
+          var counterId = Object.keys(counters)[0];
+          if (counterId) ym(Number(counterId), 'reachGoal', 'vset_change', eventData);
+        }
+      } catch (e) {}
+    }
+  }
+
+  /* ── Инициализация ── */
+
+  // NOTE: currentTheme задаётся вручную. 
+  // Для автоматизации замените на логику из CMS, query-параметра или кнопки.
+  var currentTheme = 'collage'; // 'orbit' | 'street' | 'minimal' | 'collage' | 'monolith' | 'classic' | etc.
+
+  /** Режим A/B-теста: true — рандомный pack для новых посетителей */
+  var AB_TEST_ENABLED = false;
+
+  // ПОЧЕМУ: skeleton ставим сразу синхронно, до DOMContentLoaded,
+  // чтобы не было FOUC / CLS (мелькания контента)
+  document.documentElement.className += ' vset-loading';
+  if (document.body) document.body.classList.add('vset-loading');
+
+  function init() {
+    // Skeleton на body (если ещё не поставлен)
+    document.body.classList.add('vset-loading');
+
+    // Приоритет: URL ?vset= → localStorage → A/B-тест → currentTheme → fallback
+    var urlPack = new URLSearchParams(window.location.search).get('vset');
+    var saved = null;
+    try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+
+    var packToApply;
+    var source;
+
+    if (urlPack && VALID_PACKS.indexOf(urlPack) !== -1) {
+      // URL-параметр — высший приоритет (для шаринга)
+      packToApply = urlPack;
+      source = 'url';
+    } else if (saved && VALID_PACKS.indexOf(saved) !== -1) {
+      // Сохранённый выбор
+      packToApply = saved;
+      source = 'saved';
+    } else if (AB_TEST_ENABLED) {
+      // A/B-тест для новых посетителей
+      packToApply = getABTestPack();
+      source = 'ab';
+    } else {
+      // Fallback на ручную переменную
+      packToApply = currentTheme;
+      source = 'init';
+    }
+
+    setContentPack(packToApply, { save: true, silent: true });
+    trackPackChange(packToApply, source);
+    bindButtons();
+
+    // Запускаем визуальные движки
+    initCosmosEngine();
+    initPulseEngine();
+    initKineticEngine();
+    initOrbitalEngine();
+    initCollageEngine();
+    initCollageOldEngine();
+    initVectorEngine();
+
+    // Снимаем skeleton — pack применён
+    document.body.classList.remove('vset-loading');
+    document.documentElement.classList.remove('vset-loading');
+  }
+
+  // Запуск: ждём DOM если нужно
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  // Трекаем ручные переключения через vset:change
+  document.addEventListener('vset:change', function (e) {
+    if (e.detail && e.detail.pack) {
+      trackPackChange(e.detail.pack, 'click');
+    }
+  });
+
+  /* ════════════════════════════════════════════════
+     ENGINE: COSMOS — Video BG + Parallax/Tilt + Gyroscope
+     ════════════════════════════════════════════════ */
+  function initCosmosEngine() {
+    var tiltEls = [];
+    var mouseX = 0, mouseY = 0;
+    var rafId = null;
+    var isActive = false;
+    var videoEl = null;
+    var gyroPermission = false;
+    var isDesktop = window.innerWidth >= 1024;
+
+    /**
+     * Создаём <video> для макросъёмки пыли/частиц.
+     * Видео-URL можно заменить на своё через COSMOS_VIDEO_URL.
+     */
+    function createVideoBackground() {
+      if (document.getElementById('vset-cosmos-video')) {
+        videoEl = document.getElementById('vset-cosmos-video');
+        return;
+      }
+      videoEl = document.createElement('video');
+      videoEl.id = 'vset-cosmos-video';
+      videoEl.muted = true;
+      videoEl.loop = true;
+      videoEl.playsInline = true;
+      videoEl.setAttribute('playsinline', '');
+      videoEl.setAttribute('webkit-playsinline', '');
+      videoEl.preload = 'auto';
+
+      // NOTE: Замените URL на ваше видео макросъёмки пыли/частиц
+      var videoUrl = window.COSMOS_VIDEO_URL || '';
+      if (videoUrl) {
+        videoEl.src = videoUrl;
+      }
+
+      document.body.insertBefore(videoEl, document.body.firstChild);
+    }
+
+    function collectElements() {
+      tiltEls = Array.prototype.slice.call(
+        document.querySelectorAll('.vset-cosmos-tilt')
+      );
+    }
+
+    /* ── Desktop: Mouse parallax ── */
+    function onMouseMove(e) {
+      mouseX = (e.clientX / window.innerWidth - 0.5) * 2;  // -1 to 1
+      mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+    }
+
+    /* ── Mobile: Gyroscope parallax ── */
+    function onDeviceOrientation(e) {
+      // beta: наклон вперёд/назад (-180..180), gamma: наклон влево/вправо (-90..90)
+      var beta = e.beta || 0;
+      var gamma = e.gamma || 0;
+      // Нормализуем до -1..1
+      mouseX = Math.max(-1, Math.min(1, gamma / 30));
+      mouseY = Math.max(-1, Math.min(1, (beta - 45) / 30));
+    }
+
+    function requestGyro() {
+      if (gyroPermission) return;
+      if (typeof DeviceOrientationEvent !== 'undefined' &&
+          typeof DeviceOrientationEvent.requestPermission === 'function') {
+        // iOS 13+: нужно явное разрешение
+        DeviceOrientationEvent.requestPermission().then(function (state) {
+          if (state === 'granted') {
+            gyroPermission = true;
+            window.addEventListener('deviceorientation', onDeviceOrientation, { passive: true });
+          }
+        }).catch(function () {});
+      } else if ('DeviceOrientationEvent' in window) {
+        // Android / older iOS: разрешение не нужно
+        gyroPermission = true;
+        window.addEventListener('deviceorientation', onDeviceOrientation, { passive: true });
+      }
+    }
+
+    function animate() {
+      if (!isActive) return;
+      // Коэффициенты уменьшены для мобилок
+      var multiplier = isDesktop ? 1 : 0.6;
+      for (var i = 0; i < tiltEls.length; i++) {
+        var el = tiltEls[i];
+        var depth = parseFloat(el.getAttribute('data-depth') || '1');
+        var rotX = mouseY * 8 * depth * multiplier;
+        var rotY = mouseX * -12 * depth * multiplier;
+        var tx = mouseX * 15 * depth * multiplier;
+        var ty = mouseY * 10 * depth * multiplier;
+        el.style.transform = 'perspective(800px) rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg) translate(' + tx + 'px, ' + ty + 'px)';
+      }
+      rafId = requestAnimationFrame(animate);
+    }
+
+    function start() {
+      if (isActive) return;
+      isActive = true;
+      collectElements();
+      createVideoBackground();
+
+      if (videoEl && videoEl.src) {
+        videoEl.play().catch(function () {});
+      }
+
+      if (isDesktop) {
+        document.addEventListener('mousemove', onMouseMove, { passive: true });
+      } else {
+        requestGyro();
+      }
+      rafId = requestAnimationFrame(animate);
+    }
+
+    function stop() {
+      isActive = false;
+      document.removeEventListener('mousemove', onMouseMove);
+      if (!isDesktop && gyroPermission) {
+        window.removeEventListener('deviceorientation', onDeviceOrientation);
+        gyroPermission = false;
+      }
+      if (rafId) cancelAnimationFrame(rafId);
+      if (videoEl) videoEl.pause();
+      for (var i = 0; i < tiltEls.length; i++) {
+        tiltEls[i].style.transform = '';
+      }
+    }
+
+    document.addEventListener('vset:change', function (e) {
+      if (e.detail.pack === 'cosmos') { start(); } else { stop(); }
+    });
+    if (getContentPack() === 'cosmos') start();
+  }
+
+
+  /* ═══════════════════════════════════════════════════
+     ENGINE: PULSE — Glitch + Flicker + Web Audio Noise
+     ═══════════════════════════════════════════════════ */
+  function initPulseEngine() {
+    var flickerInterval = null;
+    var audioCtx = null;
+    var noiseGain = null;
+    var noiseSource = null;
+    var noiseBuffer = null;
+
+    /**
+     * Создаём буфер статического шума (white noise) через Web Audio API.
+     * Используемся для микро-статика при эффекте glitch.
+     */
+    function initAudio() {
+      if (audioCtx) return;
+      try {
+        var AC = window.AudioContext || window.webkitAudioContext;
+        if (!AC) return;
+        audioCtx = new AC();
+
+        // Генерируем 0.1сек белого шума
+        var sampleRate = audioCtx.sampleRate;
+        var length = Math.floor(sampleRate * 0.1);
+        noiseBuffer = audioCtx.createBuffer(1, length, sampleRate);
+        var data = noiseBuffer.getChannelData(0);
+        for (var i = 0; i < length; i++) {
+          data[i] = Math.random() * 2 - 1;
+        }
+
+        // Мастер громкость — очень тихий шум
+        noiseGain = audioCtx.createGain();
+        noiseGain.gain.value = 0.03; // 3% громкости
+        noiseGain.connect(audioCtx.destination);
+      } catch (e) {
+        audioCtx = null;
+      }
+    }
+
+    /**
+     * Проигрывает микро-бурст статического шума (~50-100ms).
+     * Вызывается синхронно с glitch/flicker-эффектом.
+     */
+    function playNoiseBurst() {
+      if (!audioCtx || !noiseBuffer || !noiseGain) return;
+      // ПОЧЕМУ: resume() нужен т.к. браузеры блокируют AudioContext до user gesture
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume().catch(function () {});
+      }
+      try {
+        noiseSource = audioCtx.createBufferSource();
+        noiseSource.buffer = noiseBuffer;
+        noiseSource.connect(noiseGain);
+        noiseSource.start();
+      } catch (e) {}
+    }
+
+    function randomFlicker() {
+      var elements = document.querySelectorAll('.vset-pulse-flicker .tn-atom');
+      if (!elements.length) return;
+
+      var idx = Math.floor(Math.random() * elements.length);
+      var el = elements[idx];
+      el.style.opacity = '0.1';
+
+      // Синхронный звуковой бурст при мерцании
+      playNoiseBurst();
+
+      setTimeout(function () {
+        el.style.opacity = '';
+      }, 60 + Math.random() * 100);
+    }
+
+    function start() {
+      if (flickerInterval) return;
+      initAudio();
+      flickerInterval = setInterval(randomFlicker, 2000 + Math.random() * 3000);
+    }
+
+    function stop() {
+      if (flickerInterval) {
+        clearInterval(flickerInterval);
+        flickerInterval = null;
+      }
+      // Не закрываем AudioContext — реуз при повторном start()
+    }
+
+    document.addEventListener('vset:change', function (e) {
+      if (e.detail.pack === 'pulse') { start(); } else { stop(); }
+    });
+    if (getContentPack() === 'pulse') start();
+  }
+
+
+  /* ════════════════════════════════════════════════════════
+     ENGINE: KINETIC — Motion Blur + IntersectionObserver + Cursor Trail
+     ════════════════════════════════════════════════════════ */
+  function initKineticEngine() {
+    var scrollTimeout = null;
+    var isActive = false;
+    var observer = null;
+    var canvasEl = null;
+    var ctx = null;
+    var trailPoints = [];
+    var trailRaf = null;
+    var isDesktop = window.innerWidth >= 1024;
+
+    /* ── Motion blur on scroll ── */
+    function onScroll() {
+      if (!isActive) return;
+      document.body.classList.add('vset-scrolling');
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(function () {
+        document.body.classList.remove('vset-scrolling');
+      }, 150);
+    }
+
+    /* ── IntersectionObserver: streak-анимации только во viewport ── */
+    function initIntersection() {
+      if (!('IntersectionObserver' in window)) return;
+      var streaks = document.querySelectorAll('.vset-kinetic-streak');
+      if (!streaks.length) return;
+
+      observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('vset-in-view');
+          } else {
+            entry.target.classList.remove('vset-in-view');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      streaks.forEach(function (el) { observer.observe(el); });
+    }
+
+    function destroyIntersection() {
+      if (observer) {
+        observer.disconnect();
+        observer = null;
+      }
+      var streaks = document.querySelectorAll('.vset-kinetic-streak.vset-in-view');
+      streaks.forEach(function (el) { el.classList.remove('vset-in-view'); });
+    }
+
+    /* ── Canvas cursor trail (desktop only) ── */
+    function createTrailCanvas() {
+      if (canvasEl || !isDesktop) return;
+      canvasEl = document.createElement('canvas');
+      canvasEl.id = 'vset-kinetic-trail';
+      document.body.appendChild(canvasEl);
+      ctx = canvasEl.getContext('2d');
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+    }
+
+    function resizeCanvas() {
+      if (!canvasEl) return;
+      canvasEl.width = window.innerWidth;
+      canvasEl.height = window.innerHeight;
+    }
+
+    function onMouseMoveTrail(e) {
+      trailPoints.push({
+        x: e.clientX,
+        y: e.clientY,
+        age: 0
+      });
+      // Ограничиваем длину шлейфа
+      if (trailPoints.length > 40) trailPoints.shift();
+    }
+
+    function animateTrail() {
+      if (!isActive || !ctx || !canvasEl) return;
+      ctx.clearRect(0, 0, canvasEl.width, canvasEl.height);
+
+      // Рисуем шлейф с motion blur
+      if (trailPoints.length > 1) {
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+
+        for (var i = 1; i < trailPoints.length; i++) {
+          var p = trailPoints[i];
+          var prev = trailPoints[i - 1];
+          var progress = i / trailPoints.length; // 0..1
+
+          ctx.beginPath();
+          ctx.moveTo(prev.x, prev.y);
+          ctx.lineTo(p.x, p.y);
+
+          // Цвет из --brand-color или fallback
+          var alpha = progress * 0.4 * (1 - p.age / 20);
+          if (alpha <= 0) continue;
+
+          ctx.strokeStyle = 'rgba(47, 185, 179, ' + Math.max(0, alpha).toFixed(3) + ')';
+          ctx.lineWidth = progress * 3 + 1;
+          ctx.stroke();
+        }
+      }
+
+      // Старение: точки угасают
+      for (var j = trailPoints.length - 1; j >= 0; j--) {
+        trailPoints[j].age++;
+        if (trailPoints[j].age > 20) {
+          trailPoints.splice(j, 1);
+        }
+      }
+
+      trailRaf = requestAnimationFrame(animateTrail);
+    }
+
+    function startTrail() {
+      if (!isDesktop) return;
+      createTrailCanvas();
+      document.addEventListener('mousemove', onMouseMoveTrail, { passive: true });
+      trailRaf = requestAnimationFrame(animateTrail);
+    }
+
+    function stopTrail() {
+      document.removeEventListener('mousemove', onMouseMoveTrail);
+      if (trailRaf) cancelAnimationFrame(trailRaf);
+      trailPoints = [];
+      if (ctx && canvasEl) ctx.clearRect(0, 0, canvasEl.width, canvasEl.height);
+    }
+
+    /* ── Lifecycle ── */
+    function start() {
+      if (isActive) return;
+      isActive = true;
+      window.addEventListener('scroll', onScroll, { passive: true });
+      initIntersection();
+      startTrail();
+    }
+
+    function stop() {
+      isActive = false;
+      window.removeEventListener('scroll', onScroll);
+      document.body.classList.remove('vset-scrolling');
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+      destroyIntersection();
+      stopTrail();
+    }
+
+    document.addEventListener('vset:change', function (e) {
+      if (e.detail.pack === 'kinetic') { start(); } else { stop(); }
+    });
+    if (getContentPack() === 'kinetic') start();
+  }
+
+
+  /* ════════════════════════════════════════════════════════
+     ENGINE: ORBITAL — Radial glow + центрированная глубина
+     ════════════════════════════════════════════════════════ */
+  function initOrbitalEngine() {
+    var isActive = false;
+
+    function start() {
+      if (isActive) return;
+      isActive = true;
+    }
+
+    function stop() {
+      if (!isActive) return;
+      isActive = false;
+    }
+
+    document.addEventListener('vset:change', function (e) {
+      if (e.detail.pack === 'orbital') { start(); } else { stop(); }
+    });
+    if (getContentPack() === 'orbital') start();
+  }
+
+
+  /* ════════════════════════════════════════════════════════
+     ENGINE: COLLAGE — Broken grid + glass drops + watermarks
+     ════════════════════════════════════════════════════════ */
+  function initCollageEngine() {
+    var isActive = false;
+    var glassEls = [];
+    var watermarkEls = [];
+    var scrollHandler = null;
+    var revealObs = null;
+    var glassObs = null;
+
+    /* — Glass-float config: which Tilda sections get paint drops — */
+    /* NOTE: in Tilda, sections are .t-rec[id="rec..."] blocks.
+       Adapt section selectors to your Tilda page structure.
+       Example: '#rec123456' or use data-record attributes.
+       Below we use generic selectors that work across pages. */
+    var glassConfig = [
+      { sel: '#allrecords > .t-rec:nth-child(2)',  top: '8%',  right: '3%',  w: 220, h: 200, rot: -3 },
+      { sel: '#allrecords > .t-rec:nth-child(2)',  top: '50%', left: '5%',   w: 180, h: 240, rot: 4 },
+      { sel: '#allrecords > .t-rec:nth-child(4)',  top: '6%',  right: '1%',  w: 200, h: 180, rot: 5 },
+      { sel: '#allrecords > .t-rec:nth-child(4)',  top: '55%', left: '1%',   w: 160, h: 200, rot: -4 },
+      { sel: '#allrecords > .t-rec:nth-child(6)',  top: '4%',  right: '1%',  w: 230, h: 190, rot: -2 },
+      { sel: '#allrecords > .t-rec:nth-child(6)',  top: '48%', right: '4%',  w: 190, h: 170, rot: 6 },
+      { sel: '#allrecords > .t-rec:nth-child(8)',  top: '8%',  right: '2%',  w: 180, h: 200, rot: -5 },
+      { sel: '#allrecords > .t-rec:nth-child(8)',  top: '55%', left: '3%',   w: 160, h: 160, rot: 3 },
+      { sel: '#allrecords > .t-rec:nth-child(10)', top: '8%',  right: '2%',  w: 200, h: 160, rot: 2 },
+      { sel: '#allrecords > .t-rec:nth-child(10)', top: '55%', right: '2%',  w: 180, h: 220, rot: -4 },
+      { sel: '#allrecords > .t-rec:nth-child(12)', top: '8%',  right: '36%', w: 180, h: 170, rot: 5 },
+    ];
+
+    /* — Watermark config: which sections get DVZH watermarks — */
+    var wmConfig = [
+      { sel: '#allrecords > .t-rec:nth-child(4)',  variant: '' },
+      { sel: '#allrecords > .t-rec:nth-child(6)',  variant: 'dvzh-watermark--right' },
+      { sel: '#allrecords > .t-rec:nth-child(10)', variant: '' },
+      { sel: '#allrecords > .t-rec:nth-child(14)', variant: 'dvzh-watermark--right' },
+      { sel: '#allrecords > .t-rec:nth-child(16)', variant: 'dvzh-watermark--center' },
+    ];
+
+    function createGlassDrops() {
+      glassConfig.forEach(function (cfg) {
+        var host = document.querySelector(cfg.sel);
+        if (!host) return;
+        if (getComputedStyle(host).position === 'static') {
+          host.style.position = 'relative';
+        }
+        host.style.overflow = 'clip';
+        var el = document.createElement('div');
+        el.className = 'dvzh-glass-float';
+        var pos = cfg.left ? 'left:' + cfg.left : 'right:' + cfg.right;
+        el.style.cssText = 'top:' + cfg.top + ';' + pos + ';width:' + cfg.w + 'px;height:' + cfg.h + 'px;--glass-rot:' + cfg.rot + 'deg;transform:rotate(' + cfg.rot + 'deg);';
+        host.appendChild(el);
+        glassEls.push(el);
+      });
+
+      // IntersectionObserver reveal
+      glassObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('glass-visible');
+            glassObs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.05, rootMargin: '0px 0px -60px 0px' });
+      glassEls.forEach(function (el) { glassObs.observe(el); });
+    }
+
+    function destroyGlassDrops() {
+      glassEls.forEach(function (el) { el.remove(); });
+      glassEls = [];
+      if (glassObs) { glassObs.disconnect(); glassObs = null; }
+    }
+
+    function createWatermarks() {
+      wmConfig.forEach(function (cfg) {
+        var host = document.querySelector(cfg.sel);
+        if (!host) return;
+        if (getComputedStyle(host).position === 'static') {
+          host.style.position = 'relative';
+        }
+        host.style.overflow = 'clip';
+        var span = document.createElement('span');
+        span.className = 'dvzh-watermark' + (cfg.variant ? ' ' + cfg.variant : '');
+        span.setAttribute('aria-hidden', 'true');
+        span.textContent = 'DVZH';
+        host.appendChild(span);
+        watermarkEls.push(span);
+      });
+
+      // Reveal observer
+      revealObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('wm-visible');
+            revealObs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.05, rootMargin: '0px 0px -60px 0px' });
+      watermarkEls.forEach(function (m) { revealObs.observe(m); });
+
+      // Parallax
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!prefersReduced) {
+        var ticking = false;
+        scrollHandler = function () {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(function () {
+            watermarkEls.forEach(function (m) {
+              var rect = m.parentElement.getBoundingClientRect();
+              var sectionCenter = rect.top + rect.height / 2;
+              var offset = (sectionCenter - window.innerHeight / 2) * -0.04;
+              if (m.classList.contains('dvzh-watermark--center')) {
+                m.style.transform = 'translate(-50%, -50%) rotate(0deg) translateY(' + offset + 'px)';
+              } else if (m.classList.contains('dvzh-watermark--right')) {
+                m.style.transform = 'translateY(-50%) rotate(90deg) translateX(' + offset + 'px)';
+              } else {
+                m.style.transform = 'translateY(-50%) rotate(-90deg) translateX(' + (-offset) + 'px)';
+              }
+            });
+            ticking = false;
+          });
+        };
+        window.addEventListener('scroll', scrollHandler, { passive: true });
+        scrollHandler();
+      }
+    }
+
+    function destroyWatermarks() {
+      watermarkEls.forEach(function (el) { el.remove(); });
+      watermarkEls = [];
+      if (revealObs) { revealObs.disconnect(); revealObs = null; }
+      if (scrollHandler) {
+        window.removeEventListener('scroll', scrollHandler);
+        scrollHandler = null;
+      }
+    }
+
+    function applyRandomOffsets() {
+      var elems = document.querySelectorAll('.vset-collage .tn-atom');
+      for (var i = 0; i < elems.length; i++) {
+        var rotate = (Math.random() - 0.5) * 4; // -2..2 deg
+        elems[i].style.transform = 'rotate(' + rotate + 'deg)';
+      }
+    }
+
+    function clearOffsets() {
+      var elems = document.querySelectorAll('.vset-collage .tn-atom');
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].style.transform = '';
+      }
+    }
+
+    function start() {
+      if (isActive) return;
+      isActive = true;
+      applyRandomOffsets();
+      createGlassDrops();
+      createWatermarks();
+    }
+
+    function stop() {
+      if (!isActive) return;
+      isActive = false;
+      clearOffsets();
+      destroyGlassDrops();
+      destroyWatermarks();
+    }
+
+    document.addEventListener('vset:change', function (e) {
+      if (e.detail.pack === 'collage') { start(); } else { stop(); }
+    });
+    if (getContentPack() === 'collage') start();
+  }
+
+
+  /* ════════════════════════════════════════════════════════
+     ENGINE: COLLAGE OLD — CSS-only chaos + random rotations
+     ════════════════════════════════════════════════════════ */
+  function initCollageOldEngine() {
+    var isActive = false;
+
+    function applyRandomOffsets() {
+      var elems = document.querySelectorAll('.vset-collage-old .tn-atom');
+      for (var i = 0; i < elems.length; i++) {
+        var rotate = (Math.random() - 0.5) * 3; // -1.5..1.5 deg
+        elems[i].style.transform = 'rotate(' + rotate + 'deg)';
+      }
+    }
+
+    function clearOffsets() {
+      var elems = document.querySelectorAll('.vset-collage-old .tn-atom');
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].style.transform = '';
+      }
+    }
+
+    function start() {
+      if (isActive) return;
+      isActive = true;
+      applyRandomOffsets();
+    }
+
+    function stop() {
+      if (!isActive) return;
+      isActive = false;
+      clearOffsets();
+    }
+
+    document.addEventListener('vset:change', function (e) {
+      if (e.detail.pack === 'collage-old') { start(); } else { stop(); }
+    });
+    if (getContentPack() === 'collage-old') start();
+  }
+
+
+  /* ════════════════════════════════════════════════════════
+     ENGINE: VECTOR — SVG arrows + horizontal scroll text
+     ════════════════════════════════════════════════════════ */
+  function initVectorEngine() {
+    var isActive = false;
+    var svgEl = null;
+    var scrollTopEl = null;
+    var scrollBottomEl = null;
+    var scrollRaf = null;
+    var scrollPos = 0;
+
+    function createArrowsSVG() {
+      if (document.getElementById('vset-vector-arrows')) {
+        svgEl = document.getElementById('vset-vector-arrows');
+        return;
+      }
+      svgEl = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svgEl.id = 'vset-vector-arrows';
+      svgEl.setAttribute('viewBox', '0 0 1920 1080');
+      svgEl.setAttribute('preserveAspectRatio', 'none');
+      // Несколько декоративных стрелок-направляющих
+      var lines = [
+        'M0,200 L1920,200', 'M0,880 L1920,880',
+        'M960,0 L960,1080',
+        'M200,0 L1720,1080', 'M1720,0 L200,1080'
+      ];
+      for (var i = 0; i < lines.length; i++) {
+        var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', lines[i]);
+        path.setAttribute('stroke', 'rgba(47,185,179,0.04)');
+        path.setAttribute('stroke-width', '1');
+        path.setAttribute('fill', 'none');
+        svgEl.appendChild(path);
+      }
+      document.body.insertBefore(svgEl, document.body.firstChild);
+    }
+
+    function createHScrollText() {
+      if (document.querySelector('.vset-vector-hscroll')) return;
+      var text = 'VECTOR ◆ DIRECTION ◆ MOMENTUM ◆ VELOCITY ◆ ';
+      var repeatedText = '';
+      for (var i = 0; i < 20; i++) repeatedText += text;
+
+      scrollTopEl = document.createElement('div');
+      scrollTopEl.className = 'vset-vector-hscroll vset-vector-hscroll--top';
+      scrollTopEl.textContent = repeatedText;
+
+      scrollBottomEl = document.createElement('div');
+      scrollBottomEl.className = 'vset-vector-hscroll vset-vector-hscroll--bottom';
+      scrollBottomEl.textContent = repeatedText;
+
+      document.body.appendChild(scrollTopEl);
+      document.body.appendChild(scrollBottomEl);
+    }
+
+    function animateScroll() {
+      if (!isActive) return;
+      scrollPos -= 0.3;
+      if (scrollTopEl) scrollTopEl.style.transform = 'translateX(' + scrollPos + 'px)';
+      if (scrollBottomEl) scrollBottomEl.style.transform = 'translateX(' + (-scrollPos) + 'px)';
+      scrollRaf = requestAnimationFrame(animateScroll);
+    }
+
+    function start() {
+      if (isActive) return;
+      isActive = true;
+      createArrowsSVG();
+      createHScrollText();
+      scrollRaf = requestAnimationFrame(animateScroll);
+    }
+
+    function stop() {
+      if (!isActive) return;
+      isActive = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+    }
+
+    document.addEventListener('vset:change', function (e) {
+      if (e.detail.pack === 'vector') { start(); } else { stop(); }
+    });
+    if (getContentPack() === 'vector') start();
+  }
+
+
+  /* ── Public API — доступен глобально ── */
+  window.DVZHVisualSets = {
+    set: setContentPack,
+    get: getContentPack,
+    rebind: bindButtons,
+    getABGroup: getABTestPack,
+    track: trackPackChange,
+    PACKS: VALID_PACKS
+  };
+
+})();
+</script>
