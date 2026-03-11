@@ -3,7 +3,19 @@
    Scripts: Enhanced Animations & Interactions
    ============================================ */
 
+// NOTE: Админ-режим включается через ?admin в URL — показывает переключатели стилей/палитр
+const DVZH_IS_ADMIN = new URLSearchParams(window.location.search).has('admin');
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Скрываем UI переключения стилей для обычных пользователей
+    if (!DVZH_IS_ADMIN) {
+        const hideIds = ['showcase', 'showcaseTrigger', 'themeSwitcher'];
+        hideIds.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.style.display = 'none';
+        });
+    }
+
     initNavigation();
     initScrollAnimations();
     initCounters();
@@ -345,9 +357,12 @@ function initThemeSwitcher() {
     if (!toggle || !panel) return;
 
     // Load saved color theme + visual style
-    const savedTheme = localStorage.getItem('dvzh-color-theme') || '';
-    const savedVstyle = localStorage.getItem('dvzh-vstyle') || 'vstyle-collage';
+    // Обычные пользователи всегда видят vstyle-collage, админ может менять
+    const savedTheme = DVZH_IS_ADMIN ? (localStorage.getItem('dvzh-color-theme') || '') : '';
+    const savedVstyle = DVZH_IS_ADMIN ? (localStorage.getItem('dvzh-vstyle') || 'vstyle-collage') : 'vstyle-collage';
     applyBodyClasses(savedTheme, savedVstyle);
+
+    if (!DVZH_IS_ADMIN) return; // Остальная логика свитчера только для админа
 
     swatches.forEach(s => {
         s.classList.toggle('active', s.dataset.theme === savedTheme);
