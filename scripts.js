@@ -6,6 +6,17 @@
 // NOTE: Админ-режим включается через ?admin в URL — показывает переключатели стилей/палитр
 const DVZH_IS_ADMIN = new URLSearchParams(window.location.search).has('admin');
 
+// Font loading skeleton — убираем shimmer после загрузки шрифтов
+document.documentElement.classList.add('fonts-loading');
+if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => {
+        document.documentElement.classList.remove('fonts-loading');
+    });
+} else {
+    // Fallback: убираем через 2с если API недоступен
+    setTimeout(() => document.documentElement.classList.remove('fonts-loading'), 2000);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // Скрываем UI переключения стилей для обычных пользователей
     if (!DVZH_IS_ADMIN) {

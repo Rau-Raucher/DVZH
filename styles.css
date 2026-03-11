@@ -8124,6 +8124,97 @@ body.vstyle-collage .problem__grid.stagger-children.animated > .problem__card:ho
 }
 
 /* ============================================
+   TOUCH FEEDBACK — haptic-feel :active states
+   ============================================ */
+@media (hover: none) and (pointer: coarse) {
+    .btn--primary:active {
+        transform: scale(0.96);
+        filter: brightness(0.92);
+    }
+
+    .btn--ghost:active {
+        transform: scale(0.96);
+        background: rgba(var(--accent-1-rgb), 0.08);
+    }
+
+    .problem__card:active,
+    .services__card:active,
+    .cases__card:active,
+    .model__month:active {
+        transform: scale(0.97);
+        border-color: var(--accent-1);
+        transition-duration: 0.1s;
+    }
+
+    .faq__question:active {
+        background: rgba(var(--accent-1-rgb), 0.05);
+        transition-duration: 0.1s;
+    }
+
+    .nav__link:active {
+        color: var(--accent-1);
+        transform: scale(0.95);
+    }
+
+    .style-toggle:active {
+        transform: scale(0.9);
+    }
+
+    .tg-float:active {
+        transform: scale(0.9);
+    }
+
+    /* Tap highlight для iOS */
+    a, button {
+        -webkit-tap-highlight-color: rgba(var(--accent-1-rgb), 0.15);
+    }
+}
+
+/* ============================================
+   SCROLL SNAP — soft proximity on mobile
+   ============================================ */
+@media (max-width: 768px) and (hover: none) {
+    html {
+        scroll-snap-type: y proximity;
+    }
+
+    .hero,
+    .problem,
+    .approach,
+    .model,
+    .services,
+    .cases,
+    .process,
+    .about,
+    .not-for,
+    .faq,
+    .cta-final {
+        scroll-snap-align: start;
+        scroll-snap-stop: normal;
+    }
+}
+
+/* ============================================
+   FONT LOADING — skeleton shimmer
+   ============================================ */
+@keyframes shimmer {
+    0%   { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.fonts-loading .hero__title,
+.fonts-loading .hero__subtitle {
+    color: transparent;
+    background: linear-gradient(90deg,
+        var(--bg-card) 25%,
+        rgba(var(--accent-1-rgb), 0.08) 50%,
+        var(--bg-card) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease infinite;
+    border-radius: 4px;
+}
+
+/* ============================================
    ACCESSIBILITY: reduced motion
    ============================================ */
 @media (prefers-reduced-motion: reduce) {
