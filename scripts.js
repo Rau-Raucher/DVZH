@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollPipeline();
     initStickyCta();
     initTelegramFloat();
-    initABTest();
+    // initABTest(); // NOTE: отключено — только основной вариант заголовка
     initLayoutEngines();
     initCosmicModelMonths();
     initCosmicProcessItems();

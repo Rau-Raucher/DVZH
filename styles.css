@@ -648,6 +648,8 @@ body.vstyle-monolith {
     --radius-md: 4px;
     --radius-lg: 6px;
     --radius-xl: 8px;
+    --section-pad: 80px;
+    --section-pad-mobile: 48px;
 }
 body.vstyle-monolith .hero__title {
     text-transform: uppercase;
@@ -7513,6 +7515,269 @@ body.vstyle-collage .problem__grid.stagger-children.animated > .problem__card:ho
     40%      { transform: translate(-1.5px, 2px); }
     60%      { transform: translate(2px, -3px); }
     80%      { transform: translate(-1px, 4px); }
+}
+
+/* ============================================
+   ENHANCED MOBILE ADAPTATION
+   ============================================ */
+@media (max-width: 768px) {
+    /* Hero: убираем min-height и большой padding */
+    .hero {
+        padding: 90px 0 50px;
+        min-height: auto;
+    }
+
+    .hero__title {
+        font-size: clamp(26px, 7.5vw, 40px);
+        line-height: 1.15;
+    }
+
+    .hero__subtitle {
+        font-size: 15px;
+        margin-bottom: 28px;
+    }
+
+    .hero__actions {
+        margin-bottom: 32px;
+    }
+
+    .hero__stats {
+        gap: 16px;
+        padding-top: 24px;
+    }
+
+    .hero__stat-value {
+        font-size: 28px;
+    }
+
+    .hero__stat-suffix {
+        font-size: 16px;
+    }
+
+    .hero__stat-label {
+        font-size: 12px;
+    }
+
+    /* Hero BG: отключаем тяжёлые элементы на мобильных */
+    .hero__orbit {
+        display: none;
+    }
+
+    .hero__grid {
+        opacity: 0.15;
+    }
+
+    .hero__aurora {
+        opacity: 0.3;
+    }
+
+    /* Monolith: показываем орбиты но мельче */
+    body.vstyle-monolith .hero__orbit {
+        display: block;
+    }
+
+    body.vstyle-monolith .hero__orbit--1 {
+        width: 250px;
+        height: 250px;
+    }
+
+    body.vstyle-monolith .hero__orbit--2,
+    body.vstyle-monolith .hero__orbit--3 {
+        display: none;
+    }
+
+    /* Monolith hero corners — убираем на мобильных */
+    body.vstyle-monolith .mono-scanline,
+    body.vstyle-monolith .mono-crosshair {
+        display: none;
+    }
+
+    body.vstyle-monolith .mono-data {
+        font-size: 7px;
+        letter-spacing: 0.08em;
+    }
+
+    body.vstyle-monolith .hero__title {
+        font-size: clamp(24px, 7vw, 36px);
+        padding-left: 16px;
+    }
+
+    body.vstyle-monolith .hero__title::before {
+        width: 3px;
+    }
+
+    /* Cases grid — 1 колонка */
+    .cases__grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .cases__card {
+        padding: 24px;
+    }
+
+    /* Services card */
+    .services__card {
+        padding: 24px;
+    }
+
+    .services__grid {
+        gap: 16px;
+    }
+
+    /* Section headers */
+    .section-title {
+        font-size: clamp(24px, 6vw, 36px);
+    }
+
+    .section-desc {
+        font-size: 14px;
+    }
+
+    /* Model months */
+    .model__months {
+        gap: 16px;
+    }
+
+    .model__month {
+        padding: 24px;
+    }
+
+    /* Process steps */
+    .process__item {
+        padding: 20px;
+    }
+
+    /* About section */
+    .about__inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* FAQ */
+    .faq__question {
+        font-size: 15px;
+        padding: 18px 20px;
+    }
+
+    /* CTA buttons full width */
+    .btn--lg {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+
+    /* Marquee — компактнее */
+    .marquee__item {
+        font-size: clamp(32px, 6vw, 56px);
+        padding: 0 20px;
+    }
+
+    /* Footer */
+    .footer__links {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    /* Collage overlays — уменьшаем/скрываем на мобильных */
+    body.vstyle-collage .collage-tape,
+    body.vstyle-collage .collage-drip,
+    body.vstyle-collage .collage-glass-float {
+        display: none;
+    }
+
+    /* Float-tags — все скрываем на маленьких мобилках */
+    .hero__float-tag {
+        display: none;
+    }
+
+    /* Style toggle — поближе к низу, не мешает контенту */
+    #styleToggle {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    /* Telegram float */
+    .tg-float {
+        width: 48px;
+        height: 48px;
+        bottom: 20px;
+        right: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 80px 0 40px;
+    }
+
+    .hero__title {
+        font-size: clamp(22px, 7vw, 32px);
+    }
+
+    .hero__badge {
+        font-size: 10px;
+        padding: 6px 12px;
+    }
+
+    .hero__actions .btn {
+        font-size: 14px;
+        padding: 14px 24px;
+    }
+
+    .hero__stats {
+        gap: 12px;
+    }
+
+    .hero__stat-value {
+        font-size: 24px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    /* Approach */
+    .approach__step {
+        gap: 16px;
+        padding: 16px 0;
+    }
+
+    .approach__step-content h3 {
+        font-size: 16px;
+    }
+
+    /* Not-for cards */
+    .not-for__card {
+        padding: 20px;
+    }
+
+    /* CTA final */
+    .cta-final__inner {
+        padding: 32px 16px;
+    }
+
+    .cta-final__title {
+        font-size: 22px;
+    }
+
+    /* Monolith: все mono-data скрываем */
+    body.vstyle-monolith .mono-data,
+    body.vstyle-monolith .mono-corner {
+        display: none;
+    }
+
+    /* Nav mobile menu — меньший top */
+    .nav__links {
+        top: 60px;
+    }
+
+    .nav__link {
+        font-size: 18px;
+    }
 }
 
 /* ============================================
