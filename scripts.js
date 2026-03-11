@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initFaqScrollReveal();
     initCasesReveal();
     initWatermarkReveal();
+    initStyleToggle();
 });
 
 
@@ -357,9 +358,11 @@ function initThemeSwitcher() {
     if (!toggle || !panel) return;
 
     // Load saved color theme + visual style
-    // Обычные пользователи всегда видят vstyle-collage, админ может менять
+    // Обычные пользователи могут переключать monolith/collage, админ — всё
     const savedTheme = DVZH_IS_ADMIN ? (localStorage.getItem('dvzh-color-theme') || '') : '';
-    const savedVstyle = DVZH_IS_ADMIN ? (localStorage.getItem('dvzh-vstyle') || 'vstyle-collage') : 'vstyle-collage';
+    const allowedPublic = ['vstyle-collage', 'vstyle-monolith'];
+    const rawVstyle = localStorage.getItem('dvzh-vstyle') || 'vstyle-collage';
+    const savedVstyle = DVZH_IS_ADMIN ? (rawVstyle || 'vstyle-collage') : (allowedPublic.includes(rawVstyle) ? rawVstyle : 'vstyle-collage');
     applyBodyClasses(savedTheme, savedVstyle);
 
     if (!DVZH_IS_ADMIN) return; // Остальная логика свитчера только для админа
@@ -433,6 +436,30 @@ function getCurrentTheme() {
 function getCurrentVstyle() {
     const match = document.body.className.match(/vstyle-[\w-]+/);
     return match ? match[0] : '';
+}
+
+
+/* ── Style Toggle (monolith ↔ collage) для всех пользователей ── */
+function initStyleToggle() {
+    const btn = document.getElementById('styleToggle');
+    if (!btn) return;
+
+    btn.addEventListener('click', () => {
+        const current = getCurrentVstyle();
+        const next = (current === 'vstyle-collage') ? 'vstyle-monolith' : 'vstyle-collage';
+        const currentTheme = getCurrentTheme();
+        applyBodyClasses(currentTheme, next);
+        localStorage.setItem('dvzh-vstyle', next);
+
+        // Анимация нажатия
+        btn.style.transform = 'scale(0.85) rotate(180deg)';
+        setTimeout(() => { btn.style.transform = ''; }, 300);
+
+        // Синхронизируем admin-свитчер, если он есть
+        document.querySelectorAll('.style-switcher__item').forEach(s => {
+            s.classList.toggle('active', (s.dataset.vstyle || '') === next);
+        });
+    });
 }
 
 

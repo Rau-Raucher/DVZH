@@ -6639,6 +6639,73 @@ body.vstyle-vector .nav__logo-tagline {
 }
 
 /* ============================================
+   STYLE TOGGLE BUTTON (monolith ↔ collage)
+   ============================================ */
+.style-toggle {
+    position: fixed;
+    bottom: 148px;
+    right: 24px;
+    z-index: 9993;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--border-hover);
+    background: rgba(var(--bg-card-rgb, 15, 18, 22), 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+.style-toggle:hover {
+    transform: scale(1.1);
+    border-color: var(--accent-1);
+    box-shadow: 0 4px 20px rgba(var(--accent-1-rgb), 0.25);
+}
+.style-toggle:active {
+    transform: scale(0.92);
+}
+.style-toggle__icon {
+    font-size: 18px;
+    line-height: 1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    position: absolute;
+}
+/* Показываем иконку противоположного стиля (куда переключимся) */
+.style-toggle__icon--monolith {
+    opacity: 0;
+    transform: scale(0.5) rotate(-90deg);
+}
+.style-toggle__icon--collage {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+}
+/* Когда активен collage — показываем иконку monolith (для переключения) */
+body.vstyle-collage .style-toggle__icon--monolith {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+}
+body.vstyle-collage .style-toggle__icon--collage {
+    opacity: 0;
+    transform: scale(0.5) rotate(90deg);
+}
+
+@media (max-width: 768px) {
+    .style-toggle {
+        width: 38px;
+        height: 38px;
+        bottom: 138px;
+        right: 16px;
+    }
+    .style-toggle__icon {
+        font-size: 15px;
+    }
+}
+
+/* ============================================
    FLOATING TELEGRAM BUTTON
    ============================================ */
 .tg-float {
