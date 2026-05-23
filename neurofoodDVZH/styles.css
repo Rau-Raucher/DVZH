@@ -457,7 +457,7 @@ body::after {
 }
 .hero__tags-col {
     position: absolute;
-    right: 8px;
+    right: -112px;
     top: 0;
     bottom: 0;
     margin: auto;
@@ -466,6 +466,12 @@ body::after {
     flex-direction: column;
     gap: 14px;
     z-index: 20;
+}
+
+@media (max-width: 1400px) {
+    .hero__tags-col {
+        right: -72px;
+    }
 }
 .hero__float-tag {
     position: static;

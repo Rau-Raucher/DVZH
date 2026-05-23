@@ -4,14 +4,43 @@
   },
   "redirects": [
     {
+      "source": "/neurofoodDVZH",
+      "destination": "/neurofood/",
+      "permanent": true
+    },
+    {
+      "source": "/neurofoodDVZH/",
+      "destination": "/neurofood/",
+      "permanent": true
+    },
+    {
+      "source": "/neurofoodDVZH/(.*)",
+      "destination": "/neurofood/$1",
+      "permanent": true
+    },
+    {
       "source": "/NeroFoodDVZH",
-      "destination": "/neurofoodDVZH/",
+      "destination": "/neurofood/",
       "permanent": true
     },
     {
       "source": "/NeroFoodDVZH/(.*)",
-      "destination": "/neurofoodDVZH/$1",
+      "destination": "/neurofood/$1",
       "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/neurofood",
+      "destination": "/neurofoodDVZH/index.html"
+    },
+    {
+      "source": "/neurofood/",
+      "destination": "/neurofoodDVZH/index.html"
+    },
+    {
+      "source": "/neurofood/(.*)",
+      "destination": "/neurofoodDVZH/$1"
     }
   ]
 }

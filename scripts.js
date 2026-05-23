@@ -8,13 +8,20 @@ const DVZH_IS_ADMIN = new URLSearchParams(window.location.search).has('admin');
 
 // Font loading skeleton — убираем shimmer после загрузки шрифтов
 document.documentElement.classList.add('fonts-loading');
+const clearFontsLoading = () => document.documentElement.classList.remove('fonts-loading');
+const fontLoadingFallback = setTimeout(clearFontsLoading, 2500);
 if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(() => {
-        document.documentElement.classList.remove('fonts-loading');
+        clearTimeout(fontLoadingFallback);
+        clearFontsLoading();
+    }).catch(() => {
+        clearTimeout(fontLoadingFallback);
+        clearFontsLoading();
     });
 } else {
-    // Fallback: убираем через 2с если API недоступен
-    setTimeout(() => document.documentElement.classList.remove('fonts-loading'), 2000);
+    // Fallback: убираем через 2.5с если API недоступен
+    clearTimeout(fontLoadingFallback);
+    setTimeout(clearFontsLoading, 2500);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
