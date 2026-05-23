@@ -471,9 +471,9 @@ body::after {
     animation: tag-float 8s ease-in-out infinite;
     pointer-events: none;
 }
-.hero__float-tag--1 { top: 22%; right: 9%; animation-delay: 0s; }
-.hero__float-tag--2 { top: 44%; right: 11%; animation-delay: -3s; }
-.hero__float-tag--3 { bottom: 24%; right: 10%; animation-delay: -5s; }
+.hero__float-tag--1 { top: 18%;    right: 10px; animation-delay: 0s; }
+.hero__float-tag--2 { top: 42%;    right: 10px; animation-delay: -3s; }
+.hero__float-tag--3 { bottom: 20%; right: 10px; animation-delay: -5s; }
 @keyframes tag-float {
     0%,100% { transform: translateY(0); }
     50%      { transform: translateY(-8px); }
@@ -635,6 +635,7 @@ body::after {
     flex: 0 0 auto;
     width: 42%;
     max-width: 440px;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
