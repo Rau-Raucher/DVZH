@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/NeroFoodDVZH",
+      "destination": "/neurofoodDVZH/",
+      "permanent": true
+    },
+    {
+      "source": "/NeroFoodDVZH/(.*)",
+      "destination": "/neurofoodDVZH/$1",
+      "permanent": true
+    }
+  ]
+}
