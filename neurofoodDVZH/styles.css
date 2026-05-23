@@ -1229,6 +1229,37 @@ body::after {
 }
 
 /* ============================================
+   CTA STRIP (inline between sections)
+   ============================================ */
+.cta-strip {
+    padding: 48px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+.cta-strip__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+.cta-strip__text {
+    font-size: clamp(16px, 2vw, 20px);
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+.cta-strip__text strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+@media (max-width: 640px) {
+    .cta-strip__inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+}
+
+/* ============================================
    SOLUTION SECTION
    ============================================ */
 .solution {
