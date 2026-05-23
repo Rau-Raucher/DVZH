@@ -235,12 +235,13 @@
             leadForm.classList.add('lead-form--loading');
 
             var body = new URLSearchParams({
-                name:        name.trim(),
-                phone:       phone.trim(),
-                manager_id:  '413955',
-                pipeline_id: '2',
-                source_id:   '4',
-                description: 'Заявка с лендинга НейроФуд'
+                name:          name.trim(),
+                contact_name:  name.trim(),
+                contact_phone: phone.trim(),
+                manager_id:    '413955',
+                pipeline_id:   '2',
+                source_id:     '4',
+                description:   'Заявка с лендинга НейроФуд'
             });
 
             fetch(ASPRO_URL, {
