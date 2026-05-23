@@ -269,6 +269,37 @@
                 if (err) err.textContent = '';
             });
         });
+
+        /* Маска телефона +7 (900) 123-45-67 */
+        var phoneInput = document.getElementById('leadPhone');
+        if (phoneInput) {
+            phoneInput.addEventListener('input', function (e) {
+                var digits = phoneInput.value.replace(/\D/g, '').slice(0, 11);
+                if (!digits) { phoneInput.value = ''; return; }
+
+                /* Первая цифра всегда 7 */
+                if (digits[0] === '8') digits = '7' + digits.slice(1);
+                if (digits[0] !== '7') digits = '7' + digits;
+                digits = digits.slice(0, 11);
+
+                var d = digits;
+                var result = '+7';
+                if (d.length > 1)  result += ' (' + d.slice(1, 4);
+                if (d.length >= 4) result += ') ' + d.slice(4, 7);
+                if (d.length >= 7) result += '-' + d.slice(7, 9);
+                if (d.length >= 9) result += '-' + d.slice(9, 11);
+
+                phoneInput.value = result;
+            });
+
+            phoneInput.addEventListener('keydown', function (e) {
+                /* Разрешаем: Backspace, Delete, Tab, стрелки, Ctrl+A/C/V/X */
+                if ([8,9,37,38,39,40,46].indexOf(e.keyCode) !== -1) return;
+                if ((e.ctrlKey || e.metaKey) && [65,67,86,88].indexOf(e.keyCode) !== -1) return;
+                /* Блокируем всё кроме цифр */
+                if (e.key < '0' || e.key > '9') e.preventDefault();
+            });
+        }
     }
 
 })();
