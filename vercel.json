@@ -1,7 +1,4 @@
 {
-  "functions": {
-    "api/lead.js": { "runtime": "nodejs20.x" }
-  },
   "redirects": [
     {
       "source": "/neurofoodDVZH",
