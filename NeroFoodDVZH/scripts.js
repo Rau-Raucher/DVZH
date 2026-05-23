@@ -186,6 +186,50 @@
         resObserver.observe(resultsGrid);
     }
 
+    /* ── Before / After drag slider ── */
+    document.querySelectorAll('[data-ba-slider]').forEach(function (slider) {
+        var afterLayer = slider.querySelector('.ba-card__layer--after');
+        var handle     = slider.querySelector('.ba-card__handle');
+        var isDragging = false;
+
+        function setPos(pct) {
+            pct = Math.max(3, Math.min(97, pct));
+            afterLayer.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+            handle.style.left = pct + '%';
+        }
+
+        function getPct(clientX) {
+            var rect = slider.getBoundingClientRect();
+            return ((clientX - rect.left) / rect.width) * 100;
+        }
+
+        /* Mouse */
+        slider.addEventListener('mousedown', function (e) {
+            isDragging = true;
+            setPos(getPct(e.clientX));
+            e.preventDefault();
+        });
+        window.addEventListener('mousemove', function (e) {
+            if (isDragging) setPos(getPct(e.clientX));
+        });
+        window.addEventListener('mouseup', function () { isDragging = false; });
+
+        /* Touch */
+        slider.addEventListener('touchstart', function (e) {
+            isDragging = true;
+            setPos(getPct(e.touches[0].clientX));
+        }, { passive: true });
+        slider.addEventListener('touchmove', function (e) {
+            if (isDragging) {
+                setPos(getPct(e.touches[0].clientX));
+                e.preventDefault();
+            }
+        }, { passive: false });
+        slider.addEventListener('touchend', function () { isDragging = false; });
+
+        setPos(50);
+    });
+
     /* ── Lead form → Aspro Cloud CRM ── */
     var leadForm    = document.getElementById('leadForm');
     var leadSuccess = document.getElementById('leadSuccess');
