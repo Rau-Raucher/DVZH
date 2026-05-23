@@ -471,9 +471,9 @@ body::after {
     animation: tag-float 8s ease-in-out infinite;
     pointer-events: none;
 }
-.hero__float-tag--1 { top: 18%; right: 1%; animation-delay: 0s; }
-.hero__float-tag--2 { top: 40%; right: 3%; animation-delay: -3s; }
-.hero__float-tag--3 { bottom: 22%; right: 2%; animation-delay: -5s; }
+.hero__float-tag--1 { top: 22%; right: 9%; animation-delay: 0s; }
+.hero__float-tag--2 { top: 44%; right: 11%; animation-delay: -3s; }
+.hero__float-tag--3 { bottom: 24%; right: 10%; animation-delay: -5s; }
 @keyframes tag-float {
     0%,100% { transform: translateY(0); }
     50%      { transform: translateY(-8px); }
@@ -578,11 +578,11 @@ body::after {
 }
 .hero__stat-pre,
 .hero__stat-suf {
-    font-size: 18px;
+    font-size: 15px;
     color: var(--accent-1);
 }
 .hero__stat-value {
-    font-size: clamp(28px, 4vw, 42px);
+    font-size: clamp(22px, 3vw, 34px);
     color: var(--accent-1);
 }
 .hero__stat-label {
@@ -632,7 +632,9 @@ body::after {
     width: 52%;
 }
 .hero__visual {
-    flex: 1 1 auto;
+    flex: 0 0 auto;
+    width: 42%;
+    max-width: 440px;
     display: flex;
     flex-direction: column;
     align-items: center;
