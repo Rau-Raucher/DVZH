@@ -457,8 +457,8 @@ body::after {
 }
 .hero__tags-col {
     position: absolute;
-    left: min(92vw, calc(50% + 560px));
-    top: 50%;
+    left: min(92vw, calc(50% + 600px));
+    top: 61%;
     transform: translate(-50%, -50%);
     height: fit-content;
     display: flex;
