@@ -529,13 +529,13 @@ body::after {
 }
 .hero__title {
     font-family: var(--font-display);
-    font-size: clamp(30px, 4.2vw, 56px);
+    font-size: clamp(28px, 3.8vw, 52px);
     font-weight: 900;
     line-height: 1.05;
     letter-spacing: -0.03em;
     text-transform: uppercase;
     color: var(--text-primary);
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 }
 .hero__title-accent {
     background: var(--gradient-accent);
@@ -546,7 +546,7 @@ body::after {
 .hero__subtitle {
     font-size: clamp(15px, 1.6vw, 17px);
     color: var(--text-secondary);
-    margin-bottom: 28px;
+    margin-bottom: 20px;
     line-height: 1.6;
     max-width: 520px;
 }
@@ -554,14 +554,14 @@ body::after {
     display: flex;
     align-items: center;
     gap: 14px;
-    margin-bottom: 32px;
+    margin-bottom: 20px;
     flex-wrap: wrap;
 }
 .hero__stats {
     display: flex;
-    gap: 32px;
+    gap: 28px;
     border-top: 1px solid var(--border);
-    padding-top: 24px;
+    padding-top: 16px;
     flex-wrap: wrap;
 }
 .hero__stat {
