@@ -1509,6 +1509,83 @@ body::after {
 }
 .results__proof svg { color: var(--accent-1); flex-shrink: 0; }
 
+.results__disclaimer {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    border-left: 2px solid var(--border);
+    padding-left: 16px;
+    margin-top: 24px;
+    margin-bottom: 64px;
+    max-width: 680px;
+}
+
+/* Cases */
+.cases__title {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 24px;
+    color: var(--text-primary);
+}
+.cases__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+.cases__card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 28px 24px;
+    transition: border-color 0.3s ease;
+}
+.cases__card:hover {
+    border-color: rgba(var(--accent-1-rgb), 0.3);
+}
+.cases__type {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--accent-1);
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+}
+.cases__rows {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.cases__row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 12px;
+    align-items: baseline;
+}
+.cases__key {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding-top: 2px;
+}
+.cases__val {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+.cases__row--result .cases__val {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
 /* ============================================
    WHO FOR
    ============================================ */
@@ -2031,6 +2108,7 @@ body::after {
     .problem__grid,
     .solution__grid,
     .results__grid { grid-template-columns: repeat(2, 1fr); }
+    .cases__grid { grid-template-columns: 1fr; }
     .tasks__grid { grid-template-columns: repeat(2, 1fr); }
     .how__minilist { grid-template-columns: repeat(2, 1fr); }
     .compare__wrap { grid-template-columns: 1fr; }
