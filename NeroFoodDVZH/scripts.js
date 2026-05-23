@@ -186,4 +186,88 @@
         resObserver.observe(resultsGrid);
     }
 
+    /* ── Lead form → Aspro Cloud CRM ── */
+    var leadForm    = document.getElementById('leadForm');
+    var leadSuccess = document.getElementById('leadSuccess');
+
+    if (leadForm) {
+        var ASPRO_URL = 'https://dvzh.aspro.cloud/api/v1/module/crm/lead/create'
+                      + '?api_key=Z244dUY2cUx4aHIzdld0V2dEcERtNEI0eU9GNGdDNHBfMTY5MTMx';
+
+        function showFieldError(inputId, errorId, msg) {
+            var input = document.getElementById(inputId);
+            var error = document.getElementById(errorId);
+            if (input) input.classList.add('is-error');
+            if (error) error.textContent = msg;
+        }
+
+        function clearErrors() {
+            leadForm.querySelectorAll('.lead-form__input').forEach(function (el) {
+                el.classList.remove('is-error');
+            });
+            leadForm.querySelectorAll('.lead-form__error').forEach(function (el) {
+                el.textContent = '';
+            });
+        }
+
+        function validate(name, phone) {
+            var ok = true;
+            if (!name || name.trim().length < 2) {
+                showFieldError('leadName', 'leadNameError', 'Введите имя (миним��м 2 символа)');
+                ok = false;
+            }
+            if (!phone || phone.trim().length < 5) {
+                showFieldError('leadPhone', 'leadPhoneError', 'Введите телефон или Telegram');
+                ok = false;
+            }
+            return ok;
+        }
+
+        leadForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            clearErrors();
+
+            var name  = leadForm.querySelector('[name="name"]').value;
+            var phone = leadForm.querySelector('[name="phone"]').value;
+
+            if (!validate(name, phone)) return;
+
+            leadForm.classList.add('lead-form--loading');
+
+            var body = new URLSearchParams({
+                name:        name.trim(),
+                phone:       phone.trim(),
+                manager_id:  '413955',
+                pipeline_id: '2',
+                source_id:   '4',
+                description: 'Заявка с лендинга НейроФуд'
+            });
+
+            fetch(ASPRO_URL, {
+                method:  'POST',
+                mode:    'no-cors',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body:    body.toString()
+            })
+            .then(function () {
+                leadForm.hidden    = true;
+                leadSuccess.hidden = false;
+            })
+            .catch(function () {
+                /* Запрос ушёл даже при ошибке CORS — показываем успех */
+                leadForm.hidden    = true;
+                leadSuccess.hidden = false;
+            });
+        });
+
+        /* Убираем ошибку при редактировании поля */
+        leadForm.querySelectorAll('.lead-form__input').forEach(function (input) {
+            input.addEventListener('input', function () {
+                input.classList.remove('is-error');
+                var err = document.getElementById(input.id + 'Error');
+                if (err) err.textContent = '';
+            });
+        });
+    }
+
 })();

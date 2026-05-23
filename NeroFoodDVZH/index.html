@@ -674,38 +674,87 @@
         </div>
         <div class="container">
             <div class="cta-final__inner" data-animate="fade-up">
-                <div class="cta-final__badge">
-                    <span class="cta-final__badge-dot"></span>
-                    Осталось 2 бесплатных места на этой неделе
-                </div>
-                <h2 class="cta-final__title">
-                    Первые 2 фото —<br>
-                    <span class="text-accent">бесплатно.</span><br>
-                    Без обязательств.
-                </h2>
-                <p class="cta-final__desc">
-                    Отправьте фотографии блюд — получите результат и сами решите, стоит ли продолжать. Никакой предоплаты. Никакого давления. Только фото и цифры.
-                </p>
-                <div class="cta-final__actions">
-                    <a href="https://t.me/araucher" target="_blank" rel="noopener" class="btn btn--primary btn--xl">
-                        Написать в Telegram
-                        <svg class="btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </a>
-                </div>
-                <div class="cta-final__trust">
-                    <div class="cta-final__trust-item">
-                        <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        Без предоплаты
+
+                <!-- Left: text -->
+                <div class="cta-final__text">
+                    <div class="cta-final__badge">
+                        <span class="cta-final__badge-dot"></span>
+                        Осталось 3 бесплатных места на этой неделе
                     </div>
-                    <div class="cta-final__trust-item">
-                        <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        Результат за 3–7 дней
-                    </div>
-                    <div class="cta-final__trust-item">
-                        <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        120+ довольных клиентов
+                    <h2 class="cta-final__title">
+                        Получите<br>
+                        <span class="text-accent">3 концепта</span><br>
+                        бесплатно
+                    </h2>
+                    <p class="cta-final__desc">
+                        Оставьте контакт — мы свяжемся и разберём ваше меню. Без предоплаты, без давления. Только конкретный результат.
+                    </p>
+                    <div class="cta-final__trust">
+                        <div class="cta-final__trust-item">
+                            <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Без предоплаты
+                        </div>
+                        <div class="cta-final__trust-item">
+                            <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Результат за 3–5 дней
+                        </div>
+                        <div class="cta-final__trust-item">
+                            <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            120+ клиентов
+                        </div>
                     </div>
                 </div>
+
+                <!-- Right: form -->
+                <div class="cta-final__form-wrap">
+                    <!-- Default state -->
+                    <form class="lead-form" id="leadForm" novalidate>
+                        <div class="lead-form__field">
+                            <label class="lead-form__label" for="leadName">Ваше имя</label>
+                            <input
+                                class="lead-form__input"
+                                id="leadName"
+                                name="name"
+                                type="text"
+                                placeholder="Александр"
+                                autocomplete="name"
+                                required
+                            >
+                            <span class="lead-form__error" id="leadNameError"></span>
+                        </div>
+                        <div class="lead-form__field">
+                            <label class="lead-form__label" for="leadPhone">Телефон или Телеграм</label>
+                            <input
+                                class="lead-form__input"
+                                id="leadPhone"
+                                name="phone"
+                                type="text"
+                                placeholder="+7 900 123-45-67 или @username"
+                                autocomplete="tel"
+                                required
+                            >
+                            <span class="lead-form__error" id="leadPhoneError"></span>
+                        </div>
+                        <button class="lead-form__submit btn btn--primary btn--lg" type="submit" id="leadSubmit">
+                            <span class="lead-form__submit-text">Получить 3 концепта бесплатно</span>
+                            <span class="lead-form__submit-loader" aria-hidden="true"></span>
+                        </button>
+                        <p class="lead-form__note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных</p>
+                    </form>
+
+                    <!-- Success state -->
+                    <div class="lead-form__success" id="leadSuccess" hidden>
+                        <div class="lead-form__success-icon">
+                            <svg viewBox="0 0 48 48" fill="none" width="48" height="48">
+                                <circle cx="24" cy="24" r="23" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M14 24l8 8 12-14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="lead-form__success-title">Заявка принята!</h3>
+                        <p class="lead-form__success-text">Свяжемся с вами в течение рабочего дня — обсудим ваше меню и покажем первые концепты.</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
