@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>НейроФуд — нейрофотосессия для ресторанов и доставки | DVZH</title>
+    <meta name="description" content="Нейрофотосессия для ресторанов, баров и доставки еды. +35% конверсия, +40% корзина, +60% CTR. Результат за 3–7 дней. Бесплатный тест перед оплатой.">
+    <meta name="keywords" content="нейрофотосессия, нейросеть фото блюд, фото для доставки еды, Яндекс.Еда фото, Delivery Club фото, ресторан фотография AI">
+    <meta property="og:title" content="НейроФуд — нейрофотосессия для общепита | DVZH">
+    <meta property="og:description" content="AI-обработка фото блюд для ресторанов и доставки. +35% конверсия. Без студии. Результат за 3–7 дней.">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ============================================ -->
+    <!-- НАВИГАЦИЯ -->
+    <!-- ============================================ -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="../" class="nav__logo">
+                <span class="nav__logo-dvzh">DVZH</span>
+                <span class="nav__logo-sep">/</span>
+                <span class="nav__logo-sub">НейроФуд</span>
+            </a>
+            <div class="nav__links" id="navLinks">
+                <a href="#solution" class="nav__link">Решение</a>
+                <a href="#how" class="nav__link">Процесс</a>
+                <a href="#results" class="nav__link">Результаты</a>
+                <a href="#compare" class="nav__link">Сравнение</a>
+                <a href="#faq" class="nav__link">FAQ</a>
+            </div>
+            <a href="#cta-final" class="nav__cta">Бесплатный тест</a>
+            <button class="nav__burger" id="navBurger" aria-label="Меню">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============================================ -->
+    <!-- HERO -->
+    <!-- ============================================ -->
+    <section class="hero" id="hero">
+        <div class="hero__bg">
+            <div class="hero__orbit hero__orbit--1"></div>
+            <div class="hero__orbit hero__orbit--2"></div>
+            <div class="hero__grid"></div>
+            <div class="particles" id="heroParticles"></div>
+            <div class="hero__aurora"></div>
+            <div class="hero__aurora hero__aurora--2"></div>
+            <!-- Collage drip -->
+            <div class="hero__drip hero__drip--1"></div>
+            <div class="hero__drip hero__drip--2"></div>
+            <!-- Float tags -->
+            <div class="hero__float-tag hero__float-tag--1">✕ Без студии и фотографа</div>
+            <div class="hero__float-tag hero__float-tag--2">✕ Без потери продуктов</div>
+            <div class="hero__float-tag hero__float-tag--3">✕ Без отвлечения кухни</div>
+        </div>
+        <div class="container">
+            <div class="hero__content">
+                <div class="hero__badge" data-animate="fade-up">
+                    <span class="hero__badge-dot"></span>
+                    120+ ресторанов уже с нами
+                </div>
+                <h1 class="hero__title" data-animate="fade-up" data-delay="100">
+                    Плохое фото<br>
+                    <span class="hero__title-accent">убивает заказ.</span><br>
+                    Хорошее — создаёт его.
+                </h1>
+                <p class="hero__subtitle" data-animate="fade-up" data-delay="200">
+                    Нейрофотосессия для ресторанов, баров и доставки еды.<br>
+                    Результат за 3–7 дней. Без студии. Без фотографа.
+                </p>
+                <div class="hero__actions" data-animate="fade-up" data-delay="300">
+                    <a href="#cta-final" class="btn btn--primary btn--lg btn--magnetic">
+                        Получить бесплатный тест
+                        <svg class="btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="#how" class="btn btn--ghost">
+                        Как это работает
+                    </a>
+                </div>
+                <div class="hero__stats" data-animate="fade-up" data-delay="400">
+                    <div class="hero__stat">
+                        <div class="hero__stat-num">
+                            <span class="hero__stat-pre">+</span><span class="hero__stat-value" data-counter="35">0</span><span class="hero__stat-suf">%</span>
+                        </div>
+                        <span class="hero__stat-label">конверсия в заказ</span>
+                    </div>
+                    <div class="hero__stat">
+                        <div class="hero__stat-num">
+                            <span class="hero__stat-pre">+</span><span class="hero__stat-value" data-counter="40">0</span><span class="hero__stat-suf">%</span>
+                        </div>
+                        <span class="hero__stat-label">добавлений в корзину</span>
+                    </div>
+                    <div class="hero__stat">
+                        <div class="hero__stat-num">
+                            <span class="hero__stat-pre">+</span><span class="hero__stat-value" data-counter="60">0</span><span class="hero__stat-suf">%</span>
+                        </div>
+                        <span class="hero__stat-label">прирост CTR</span>
+                    </div>
+                    <div class="hero__stat">
+                        <div class="hero__stat-num">
+                            <span class="hero__stat-pre">+</span><span class="hero__stat-value" data-counter="15">0</span><span class="hero__stat-suf">%</span>
+                        </div>
+                        <span class="hero__stat-label">средний чек</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero__scroll" data-animate="fade-up" data-delay="600">
+            <div class="hero__scroll-line"></div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ПЛАТФОРМЫ -->
+    <!-- ============================================ -->
+    <section class="platforms">
+        <div class="container">
+            <p class="platforms__label">Оптимизируем под платформы доставки и соцсети</p>
+        </div>
+        <div class="platforms__strip">
+            <div class="platforms__track">
+                <span class="platforms__item">Яндекс.Еда</span>
+                <span class="platforms__dot">◆</span>
+                <span class="platforms__item">Delivery Club</span>
+                <span class="platforms__dot">◆</span>
+                <span class="platforms__item">Купер</span>
+                <span class="platforms__dot">◆</span>
+                <span class="platforms__item">Сбермаркет</span>
+                <span class="platforms__dot">◆</span>
+                <span class="platforms__item">Instagram</span>
+                <span class="platforms__dot">◆</span>
+                <span class="platforms__item">VK</span>
+                <span class="platforms__dot">◆</span>
+                <span class="platforms__item">Яндекс.Еда</span>
+                <span class="platforms__dot">◆</span>
+                <span class="platforms__item">Delivery Club</span>
+                <span class="platforms__dot">◆</span>
+                <span class="platforms__item">Купер</span>
+                <span class="platforms__dot">◆</span>
+                <span class="platforms__item">Сбермаркет</span>
+                <span class="platforms__dot">◆</span>
+                <span class="platforms__item">Instagram</span>
+                <span class="platforms__dot">◆</span>
+                <span class="platforms__item">VK</span>
+                <span class="platforms__dot">◆</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- МАРКИЗ -->
+    <!-- ============================================ -->
+    <div class="marquee">
+        <div class="marquee__track">
+            <span class="marquee__item">Вкус</span>
+            <span class="marquee__item marquee__item--accent">•</span>
+            <span class="marquee__item">Текстура</span>
+            <span class="marquee__item marquee__item--accent">•</span>
+            <span class="marquee__item">Аппетит</span>
+            <span class="marquee__item marquee__item--accent">•</span>
+            <span class="marquee__item">DVZH</span>
+            <span class="marquee__item marquee__item--accent">•</span>
+            <span class="marquee__item">НейроФуд</span>
+            <span class="marquee__item marquee__item--accent">•</span>
+            <span class="marquee__item">Рост</span>
+            <span class="marquee__item marquee__item--accent">•</span>
+            <span class="marquee__item">Вкус</span>
+            <span class="marquee__item marquee__item--accent">•</span>
+            <span class="marquee__item">Текстура</span>
+            <span class="marquee__item marquee__item--accent">•</span>
+            <span class="marquee__item">Аппетит</span>
+            <span class="marquee__item marquee__item--accent">•</span>
+            <span class="marquee__item">DVZH</span>
+            <span class="marquee__item marquee__item--accent">•</span>
+            <span class="marquee__item">НейроФуд</span>
+            <span class="marquee__item marquee__item--accent">•</span>
+            <span class="marquee__item">Рост</span>
+            <span class="marquee__item marquee__item--accent">•</span>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- ПРОБЛЕМА -->
+    <!-- ============================================ -->
+    <section class="problem" id="problem">
+        <span class="wm-text" aria-hidden="true">FOOD</span>
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">Знакомо?</span>
+                <h2 class="section-title">Почему продажи <span class="text-accent">стоят</span></h2>
+                <p class="section-desc">3 причины, почему плохие фото сжигают выручку каждый день</p>
+            </div>
+            <div class="problem__grid stagger-children" data-animate="fade-up">
+                <div class="problem__card card-glow">
+                    <div class="problem__card-icon">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <rect x="8" y="14" width="32" height="22" rx="3" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="24" cy="25" r="4" stroke="currentColor" stroke-width="2"/>
+                            <path d="M14 14v-2a2 2 0 012-2h16a2 2 0 012 2v2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M10 36l-2 4M38 36l2 4" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+                        </svg>
+                    </div>
+                    <h3 class="problem__card-title">01 / Фото убивает аппетит</h3>
+                    <p class="problem__card-text">Смартфонный снимок под плохим светом — и блюдо выглядит как еда из столовой. Клиент закрывает приложение и заказывает у конкурента с красивыми фото. Каждый день, без остановки.</p>
+                </div>
+                <div class="problem__card card-glow">
+                    <div class="problem__card-icon">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2"/>
+                            <path d="M24 12v12l8 8" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="24" cy="24" r="2" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h3 class="problem__card-title">02 / Съёмка стоит 50 000+ ₽</h3>
+                    <p class="problem__card-text">Фотограф, стилист, аренда студии, порча продуктов, отвлечение кухни. 3–4 недели ожидания. Результат устареет через сезон. И всё по новой. Это не вложение — это регулярный слив.</p>
+                </div>
+                <div class="problem__card card-glow">
+                    <div class="problem__card-icon">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <path d="M8 32c4-8 8-12 16-12s12 4 16 12" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 24c2-4 4-6 12-6s10 2 12 6" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+                            <circle cx="24" cy="14" r="5" stroke="currentColor" stroke-width="2"/>
+                            <path d="M20 38l4-6 4 6" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+                        </svg>
+                    </div>
+                    <h3 class="problem__card-title">03 / Конкуренты уже впереди</h3>
+                    <p class="problem__card-text">Алгоритмы Яндекс.Еды и Delivery Club поднимают выше карточки с качественным визуалом. Пока вы думаете — конкуренты уже обновились. Рейтинг падает без изменений в меню.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CTA ПРОМЕЖУТОЧНЫЙ 1 -->
+    <!-- ============================================ -->
+    <section class="cta-mid">
+        <div class="container">
+            <div class="cta-mid__inner border-glow-anim" data-animate="fade-up">
+                <div class="cta-mid__text">
+                    <h2>Фото — это половина вашего меню.<br>Другая половина — вкус.</h2>
+                    <p>Не давайте плохим снимкам забирать выручку. Первые 2 фото обработаем бесплатно — и вы сами увидите разницу.</p>
+                </div>
+                <a href="#cta-final" class="btn btn--primary btn--lg">
+                    Тест бесплатно
+                    <svg class="btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- РЕШЕНИЕ -->
+    <!-- ============================================ -->
+    <section class="solution" id="solution">
+        <span class="wm-text wm-text--right" aria-hidden="true">AI</span>
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">Решение</span>
+                <h2 class="section-title">Что такое <span class="text-accent">нейрофотосессия</span></h2>
+                <p class="section-desc">AI-обработка ваших фотографий по нейро-триггерам аппетита.<br>Без студий. Без фотографов. Только результат.</p>
+            </div>
+
+            <div class="solution__grid stagger-children" data-animate="fade-up">
+                <div class="solution__card card-glow">
+                    <div class="solution__num">01</div>
+                    <div class="solution__icon">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="24" cy="24" r="9" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+                            <circle cx="24" cy="24" r="3" fill="currentColor"/>
+                            <path d="M24 8v4M24 36v4M8 24h4M36 24h4" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <h3>Макро и текстура</h3>
+                    <p>Видна каждая рисинка, каждая капля соуса, каждый пузырёк. Мозг читает фото как реальную еду и запускает аппетит. Это не красота — это физиология покупки.</p>
+                </div>
+                <div class="solution__card card-glow">
+                    <div class="solution__num">02</div>
+                    <div class="solution__icon">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <rect x="10" y="10" width="28" height="28" rx="3" stroke="currentColor" stroke-width="2"/>
+                            <rect x="16" y="16" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+                            <rect x="20" y="20" width="8" height="8" rx="1" fill="currentColor" opacity="0.35"/>
+                            <path d="M10 22h6M32 22h6M22 10v6M22 32v6" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+                        </svg>
+                    </div>
+                    <h3>Детали и слои</h3>
+                    <p>Контраст, объём, глубина. Блюдо перестаёт быть плоским снимком — приобретает форму и вес. Клиент видит «вкус», а не «еду на тарелке».</p>
+                </div>
+                <div class="solution__card card-glow">
+                    <div class="solution__num">03</div>
+                    <div class="solution__icon">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <path d="M8 38c4-10 8-14 16-14s12 4 16 14" stroke="currentColor" stroke-width="2"/>
+                            <path d="M13 30c3-6 6-8 11-8s8 2 11 8" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+                            <circle cx="24" cy="14" r="6" stroke="currentColor" stroke-width="2"/>
+                            <path d="M22 10c0 0 2-3 5-1" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+                        </svg>
+                    </div>
+                    <h3>Атмосферная композиция</h3>
+                    <p>Правильный свет, угол и фон создают настроение. Рамен выглядит как в токийском ресторане. Бургер — как в культовом заведении. Эмоция работает на клик.</p>
+                </div>
+            </div>
+
+            <div class="solution__note" data-animate="fade-up">
+                <svg viewBox="0 0 20 20" fill="none" width="18" height="18"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2z" stroke="currentColor" stroke-width="1.5"/><path d="M10 9v5M10 6.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <p>Нейросеть не «рисует» еду — она улучшает <strong>ваши реальные фотографии</strong>. Клиент получает именно то блюдо, которое заказывает. Честно и аппетитно.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- КАК РАБОТАЕТ -->
+    <!-- ============================================ -->
+    <section class="how" id="how">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">Процесс</span>
+                <h2 class="section-title"><span class="text-accent">3 шага</span> до аппетитных фото</h2>
+                <p class="section-desc">Никаких сложных подготовок. Кухня работает в штатном режиме.</p>
+            </div>
+
+            <div class="how__pipeline" data-animate="fade-up">
+                <div class="how__line"></div>
+                <div class="how__line-fill" id="howLineFill"></div>
+
+                <div class="how__step" data-animate="fade-up" data-delay="0">
+                    <div class="how__step-num">01</div>
+                    <div class="how__step-content">
+                        <div class="how__step-time">
+                            <svg viewBox="0 0 16 16" fill="none" width="13" height="13"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M8 4.5V8l2.5 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            День 1
+                        </div>
+                        <h3>Вы присылаете фото</h3>
+                        <p>Любые фотографии ваших блюд — со смартфона, из архива, уже рабочие. Не нужна специальная подготовка. Просто отправьте то, что есть. Мы скажем, с чем можно работать.</p>
+                    </div>
+                </div>
+
+                <div class="how__step" data-animate="fade-up" data-delay="120">
+                    <div class="how__step-num">02</div>
+                    <div class="how__step-content">
+                        <div class="how__step-time">
+                            <svg viewBox="0 0 16 16" fill="none" width="13" height="13"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M8 4.5V8l2.5 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            3–7 дней
+                        </div>
+                        <h3>AI обрабатывает по триггерам</h3>
+                        <p>Нейросеть усиливает текстуру, добавляет объём, корректирует свет. Каждое фото проходит контроль качества. Без шаблонов — индивидуально под вашу кухню и стиль.</p>
+                    </div>
+                </div>
+
+                <div class="how__step" data-animate="fade-up" data-delay="240">
+                    <div class="how__step-num">03</div>
+                    <div class="how__step-content">
+                        <div class="how__step-time">
+                            <svg viewBox="0 0 16 16" fill="none" width="13" height="13"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M4 8l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Готово
+                        </div>
+                        <h3>Вы загружаете и смотрите на цифры</h3>
+                        <p>Готовые файлы в нужных форматах для каждой платформы: Яндекс.Еда, Delivery Club, Купер, сайт, соцсети. Загружаете — и наблюдаете рост показателей.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- РЕЗУЛЬТАТЫ -->
+    <!-- ============================================ -->
+    <section class="results" id="results">
+        <span class="wm-text" aria-hidden="true">ROI</span>
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">Результаты</span>
+                <h2 class="section-title">Цифры, которые <span class="text-accent">говорят сами</span></h2>
+                <p class="section-desc">Средние показатели клиентов после внедрения нейрофотосессии</p>
+            </div>
+
+            <div class="results__grid stagger-children" data-animate="fade-up">
+                <div class="results__card card-glow">
+                    <div class="results__value">
+                        <span class="results__pre">+</span><span class="results__num" data-counter="35">0</span><span class="results__suf">%</span>
+                    </div>
+                    <h3>Конверсия в заказ</h3>
+                    <p>Больше людей, увидевших блюдо, нажимают «добавить в корзину»</p>
+                </div>
+                <div class="results__card results__card--featured card-glow">
+                    <div class="results__badge-top">Ключевой показатель</div>
+                    <div class="results__value">
+                        <span class="results__pre">+</span><span class="results__num" data-counter="60">0</span><span class="results__suf">%</span>
+                    </div>
+                    <h3>CTR в рекламе</h3>
+                    <p>Кликабельность рекламных объявлений с новыми фото растёт в разы</p>
+                </div>
+                <div class="results__card card-glow">
+                    <div class="results__value">
+                        <span class="results__pre">+</span><span class="results__num" data-counter="40">0</span><span class="results__suf">%</span>
+                    </div>
+                    <h3>Добавлений в корзину</h3>
+                    <p>Клиенты заказывают больше позиций — потому что всё выглядит вкусно</p>
+                </div>
+                <div class="results__card card-glow">
+                    <div class="results__value">
+                        <span class="results__pre">+</span><span class="results__num" data-counter="15">0</span><span class="results__suf">%</span>
+                    </div>
+                    <h3>Средний чек</h3>
+                    <p>Аппетитный визуал провоцирует «взять ещё» — допродажи без скидок</p>
+                </div>
+                <div class="results__card card-glow">
+                    <div class="results__value">
+                        <span class="results__num" data-counter="120">0</span><span class="results__suf">+</span>
+                    </div>
+                    <h3>Ресторанов с нами</h3>
+                    <p>Уже обновили визуал и видят рост. Присоединяйтесь.</p>
+                </div>
+                <div class="results__card card-glow">
+                    <div class="results__value">
+                        <span class="results__num" data-counter="3">0</span><span class="results__suf">–7</span>
+                        <span class="results__unit">дн</span>
+                    </div>
+                    <h3>Срок выполнения</h3>
+                    <p>От отправки фото до готовых файлов. Быстро и без простоя</p>
+                </div>
+            </div>
+
+            <div class="results__proof" data-animate="fade-up">
+                <svg viewBox="0 0 20 20" fill="none" width="18" height="18"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/></svg>
+                Бесплатный тест перед оплатой — сначала смотрите результат на 2 позициях, потом принимаете решение
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ДЛЯ КОГО -->
+    <!-- ============================================ -->
+    <section class="whofor" id="whofor">
+        <span class="wm-text wm-text--right" aria-hidden="true">HoReCa</span>
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">Для кого</span>
+                <h2 class="section-title">Работает для <span class="text-accent">любого общепита</span></h2>
+            </div>
+
+            <div class="whofor__grid stagger-children" data-animate="fade-up">
+                <div class="whofor__card card-glow">
+                    <div class="whofor__icon">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <path d="M12 36V22a2 2 0 012-2h20a2 2 0 012 2v14" stroke="currentColor" stroke-width="2"/>
+                            <path d="M8 36h32" stroke="currentColor" stroke-width="2"/>
+                            <path d="M24 20v-6" stroke="currentColor" stroke-width="2"/>
+                            <path d="M18 14h12" stroke="currentColor" stroke-width="2"/>
+                            <rect x="20" y="26" width="8" height="10" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <h3>Рестораны</h3>
+                    <p>Обновите меню без перезаказа съёмки. Сезонные блюда, специальные предложения, банкетные карты — быстро и в вашем стиле.</p>
+                    <ul class="whofor__list">
+                        <li>Обновление меню</li>
+                        <li>Сезонные позиции</li>
+                        <li>Банкетное меню</li>
+                        <li>Карточки для сайта</li>
+                    </ul>
+                </div>
+                <div class="whofor__card card-glow">
+                    <div class="whofor__icon">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <path d="M10 22c0-8 28-8 28 0" stroke="currentColor" stroke-width="2"/>
+                            <path d="M10 22v12a2 2 0 002 2h24a2 2 0 002-2V22" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="24" cy="22" r="4" stroke="currentColor" stroke-width="2"/>
+                            <path d="M18 36v-6h12v6" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <h3>Бары и кафе</h3>
+                    <p>Коктейли, снеки, бранч-меню — всё должно выглядеть соблазнительно в соцсетях и агрегаторах. AI сделает каждый дринк инстаграмным.</p>
+                    <ul class="whofor__list">
+                        <li>Меню коктейлей</li>
+                        <li>Снеки и закуски</li>
+                        <li>Бранч и обед</li>
+                        <li>Контент для соцсетей</li>
+                    </ul>
+                </div>
+                <div class="whofor__card card-glow">
+                    <div class="whofor__icon">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <rect x="10" y="22" width="28" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
+                            <path d="M16 22v-4a8 8 0 0116 0v4" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="24" cy="31" r="3" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M24 34v4" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <h3>Доставка еды</h3>
+                    <p>Алгоритмы платформ показывают красивые позиции выше в выдаче. Это факт, не теория. Дайте им повод показывать вас первыми.</p>
+                    <ul class="whofor__list">
+                        <li>Яндекс.Еда</li>
+                        <li>Delivery Club</li>
+                        <li>Купер / Сбермаркет</li>
+                        <li>Своё приложение</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- СРАВНЕНИЕ -->
+    <!-- ============================================ -->
+    <section class="compare" id="compare">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">Сравнение</span>
+                <h2 class="section-title">НейроФуд vs <span class="text-accent">традиционная съёмка</span></h2>
+            </div>
+
+            <div class="compare__wrap" data-animate="fade-up">
+                <div class="compare__col compare__col--old">
+                    <div class="compare__head">
+                        <span class="compare__head-label compare__head-label--bad">Традиционная фотосессия</span>
+                    </div>
+                    <div class="compare__row compare__row--bad">
+                        <svg viewBox="0 0 16 16" fill="none" width="16" height="16"><path d="M4 4l8 8M12 4L4 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                        50 000+ ₽ за съёмку
+                    </div>
+                    <div class="compare__row compare__row--bad">
+                        <svg viewBox="0 0 16 16" fill="none" width="16" height="16"><path d="M4 4l8 8M12 4L4 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                        3–4 недели ожидания
+                    </div>
+                    <div class="compare__row compare__row--bad">
+                        <svg viewBox="0 0 16 16" fill="none" width="16" height="16"><path d="M4 4l8 8M12 4L4 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                        Нужен фотограф и стилист
+                    </div>
+                    <div class="compare__row compare__row--bad">
+                        <svg viewBox="0 0 16 16" fill="none" width="16" height="16"><path d="M4 4l8 8M12 4L4 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                        Потери продуктов и расходников
+                    </div>
+                    <div class="compare__row compare__row--bad">
+                        <svg viewBox="0 0 16 16" fill="none" width="16" height="16"><path d="M4 4l8 8M12 4L4 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                        Кухня отвлекается от работы
+                    </div>
+                    <div class="compare__row compare__row--bad">
+                        <svg viewBox="0 0 16 16" fill="none" width="16" height="16"><path d="M4 4l8 8M12 4L4 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                        Переделки — дополнительная оплата
+                    </div>
+                </div>
+
+                <div class="compare__col compare__col--new">
+                    <div class="compare__head">
+                        <span class="compare__head-label compare__head-label--good">НейроФуд × DVZH</span>
+                        <span class="compare__head-badge">Выбор 120+ ресторанов</span>
+                    </div>
+                    <div class="compare__row compare__row--good">
+                        <svg viewBox="0 0 16 16" fill="none" width="16" height="16"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        В разы дешевле традиционной съёмки
+                    </div>
+                    <div class="compare__row compare__row--good">
+                        <svg viewBox="0 0 16 16" fill="none" width="16" height="16"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        3–7 рабочих дней
+                    </div>
+                    <div class="compare__row compare__row--good">
+                        <svg viewBox="0 0 16 16" fill="none" width="16" height="16"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Только ваши фото — ничего лишнего
+                    </div>
+                    <div class="compare__row compare__row--good">
+                        <svg viewBox="0 0 16 16" fill="none" width="16" height="16"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Ноль потерь продуктов и расходов
+                    </div>
+                    <div class="compare__row compare__row--good">
+                        <svg viewBox="0 0 16 16" fill="none" width="16" height="16"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Кухня работает в штатном режиме
+                    </div>
+                    <div class="compare__row compare__row--good">
+                        <svg viewBox="0 0 16 16" fill="none" width="16" height="16"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Бесплатный тест перед любой оплатой
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FAQ -->
+    <!-- ============================================ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title">Часто <span class="text-accent">спрашивают</span></h2>
+            </div>
+
+            <div class="faq__list" data-animate="fade-up">
+                <div class="faq__item">
+                    <button class="faq__question">
+                        Нужны ли профессиональные фото для старта?
+                        <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Нет. Работаем с любыми фотографиями — смартфон, планшет, архивные снимки. Качество исходника влияет на итог, но мы скажем заранее, с чем можно работать, а что лучше переснять буквально на телефон при дневном свете.</p>
+                    </div>
+                </div>
+
+                <div class="faq__item">
+                    <button class="faq__question">
+                        Сколько это стоит?
+                        <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Стоимость зависит от количества позиций и выбранного пакета. Первые 2 фото — бесплатно в рамках теста. Обсудим индивидуально: оцениваем ваш объём и считаем ROI ещё до старта. Без предоплаты.</p>
+                    </div>
+                </div>
+
+                <div class="faq__item">
+                    <button class="faq__question">
+                        Это реальная еда или нейросеть рисует с нуля?
+                        <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Только улучшение ваших реальных фото. Нейросеть не генерирует еду «из воздуха» — она усиливает текстуру, свет и объём именно ваших блюд. Клиент получит то, что заказывает. Честно.</p>
+                    </div>
+                </div>
+
+                <div class="faq__item">
+                    <button class="faq__question">
+                        Подходит для Яндекс.Еды и Delivery Club?
+                        <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Да, и именно под них разработана методология. Мы знаем технические требования к форматам, соотношениям сторон и цветовым профилям каждой платформы. Получите готовые файлы — загружайте сразу.</p>
+                    </div>
+                </div>
+
+                <div class="faq__item">
+                    <button class="faq__question">
+                        Что если результат меня не устроит?
+                        <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Именно для этого существует бесплатный тест — сначала смотрите результат на 2 позициях, потом принимаете решение. Без предоплаты, без обязательств. Не понравится — просто не платите.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ФИНАЛЬНЫЙ CTA -->
+    <!-- ============================================ -->
+    <section class="cta-final" id="cta-final">
+        <div class="cta-final__bg">
+            <div class="cta-final__orbit cta-final__orbit--1"></div>
+            <div class="cta-final__orbit cta-final__orbit--2"></div>
+            <div class="cta-final__aurora"></div>
+        </div>
+        <div class="container">
+            <div class="cta-final__inner" data-animate="fade-up">
+                <div class="cta-final__badge">
+                    <span class="cta-final__badge-dot"></span>
+                    Осталось 2 бесплатных места на этой неделе
+                </div>
+                <h2 class="cta-final__title">
+                    Первые 2 фото —<br>
+                    <span class="text-accent">бесплатно.</span><br>
+                    Без обязательств.
+                </h2>
+                <p class="cta-final__desc">
+                    Отправьте фотографии блюд — получите результат и сами решите, стоит ли продолжать. Никакой предоплаты. Никакого давления. Только фото и цифры.
+                </p>
+                <div class="cta-final__actions">
+                    <a href="https://t.me/araucher" target="_blank" rel="noopener" class="btn btn--primary btn--xl">
+                        Написать в Telegram
+                        <svg class="btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+                <div class="cta-final__trust">
+                    <div class="cta-final__trust-item">
+                        <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Без предоплаты
+                    </div>
+                    <div class="cta-final__trust-item">
+                        <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Результат за 3–7 дней
+                    </div>
+                    <div class="cta-final__trust-item">
+                        <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        120+ довольных клиентов
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FOOTER -->
+    <!-- ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__brand">
+                    <a href="../" class="footer__logo">
+                        <span class="footer__logo-dvzh">DVZH</span>
+                        <span class="footer__logo-sep">/</span>
+                        <span class="footer__logo-sub">НейроФуд</span>
+                    </a>
+                    <p class="footer__desc">Нейрофотосессия для ресторанов, баров и доставки еды. Аппетитный визуал без студий и фотографов.</p>
+                </div>
+                <nav class="footer__nav">
+                    <a href="#solution">Решение</a>
+                    <a href="#how">Процесс</a>
+                    <a href="#results">Результаты</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="https://t.me/araucher" target="_blank" rel="noopener">Telegram</a>
+                </nav>
+                <div class="footer__back">
+                    <a href="../" class="footer__back-link">
+                        <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Назад на DVZH
+                    </a>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>© 2025 DVZH — Ровный Движ. Услуга НейроФуд. Все права защищены.</p>
+                <p>Powered by DVZH Performance Agency</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

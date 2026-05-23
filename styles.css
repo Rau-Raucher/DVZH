@@ -3985,6 +3985,23 @@ body.vstyle-vector .nav__logo-tagline {
     width: 100%;
 }
 
+/* НейроФуд — акцентная ссылка в хедере */
+.nav__link--neuro {
+    color: var(--accent-1);
+    border: 1px solid rgba(var(--accent-1-rgb), 0.25);
+    border-radius: 4px;
+    padding: 5px 12px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: all 0.3s ease;
+}
+.nav__link--neuro:hover {
+    background: rgba(var(--accent-1-rgb), 0.08);
+    border-color: var(--accent-1);
+    color: var(--accent-1);
+}
+.nav__link--neuro::after { display: none; }
+
 .nav__cta {
     font-size: 14px;
     font-weight: 600;
