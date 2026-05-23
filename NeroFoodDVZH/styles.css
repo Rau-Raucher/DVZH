@@ -1386,6 +1386,36 @@ body::after {
     line-height: 1.7;
     max-width: 560px;
 }
+.how__minilist {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-top: 48px;
+}
+.how__minilist-item {
+    background: var(--bg-card);
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.how__minilist-key {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+.how__minilist-val {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent-1);
+}
 
 /* ============================================
    RESULTS
@@ -1482,65 +1512,55 @@ body::after {
 /* ============================================
    WHO FOR
    ============================================ */
-.whofor {
+/* ============================================
+   TASKS (какие задачи решаем)
+   ============================================ */
+.tasks {
     position: relative;
     padding: var(--section-pad) 0;
     background: var(--bg-secondary);
     overflow: hidden;
 }
-.whofor__grid {
+.tasks__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
 }
-.whofor__card {
-    padding: 40px 32px;
+.tasks__card {
+    padding: 36px 32px;
     border-radius: var(--radius-md);
+    position: relative;
 }
-.whofor__icon {
-    width: 48px;
-    height: 48px;
+.tasks__num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
     color: var(--accent-1);
-    margin-bottom: 20px;
-    opacity: 0.9;
+    margin-bottom: 16px;
+    opacity: 0.7;
 }
-.whofor__card h3 {
+.tasks__icon {
+    width: 44px;
+    height: 44px;
+    color: var(--accent-1);
+    margin-bottom: 18px;
+    opacity: 0.85;
+}
+.tasks__card h3 {
     font-family: var(--font-display);
     font-weight: 900;
-    font-size: 20px;
+    font-size: 18px;
     text-transform: uppercase;
     letter-spacing: 0.02em;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     color: var(--text-primary);
+    line-height: 1.2;
 }
-.whofor__card p {
+.tasks__card p {
     font-size: 15px;
     color: var(--text-secondary);
     line-height: 1.65;
-    margin-bottom: 20px;
-}
-.whofor__list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    border-top: 1px solid var(--border);
-    padding-top: 16px;
-}
-.whofor__list li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-}
-.whofor__list li::before {
-    content: '→';
-    color: var(--accent-1);
-    font-size: 13px;
 }
 
 /* ============================================
@@ -2010,8 +2030,9 @@ body::after {
 @media (max-width: 1024px) {
     .problem__grid,
     .solution__grid,
-    .results__grid,
-    .whofor__grid { grid-template-columns: repeat(2, 1fr); }
+    .results__grid { grid-template-columns: repeat(2, 1fr); }
+    .tasks__grid { grid-template-columns: repeat(2, 1fr); }
+    .how__minilist { grid-template-columns: repeat(2, 1fr); }
     .compare__wrap { grid-template-columns: 1fr; }
     .compare__col--old { display: none; }
     .compare__col--new { border-radius: var(--radius-lg); }
@@ -2035,7 +2056,8 @@ body::after {
     .problem__grid,
     .solution__grid,
     .results__grid,
-    .whofor__grid { grid-template-columns: 1fr; }
+    .tasks__grid { grid-template-columns: 1fr; }
+    .how__minilist { grid-template-columns: repeat(2, 1fr); }
 
     .cta-mid__inner { flex-direction: column; padding: 36px 28px; }
     .cta-mid__inner .btn { width: 100%; justify-content: center; }
