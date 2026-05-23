@@ -470,9 +470,9 @@ body::after {
     animation: tag-float 8s ease-in-out infinite;
     pointer-events: none;
 }
-.hero__float-tag--1 { top: 22%; left: 2%; animation-delay: 0s; }
-.hero__float-tag--2 { top: 38%; right: 3%; animation-delay: -3s; }
-.hero__float-tag--3 { bottom: 28%; left: 5%; animation-delay: -5s; }
+.hero__float-tag--1 { top: 18%; right: 1%; animation-delay: 0s; }
+.hero__float-tag--2 { top: 40%; right: 3%; animation-delay: -3s; }
+.hero__float-tag--3 { bottom: 22%; right: 2%; animation-delay: -5s; }
 @keyframes tag-float {
     0%,100% { transform: translateY(0); }
     50%      { transform: translateY(-8px); }
@@ -512,7 +512,7 @@ body::after {
     padding: 8px 18px;
     border-radius: 2px;
     background: rgba(var(--accent-1-rgb),0.04);
-    margin-bottom: 28px;
+    margin-bottom: 18px;
 }
 .hero__badge-dot {
     width: 6px;
@@ -528,9 +528,9 @@ body::after {
 }
 .hero__title {
     font-family: var(--font-display);
-    font-size: clamp(36px, 6.5vw, 80px);
+    font-size: clamp(30px, 4.2vw, 56px);
     font-weight: 900;
-    line-height: 1.02;
+    line-height: 1.05;
     letter-spacing: -0.03em;
     text-transform: uppercase;
     color: var(--text-primary);
@@ -543,24 +543,24 @@ body::after {
     background-clip: text;
 }
 .hero__subtitle {
-    font-size: clamp(16px, 2vw, 19px);
+    font-size: clamp(15px, 1.6vw, 17px);
     color: var(--text-secondary);
-    margin-bottom: 40px;
-    line-height: 1.65;
-    max-width: 580px;
+    margin-bottom: 28px;
+    line-height: 1.6;
+    max-width: 520px;
 }
 .hero__actions {
     display: flex;
     align-items: center;
-    gap: 16px;
-    margin-bottom: 56px;
+    gap: 14px;
+    margin-bottom: 32px;
     flex-wrap: wrap;
 }
 .hero__stats {
     display: flex;
-    gap: 40px;
+    gap: 32px;
     border-top: 1px solid var(--border);
-    padding-top: 32px;
+    padding-top: 24px;
     flex-wrap: wrap;
 }
 .hero__stat {
@@ -636,6 +636,72 @@ body::after {
     flex-direction: column;
     align-items: center;
     gap: 16px;
+    position: relative;
+}
+
+/* ── Hero photo ── */
+.hero__photo-wrap {
+    position: relative;
+    width: 100%;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    border: 1px solid rgba(var(--accent-1-rgb), 0.2);
+    box-shadow:
+        0 0 0 1px rgba(var(--accent-1-rgb), 0.08),
+        0 24px 64px rgba(0,0,0,0.5),
+        0 0 80px rgba(var(--accent-1-rgb), 0.08);
+}
+.hero__photo-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        transparent 55%,
+        rgba(11,14,17,0.7) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+}
+.hero__photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 4 / 5;
+    display: block;
+}
+.hero__photo-badge {
+    position: absolute;
+    bottom: 18px;
+    left: 18px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(11,14,17,0.75);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(var(--accent-1-rgb), 0.25);
+    border-radius: var(--radius-sm);
+    padding: 8px 14px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+}
+.hero__photo-badge strong {
+    color: var(--accent-1);
+    font-weight: 600;
+}
+.hero__photo-glow {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--accent-1-rgb),0.15) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 /* ── Before/After cards ── */
@@ -752,9 +818,14 @@ body::after {
 
 /* ── Hero responsive adjustments ── */
 @media (max-width: 1024px) {
-    .hero__inner { flex-direction: column; gap: 48px; }
+    .hero__inner { flex-direction: column; gap: 40px; }
     .hero__content { width: 100%; }
-    .hero__visual { width: 100%; max-width: 500px; margin: 0 auto; }
+    .hero__visual { width: 100%; max-width: 420px; margin: 0 auto; }
+    .hero__photo-wrap img { aspect-ratio: 16 / 9; }
+}
+@media (max-width: 768px) {
+    .hero__photo-wrap img { aspect-ratio: 4 / 3; }
+    .hero__photo-badge { font-size: 10px; padding: 6px 10px; }
 }
 
 /* ============================================

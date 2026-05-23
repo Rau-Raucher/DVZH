@@ -82,7 +82,7 @@
                             Получить 3 концепта бесплатно
                             <svg class="btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         </a>
-                        <a href="#beforeafter" class="btn btn--ghost">
+                        <a href="#compare" class="btn btn--ghost">
                             Посмотреть до/после
                         </a>
                     </div>
@@ -114,91 +114,16 @@
                     </div>
                 </div>
 
-                <!-- RIGHT: before/after visual -->
+                <!-- RIGHT: hero photo -->
                 <div class="hero__visual" data-animate="fade-up" data-delay="200">
-                    <div class="hero__ba-wrap" id="beforeafter">
-                        <!-- BEFORE card -->
-                        <div class="hero__ba-card hero__ba-card--before">
-                            <div class="hero__ba-tag">ДО</div>
-                            <div class="hero__ba-photo">
-                                <svg viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                    <circle cx="110" cy="105" r="82" fill="#252A33" stroke="#2E3440" stroke-width="3"/>
-                                    <circle cx="110" cy="105" r="69" fill="#1E2228"/>
-                                    <ellipse cx="110" cy="110" rx="48" ry="30" fill="#2A2F3A"/>
-                                    <ellipse cx="98" cy="103" rx="26" ry="14" fill="#252A33"/>
-                                    <ellipse cx="124" cy="116" rx="22" ry="12" fill="#252A33"/>
-                                    <ellipse cx="110" cy="107" rx="30" ry="10" fill="#23282F"/>
-                                </svg>
-                            </div>
-                            <div class="hero__ba-meta">
-                                <span class="hero__ba-dish">Паста карбонара</span>
-                                <span class="hero__ba-price">от 490 ₽</span>
-                            </div>
-                            <div class="hero__ba-kpi hero__ba-kpi--low">CTR 2.1%</div>
-                        </div>
-
-                        <!-- Arrow -->
-                        <div class="hero__ba-arrow" aria-hidden="true">
-                            <svg viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0 12h36M28 4l8 8-8 8" stroke="url(#arrowGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <defs>
-                                    <linearGradient id="arrowGrad" x1="0" y1="0" x2="40" y2="0" gradientUnits="userSpaceOnUse">
-                                        <stop offset="0%" stop-color="#2FB9B3"/>
-                                        <stop offset="100%" stop-color="#4DA3FF"/>
-                                    </linearGradient>
-                                </defs>
-                            </svg>
-                        </div>
-
-                        <!-- AFTER card -->
-                        <div class="hero__ba-card hero__ba-card--after">
-                            <div class="hero__ba-tag hero__ba-tag--after">ПОСЛЕ</div>
-                            <div class="hero__ba-photo">
-                                <svg viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                    <defs>
-                                        <radialGradient id="plateglow" cx="50%" cy="40%" r="60%">
-                                            <stop offset="0%" stop-color="#2FB9B3" stop-opacity="0.18"/>
-                                            <stop offset="100%" stop-color="#2FB9B3" stop-opacity="0"/>
-                                        </radialGradient>
-                                        <radialGradient id="foodglow" cx="50%" cy="40%" r="50%">
-                                            <stop offset="0%" stop-color="#FFB84D" stop-opacity="0.22"/>
-                                            <stop offset="100%" stop-color="#FFB84D" stop-opacity="0"/>
-                                        </radialGradient>
-                                    </defs>
-                                    <circle cx="110" cy="105" r="90" fill="url(#plateglow)"/>
-                                    <circle cx="110" cy="105" r="82" fill="#1E2530" stroke="rgba(47,185,179,0.35)" stroke-width="2"/>
-                                    <circle cx="110" cy="105" r="69" fill="#141920"/>
-                                    <!-- Pasta base -->
-                                    <ellipse cx="110" cy="112" rx="52" ry="33" fill="#C4772A"/>
-                                    <!-- Sauce -->
-                                    <path d="M74 110 Q110 97 146 110 Q140 128 110 132 Q80 128 74 110Z" fill="#A83218"/>
-                                    <!-- Pasta strands highlights -->
-                                    <path d="M82 106 Q97 100 112 106 Q105 114 82 106" fill="#D4893A" opacity="0.9"/>
-                                    <path d="M108 100 Q123 95 138 102 Q130 110 108 100" fill="#D4893A" opacity="0.85"/>
-                                    <path d="M89 118 Q106 113 121 118" stroke="#E09A4A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                                    <path d="M98 123 Q113 119 126 123" stroke="#E09A4A" stroke-width="2" fill="none" stroke-linecap="round"/>
-                                    <!-- Cheese specks -->
-                                    <circle cx="94" cy="109" r="3" fill="#F0D060" opacity="0.75"/>
-                                    <circle cx="116" cy="105" r="2.5" fill="#F0D060" opacity="0.65"/>
-                                    <circle cx="130" cy="114" r="2" fill="#F0D060" opacity="0.7"/>
-                                    <!-- Herbs -->
-                                    <ellipse cx="103" cy="102" rx="5" ry="3" fill="#3A8C3A" transform="rotate(-20 103 102)"/>
-                                    <ellipse cx="121" cy="99" rx="4" ry="2.5" fill="#4AA04A" transform="rotate(15 121 99)"/>
-                                    <ellipse cx="133" cy="107" rx="3.5" ry="2" fill="#3A8C3A" transform="rotate(-10 133 107)"/>
-                                    <!-- Highlight -->
-                                    <ellipse cx="94" cy="103" rx="19" ry="10" fill="white" opacity="0.07" transform="rotate(-15 94 103)"/>
-                                    <!-- Glow overlay -->
-                                    <circle cx="110" cy="110" r="60" fill="url(#foodglow)"/>
-                                </svg>
-                            </div>
-                            <div class="hero__ba-meta">
-                                <span class="hero__ba-dish">Паста карбонара</span>
-                                <span class="hero__ba-price">от 490 ₽</span>
-                            </div>
-                            <div class="hero__ba-kpi hero__ba-kpi--high">CTR 5.8% ↑</div>
+                    <div class="hero__photo-wrap">
+                        <div class="hero__photo-glow"></div>
+                        <img src="./img/hero.jpg" alt="AI-обработанное фото блюда для доставки" loading="eager">
+                        <div class="hero__photo-badge">
+                            <span>AI-обработка</span>
+                            <strong>+40% CTR</strong>
                         </div>
                     </div>
-                    <p class="hero__ba-caption">Исходное фото → карточка для доставки</p>
                 </div>
 
             </div>
