@@ -230,19 +230,21 @@
         setPos(50);
     });
 
-    /* ── Lead form → Aspro Cloud CRM ── */
+    /* ── Lead form → /api/lead (серверный endpoint, ключ не в браузере) ── */
     var leadForm    = document.getElementById('leadForm');
     var leadSuccess = document.getElementById('leadSuccess');
 
     if (leadForm) {
-        var ASPRO_URL = 'https://dvzh.aspro.cloud/api/v1/module/crm/lead/create'
-                      + '?api_key=Z244dUY2cUx4aHIzdld0V2dEcERtNEI0eU9GNGdDNHBfMTY5MTMx';
-
         function showFieldError(inputId, errorId, msg) {
             var input = document.getElementById(inputId);
             var error = document.getElementById(errorId);
             if (input) input.classList.add('is-error');
             if (error) error.textContent = msg;
+        }
+
+        function showGlobalError(msg) {
+            var el = document.getElementById('leadGlobalError');
+            if (el) { el.textContent = msg; el.hidden = false; }
         }
 
         function clearErrors() {
@@ -252,16 +254,18 @@
             leadForm.querySelectorAll('.lead-form__error').forEach(function (el) {
                 el.textContent = '';
             });
+            var globalErr = document.getElementById('leadGlobalError');
+            if (globalErr) { globalErr.textContent = ''; globalErr.hidden = true; }
         }
 
         function validate(name, phone) {
             var ok = true;
             if (!name || name.trim().length < 2) {
-                showFieldError('leadName', 'leadNameError', 'Введите имя (миним��м 2 символа)');
+                showFieldError('leadName', 'leadNameError', 'Введите имя (минимум 2 символа)');
                 ok = false;
             }
             if (!phone || phone.trim().length < 5) {
-                showFieldError('leadPhone', 'leadPhoneError', 'Введите телефон или Telegram');
+                showFieldError('leadPhone', 'leadPhoneError', 'Введите номер телефона');
                 ok = false;
             }
             return ok;
@@ -278,30 +282,30 @@
 
             leadForm.classList.add('lead-form--loading');
 
-            var body = new URLSearchParams({
-                name:          name.trim(),
-                contact_name:  name.trim(),
-                contact_phone: phone.trim(),
-                manager_id:    '413955',
-                pipeline_id:   '2',
-                source_id:     '4',
-                description:   'Заявка с лендинга НейроФуд'
-            });
-
-            fetch(ASPRO_URL, {
+            fetch('/api/lead', {
                 method:  'POST',
-                mode:    'no-cors',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body:    body.toString()
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name:   name.trim(),
+                    phone:  phone.trim(),
+                    source: document.referrer || 'direct',
+                    utm:    window.location.search || '',
+                    page:   window.location.href,
+                }),
             })
-            .then(function () {
-                leadForm.hidden    = true;
-                leadSuccess.hidden = false;
+            .then(function (res) { return res.json(); })
+            .then(function (data) {
+                leadForm.classList.remove('lead-form--loading');
+                if (data.success) {
+                    leadForm.hidden    = true;
+                    leadSuccess.hidden = false;
+                } else {
+                    showGlobalError(data.error || 'Ошибка при отправке. Попробуйте ещё раз.');
+                }
             })
             .catch(function () {
-                /* Запрос ушёл даже при ошибке CORS — показываем успех */
-                leadForm.hidden    = true;
-                leadSuccess.hidden = false;
+                leadForm.classList.remove('lead-form--loading');
+                showGlobalError('Ошибка сети. Проверьте подключение и попробуйте ещё раз.');
             });
         });
 
@@ -321,7 +325,6 @@
                 var digits = phoneInput.value.replace(/\D/g, '').slice(0, 11);
                 if (!digits) { phoneInput.value = ''; return; }
 
-                /* Первая цифра всегда 7 */
                 if (digits[0] === '8') digits = '7' + digits.slice(1);
                 if (digits[0] !== '7') digits = '7' + digits;
                 digits = digits.slice(0, 11);
@@ -329,18 +332,16 @@
                 var d = digits;
                 var result = '+7';
                 if (d.length > 1)  result += ' (' + d.slice(1, 4);
-                if (d.length >= 4) result += ') ' + d.slice(4, 7);
-                if (d.length >= 7) result += '-' + d.slice(7, 9);
-                if (d.length >= 9) result += '-' + d.slice(9, 11);
+                if (d.length >= 4) result += ') '  + d.slice(4, 7);
+                if (d.length >= 7) result += '-'   + d.slice(7, 9);
+                if (d.length >= 9) result += '-'   + d.slice(9, 11);
 
                 phoneInput.value = result;
             });
 
             phoneInput.addEventListener('keydown', function (e) {
-                /* Разрешаем: Backspace, Delete, Tab, стрелки, Ctrl+A/C/V/X */
                 if ([8,9,37,38,39,40,46].indexOf(e.keyCode) !== -1) return;
                 if ((e.ctrlKey || e.metaKey) && [65,67,86,88].indexOf(e.keyCode) !== -1) return;
-                /* Блокируем всё кроме цифр */
                 if (e.key < '0' || e.key > '9') e.preventDefault();
             });
         }

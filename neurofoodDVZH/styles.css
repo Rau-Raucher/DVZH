@@ -2111,6 +2111,21 @@ body::after {
     text-align: center;
     line-height: 1.5;
 }
+.lead-form__note a {
+    color: var(--text-muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+.lead-form__global-error {
+    font-size: 13px;
+    color: #f87171;
+    background: rgba(248,113,113,0.08);
+    border: 1px solid rgba(248,113,113,0.25);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    text-align: center;
+}
+.lead-form__global-error[hidden] { display: none; }
 
 /* Success state */
 .lead-form__success {
