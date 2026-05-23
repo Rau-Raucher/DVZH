@@ -659,6 +659,7 @@ body::after {
     align-items: center;
     gap: 16px;
     position: relative;
+    transform: translateX(56px);
 }
 
 /* ── Hero photo ── */
@@ -842,7 +843,7 @@ body::after {
 @media (max-width: 1024px) {
     .hero__inner { flex-direction: column; gap: 40px; }
     .hero__content { width: 100%; }
-    .hero__visual { width: 100%; max-width: 420px; margin: 0 auto; }
+    .hero__visual { width: 100%; max-width: 420px; margin: 0 auto; transform: none; }
     .hero__photo-wrap img { aspect-ratio: 16 / 9; }
 }
 @media (max-width: 768px) {
